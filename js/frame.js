@@ -11,20 +11,20 @@ export class Frame {
 
         this.picture = new Picture(this.createFrame);
 
-        this.counter = 0;
+        this.width = this.picture.pictureWidth;
 
-        setInterval(() => {
-            this.counter++;
-            this.childLength = this.createFrame.childNodes.length;
-            this.createFrame.style.transition = '0.4s';
+        this.ani = this.createFrame.animate([
+            {transform: 'translateX(0px)'}, 
+            {transform: 'translateX(0px)', offset: 0.85},
+            {transform: `translateX(${this.width})`},
+        ], {duration: 3000});
 
-            if(this.counter == this.childLength) {
-                this.counter = 0;
-                this.createFrame.style.transition = 'none';
-            }
 
-            this.trans = `${-600 * this.counter}`;
-            this.createFrame.style.transform = `translateX(${this.trans}px)`;
-        }, 2000);
+        this.ani.onfinish = () => {
+            this.removeItem = this.createFrame.removeChild(this.createFrame.firstElementChild);
+            this.createFrame.appendChild(this.removeItem);	
+            this.ani.play();	
+          }
     }
+
 }
