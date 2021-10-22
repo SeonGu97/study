@@ -1,7 +1,7 @@
 'use strict';
 
 import { Frame_1 } from './First Slider/Frame_1.js';
-import { Frame_2 } from './Second Slider/Frame_2.js';
+import { Frame_2_wrap } from './Second Slider/Frame_2_wrap.js';
 
 class Index {
     constructor() {
@@ -11,7 +11,7 @@ class Index {
         document.body.appendChild(this.createIndex);
 
         this.frame_1 = new Frame_1(this.createIndex);
-        this.frame_2 = new Frame_2(this.createIndex);
+        this.frame_2_wrap = new Frame_2_wrap(this.createIndex);
     }
 }
 

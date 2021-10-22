@@ -11,7 +11,6 @@ export class Picture_1 {
             createFrame_1.appendChild(this.createPicture_1);
 
             this.width = -this.createPicture_1.offsetWidth + 'px';
-            console.log(this.width);
 
             this.createPicture_1.innerText = [i + 1];
          }
