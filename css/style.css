@@ -68,9 +68,11 @@ body {
 .Btn_1:first-child::after {
     content: '\f104';
     font-family: FontAwesome;
+    color: #f0f0f0;
 }
 
 .Btn_1:last-child::after {
     content: '\f105';
     font-family: FontAwesome;
+    color: #f0f0f0;
 }
