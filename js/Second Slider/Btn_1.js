@@ -25,39 +25,26 @@ export class Btn_1 {
         this.width = createFrame_2.offsetWidth + 'px';
 
         this.allBtn_1[0].addEventListener('click', () => {
-            createFrame_2.style.flexDirection = 'row-reverse';
-
-            this.this.animation = createFrame_2.animate([
-                {transform: 'translateX(0px)'},
-                {transform: 'translateX(0px)'},
-                {transform: `translateX(${this.width})`},
-            ], {duration: this.delay});
-
-            this.remove(createFrame_2, this.animation);
-        }, false);
-
-        this.allBtn_1[1].addEventListener('click', () => {
-            createFrame_2.style.flexDirection = 'row';
-
-            this.animation = createFrame_2.animate([
-                {transform: 'translateX(0px)'}, 
-                {transform: 'translateX(0px)'},
-                {transform: `translateX(-${this.width})`},
-            ], {duration: this.delay});
-
-            this.remove(createFrame_2, this.animation);
-        }, false);
-
-        const ani = createFrame_2_wrap.getAnimations();
-        console.log(ani);
+            this.test(createFrame_2, this.width);
+        });
     }
 
-    remove(createFrame_2, animation) {
-        Promise.all(
-            createFrame_2.getAnimations({ subtree: true }).map(animation => animation.finished)
-        ).then(() => {
-            this.removeItem = createFrame_2.removeChild(createFrame_2.firstChild);
-            createFrame_2.appendChild(this.removeItem);
+    test(createFrame_2, width) {
+        const promise = new Promise((resolve, reject) => {
+            createFrame_2.animate([
+                {transform: `translateX(0px)`},
+                {transform: `translateX(0px)`},
+                {transform: `translateX(-${width})`},
+            ], {duration: 1000});
+
+            resolve(createFrame_2);
         });
+
+        promise
+        .then((createFrame_2) => {
+            setTimeout(() =>  {
+                this.removeItem = createFrame_2.removeChild(createFrame_2.firstChild);
+            }, 1000);
+        })
     }
 }
