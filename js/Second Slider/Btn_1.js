@@ -25,17 +25,23 @@ export class Btn_1 {
         this.width = createFrame_2.offsetWidth + 'px';
 
         this.allBtn_1[0].addEventListener('click', () => {
-            this.test(createFrame_2, this.width);
+            createFrame_2.style.flexDirection = 'row';
+            this.row(createFrame_2, this.width);
+        });
+
+        this.allBtn_1[1].addEventListener('click', () => {
+            createFrame_2.style.flexDirection = 'row-reverse';
+            this.rowReverse(createFrame_2, this.width);
         });
     }
 
-    test(createFrame_2, width) {
+    row(createFrame_2, width) {
         const promise = new Promise((resolve, reject) => {
             createFrame_2.animate([
                 {transform: `translateX(0px)`},
                 {transform: `translateX(0px)`},
                 {transform: `translateX(-${width})`},
-            ], {duration: 1000});
+            ], {duration: 1400});
 
             resolve(createFrame_2);
         });
@@ -44,7 +50,28 @@ export class Btn_1 {
         .then((createFrame_2) => {
             setTimeout(() =>  {
                 this.removeItem = createFrame_2.removeChild(createFrame_2.firstChild);
-            }, 1000);
+                createFrame_2.appendChild(this.removeItem);
+            }, 1400);
+        })
+    }
+
+    rowReverse(createFrame_2, width) {
+        const promise = new Promise((resolve, reject) => {
+            createFrame_2.animate([
+                {transform: `translateX(0px)`},
+                {transform: `translateX(0px)`},
+                {transform: `translateX(${width})`},
+            ], {duration: 1400});
+
+            resolve(createFrame_2);
+        });
+
+        promise
+        .then((createFrame_2) => {
+            setTimeout(() =>  {
+                this.removeItem = createFrame_2.removeChild(createFrame_2.firstChild);
+                createFrame_2.appendChild(this.removeItem);
+            }, 1400);
         })
     }
 }

@@ -20,20 +20,26 @@ class App {
             direction: 'alternate'//'normal', 'reverse', 'alternate', 'alternate-reverse'
         });
 
-        this.num = 5;
+        this.createBox = document.createElement('div');
+        this.createBox.setAttribute('class', 'box');
+        document.body.appendChild(this.createBox);
 
-        for(let i = 0; i < 5; i++) {
+        this.num = 6;
+
+        for(let i = 0; i < this.num; i++) {
             this.btn = document.createElement('button');
             this.attrs = this.btn.setAttribute('class', 'btn');
-            document.body.appendChild(this.btn);
+            this.createBox.appendChild(this.btn);
         }
 
         const btnAll = document.querySelectorAll('.btn');
+
         btnAll[0].innerText = 'play()';
         btnAll[1].innerText = 'pause()';
         btnAll[2].innerText = 'cancel()';
         btnAll[3].innerText = 'finish()';
-        btnAll[4].innerText = 'playState()';
+        btnAll[4].innerText = 'reverse()';
+        btnAll[5].innerText = 'playState()';
 
         btnAll[0].addEventListener('click', () => {
             ani.play();
@@ -52,21 +58,48 @@ class App {
         })
 
         btnAll[4].addEventListener('click', () => {
-            ani.playState();
+            ani.reverse();
         })
 
-        this.range = document.createElement('input');
-        this.range.setAttribute('type', 'range');
-        this.range.setAttribute('min', '0');
-        this.range.setAttribute('max', '10');
+        btnAll[5].addEventListener('click', () => {
+            console.log(ani.playState);
+        })
 
-        document.body.appendChild(this.range);
 
-        this.span = document.createElement('span');
+        for(let i = 0; i < 2; i++) {
+            this.range = document.createElement('input');
+            this.range.setAttribute('type', 'range');
+            this.createBox.appendChild(this.range);
 
-        document.body.appendChild(this.span);
+            this.span = document.createElement('span');
 
-        this.span.innerText = this.range.value;
+            this.range.after(this.span);
+        }
+
+        this.rangeAll = document.querySelectorAll('input');
+        this.spanAll = document.querySelectorAll('span');
+
+        this.rangeAll[0].setAttribute('min', '0');
+        this.rangeAll[0].setAttribute('max', '10');
+        this.rangeAll[0].setAttribute('value', '1');
+
+        this.spanAll[0].innerText = this.rangeAll[0].value;
+
+        this.rangeAll[1].setAttribute('min', '0');
+        this.rangeAll[1].setAttribute('max', '5000');
+        this.rangeAll[1].setAttribute('value', '1');
+
+        this.spanAll[1].innerText = this.rangeAll[1].value;
+
+        this.rangeAll[0].addEventListener('change', () => {
+            this.spanAll[0].innerText = this.rangeAll[0].value;
+            ani.playbackRate = this.rangeAll[0].value; 
+        });
+
+        this.rangeAll[1].addEventListener('change', () => {
+            this.spanAll[1].innerText = this.rangeAll[1].value;
+            ani.currentTime = this.rangeAll[1].value; 
+        });
     }
 }
 

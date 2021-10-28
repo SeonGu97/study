@@ -17,6 +17,11 @@ body {
     border-radius: 50%;
 }
 
-button {
+.box {
+    display: flex;
     margin-top: 110px;
+}
+
+button {
+    margin-right: 10px;
 }
