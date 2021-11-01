@@ -100,6 +100,31 @@ class App {
             this.spanAll[1].innerText = this.rangeAll[1].value;
             ani.currentTime = this.rangeAll[1].value; 
         });
+
+
+        //
+
+
+        this.cntr = document.createElement('div');
+        this.cntr.setAttribute('class', 'cntr');
+        document.body.appendChild(this.cntr);
+
+        this.createBox2 = document.createElement('div');
+        this.createBox2.setAttribute('class', 'box2');
+        this.cntr.appendChild(this.createBox2);
+        
+
+        for(let i = 0; i < 2; i++) {
+            this.btn2 = document.createElement('button');
+            this.btn2.setAttribute('class', 'btn2');
+
+            this.createBox2.appendChild(this.btn2);
+        }
+
+        const btn2All = document.querySelectorAll('.btn2');
+
+        btn2All[0].innerText = 'Prev';
+        btn2All[1].innerText = 'Next';
     }
 }
 
