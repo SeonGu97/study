@@ -38,10 +38,11 @@ body {
 
 /* cntr */
 .cntr {
-    width: 1000px;
+    width: 700px;
     height: 100%;
     position: relative;
     z-index: 5;
+    overflow: hidden;
 }
 
 /* prev, next */
@@ -90,7 +91,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    transition: transform 0.4s ease-in-out;
 }
 
 /* title */

@@ -13,7 +13,7 @@ class App {
         this.num_1 = 5;
 
         // num_2
-        this.num_2 = 5;
+        this.num_2 = 7;
 
         // loop
         for(let i = 0; i < this.num_1; i++) {
@@ -68,7 +68,7 @@ class App {
 
                 // add to item
                 this.createBox.appendChild(this.createItem);
-                this.createItem.innerText = [i + 1];
+                this.createItem.innerText = [i];
             }
         }
 
@@ -79,28 +79,56 @@ class App {
         this.createBoxAll = document.querySelectorAll('.box');
 
         // lastChild number == firstChild number
-        this.createBoxAll[0].lastChild.innerText = this.createBoxAll[0].firstChild.innerText;
+        this.createBoxAll[0].firstChild.innerText = this.num_2 - 2;
+        this.createBoxAll[0].lastChild.innerText = 1;
 
         // window resize event
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
 
-        this.counter_1 = 0;
+        // skip the first one
+        this.createBoxAll[0].style.transform = `translateX(${-this.width}px)`;
 
+        // counter_1
+        this.counter_1 = 1;
+
+        // prev event
         this.createPrevAll[0].addEventListener('click', () => {
-            --this.counter_1;
-            console.log(this.counter_1)
-            this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter_1}px)`;
-            
-            if(this.counter_1 < 0) {
-                
+            if(this.counter_1 <= 0) {
+                return this.counter_1;
             }
+
+            this.counter_1--;
+            console.log(this.counter_1);
+
+            this.createBoxAll[0].style.transition = 'transform 0.4s ease-in-out';
+            this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter_1}px)`;
         }, false);
 
+        // next event
         this.createNextAll[0].addEventListener('click', () => {
-            ++this.counter_1;
-            console.log(this.counter_1)
+            if(this.counter_1 >= this.num_2 - 1) {
+                return this.counter_1;
+            }
+
+            this.counter_1++;
+            console.log(this.counter_1);
+
+            this.createBoxAll[0].style.transition = 'transform 0.4s ease-in-out';
             this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter_1}px)`;
+        }, false);
+
+        // box event
+        this.createBoxAll[0].addEventListener('transitionend', () =>  {
+            if(this.counter_1 <= 0) {
+                this.createBoxAll[0].style.transition = 'none';
+                this.counter_1 = this.num_2 - 2;
+                this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter_1}px)`;
+            }else if(this.counter_1 >= this.num_2 - 1) {
+                this.createBoxAll[0].style.transition = 'none';
+                this.counter_1 = 1;
+                this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter_1}px)`;
+            }
         }, false);
     }
 
