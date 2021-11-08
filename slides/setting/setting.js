@@ -7,6 +7,9 @@ const setting = [
 
     // 두번째 슬라이더의 아이템 개수, 라디오 개수 조정.
     {id: 2, num: 7, radio: 5},
+
+    // 세번째 슬라이더의 아이템 개수, 라디오 개수 조정.
+    {id: 3, num: 7, radio: 5},
 ]
 
 export default setting;

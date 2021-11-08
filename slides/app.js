@@ -3,6 +3,7 @@
 // slides
 import Slider_1 from "./js/slider_1.js";
 import Slider_2 from "./js/slider_2.js";
+import Slider_3 from "./js/slider_3.js";
 
 // setting
 import Setting from "./setting/setting.js";
@@ -78,7 +79,6 @@ class App {
         // class Slider_1
         this.slider_1 = new Slider_1(
             Setting[1].num,
-            this.createCntrAll, 
             this.createPrevAll, 
             this.createNextAll, 
             this.createBoxAll,
@@ -88,6 +88,16 @@ class App {
         // class Slider_2
         this.slider_2 = new Slider_2(
             Setting[2].num,
+            this.createCntrAll, 
+            this.createPrevAll, 
+            this.createNextAll, 
+            this.createBoxAll,
+            this.width
+        );
+
+        // class Slider_3
+        this.slider_3 = new Slider_3(
+            Setting[3].num,
             this.createCntrAll, 
             this.createPrevAll, 
             this.createNextAll, 

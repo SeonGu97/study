@@ -29,11 +29,11 @@ body {
     height: 300px;
     justify-content: center;
     margin: 30px 0;
-    background: #c2c2c2;
+    background: #90caf9;
 }
 
 .cntr-wrap:nth-child(2n) {
-    background: #b0bec5;
+    background: #f8bbd0;
 }
 
 /* cntr */
@@ -127,4 +127,42 @@ body {
     bottom: 10px;
     left: 0;
     z-index: 15;
+}
+
+/* option-box */
+.option-box {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 35px;
+}
+
+/* plus, minus */
+.plus,
+.minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    margin: 0 15px;
+    border: none;
+    border-radius: 50%;
+    background: #424242;
+    cursor: pointer;
+}
+
+.plus::before {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f055";
+    color: #4caf50;
+}
+
+.minus::before {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f056";
+    color: #f44336;
 }

@@ -1,8 +1,7 @@
 'use strict';
 
 export default class Slider_1 {
-    constructor(num_1, createCntrAll, createPrevAll, createNextAll, createBoxAll, width) {
-
+    constructor(num_1, createPrevAll, createNextAll, createBoxAll, width) {
         // loop
         for(let i = 0; i < num_1; i++) {
             // create item
