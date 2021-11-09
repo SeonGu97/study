@@ -2,12 +2,12 @@
 
 export default class Slider_2 {
     constructor(
-        num_2, 
-        createCntrAll, 
-        createPrevAll, 
-        createNextAll, 
-        createBoxAll, 
-        width) {
+    num_2, 
+    createCntrAll, 
+    createPrevAll, 
+    createNextAll, 
+    createBoxAll, 
+    width) {
         
         // loop
         for(let i = 0; i < num_2; i++) {
