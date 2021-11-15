@@ -1,120 +1,57 @@
 'use strict';
 
-// slides
-import Slider_1 from "./js/slider_1.js";
-import Slider_2 from "./js/slider_2.js";
-import Slider_3 from "./js/slider_3.js";
-import Slider_4 from "./js/slider_4.js";
-
 // setting
-import Setting from "./setting/setting.js";
+import Setting from './setting/setting.js';
 
 class App {
     constructor() {
         // create app
-        this.createApp = document.createElement('div');
-        this.createApp.setAttribute('id', 'app');
+        this.app = document.createElement('div');
+        this.app.setAttribute('id', 'app');
 
         // add to app
-        document.body.appendChild(this.createApp);
+        document.body.appendChild(this.app);
 
-        // num_0
-        this.num_0 = Setting[0].num;
+        // create container
+        for(let i = 0; i < Setting[0].num; i++) {
+            this.createContainer = document.createElement('section');
+            this.createContainer.setAttribute('class', 'container');
 
-        // loop
-        for(let i = 0; i < this.num_0; i++) {
-            // create cntr-wrap
-            this.createCntrWrap = document.createElement('div');
-            this.createCntrWrap.setAttribute('class', 'cntr-wrap');
+            //add to container
+            this.app.appendChild(this.createContainer);
 
-            // add to cntr
-            this.createApp.appendChild(this.createCntrWrap);
+            // create number
+            this.createNumber = document.createElement('span');
+            this.createNumber.setAttribute('class', 'number');
 
-            // create cntr
-            this.createCntr = document.createElement('section');
-            this.createCntr.setAttribute('class', 'cntr');
+            // add to number
+            this.createContainer.appendChild(this.createNumber);
 
-            // add to cntr
-            this.createCntrWrap.appendChild(this.createCntr);
+            // number inner text
+            this.createNumber.innerText = [i + 1];
 
-            // create title
-            this.createTitle = document.createElement('h2');
-            this.createTitle.setAttribute('class', 'title');
+            // create item-box-wrap;
+            this.createItemBoxWrap = document.createElement('div');
+            this.createItemBoxWrap.setAttribute('class', 'item-box-wrap');
 
-            // add to title
-            this.createCntr.appendChild(this.createTitle);
-            this.createTitle.innerText = '슬라이더'+ '-' + [i + 1];
+            // add to item-box
+            this.createContainer.appendChild(this.createItemBoxWrap);
 
-            // create prev
-            this.createPrev = document.createElement('button');
-            this.createPrev.setAttribute('class', 'prev');
+            // create prev btn
+            this.createPrevBtn = document.createElement('button');
+            this.createPrevBtn.setAttribute('class', 'prev');
 
-            // add to prev
-            this.createCntr.appendChild(this.createPrev);
+            // create next btn
+            this.createNextBtn = document.createElement('button');
+            this.createNextBtn.setAttribute('class', 'next');
 
-            // create next
-            this.createNext = document.createElement('button');
-            this.createNext.setAttribute('class', 'next');
-
-            // add to next
-            this.createCntr.appendChild(this.createNext);
-
-            // create box
-            this.createBox = document.createElement('ul');
-            this.createBox.setAttribute('class', 'box');
-
-            // add to box
-            this.createCntr.appendChild(this.createBox);
+            // add to prev, next btn
+            this.createContainer.appendChild(this.createPrevBtn);
+            this.createContainer.appendChild(this.createNextBtn);
         }
 
-        // window resize event
-        window.addEventListener('resize', this.resize.bind(this), false);
-        this.resize();
-
-        // select all elements
-        this.createCntrAll = document.querySelectorAll('.cntr');
-        this.createPrevAll = document.querySelectorAll('.prev');
-        this.createNextAll = document.querySelectorAll('.next');
-        this.createBoxAll = document.querySelectorAll('.box');
-        
-        // class Slider_1
-        this.slider_1 = new Slider_1(
-            Setting[1].num,
-            this.createPrevAll, 
-            this.createNextAll, 
-            this.createBoxAll,
-            this.width
-        );
-
-        // class Slider_2
-        this.slider_2 = new Slider_2(
-            Setting[2].num,
-            this.createCntrAll, 
-            this.createPrevAll, 
-            this.createNextAll, 
-            this.createBoxAll,
-            this.width
-        );
-
-        // class Slider_3
-        this.slider_3 = new Slider_3(
-            Setting[3].num,
-            this.createCntrAll, 
-            this.createPrevAll, 
-            this.createNextAll, 
-            this.createBoxAll,
-            this.width
-        );
-
-        // class Slider_4
-        this.slider_4 = new Slider_4(
-            Setting[4].num,
-            this.createCntrAll, 
-            this.createPrevAll, 
-            this.createNextAll, 
-            this.createBoxAll,
-            this.width / 3
-        );
+        // add to container
+        this.app.appendChild(this.createContainer);
     }
 
     resize() {

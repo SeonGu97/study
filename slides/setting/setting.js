@@ -12,7 +12,7 @@ const setting = [
     {id: 3, num: 7, radio: 5},
 
     // 네번째 슬라이더의 아이템 개수, 라디오 개수 조정.
-    {id: 3, num: 7, radio: 5},
+    {id: 3, num: 12, radio: 5},
 ]
 
 export default setting;

@@ -1,0 +1,106 @@
+/* reset */
+@import url(./reset.css);
+
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+/* html */
+html {
+    width: 100%;
+    height: 100%;
+}
+
+/* body */
+body {
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* app */
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* container */
+.container {
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    height: 300px;
+    padding: 2em;
+    margin-bottom: 1rem;
+    background: #eee;
+    border: 2px solid #cfd8dc;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container:last-child {
+    margin-bottom: 0;
+}
+
+/* number */
+.number {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    color: #757575;
+    background: #b0bec5;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0.4rem;
+    left: 0.4rem;
+}
+
+/* item-box-wrap */
+.item-box-wrap {
+    width: 100%;
+    height: 100%;
+    background: #bdbdbd;
+    border-radius: 0.2rem;
+}
+
+/* prev, next btn */
+.prev,
+.next {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #616161;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev::before {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f104";
+}
+
+.next::before {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    content: "\f105";
+}
