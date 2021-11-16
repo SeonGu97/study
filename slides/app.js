@@ -1,5 +1,8 @@
 'use strict';
 
+// slider
+import Slider_1 from './js/slider_1.js';
+
 // setting
 import Setting from './setting/setting.js';
 
@@ -48,14 +51,40 @@ class App {
             // add to prev, next btn
             this.createContainer.appendChild(this.createPrevBtn);
             this.createContainer.appendChild(this.createNextBtn);
+
+            // create item-box
+            this.createItemBox = document.createElement('ul');
+            this.createItemBox.setAttribute('class', 'item-box');
+
+            // add to item-box
+            this.createItemBoxWrap.appendChild(this.createItemBox);
         }
 
         // add to container
         this.app.appendChild(this.createContainer);
+
+        // resize()
+        window.addEventListener('resize', this.resize.bind(this), false);
+        this.resize();
+
+        // select all
+        this.createItemBoxAll = document.querySelectorAll('.item-box');
+        this.createPrevBtnAll = document.querySelectorAll('.prev');
+        this.createNextBtnAll = document.querySelectorAll('.next');
+
+        // slider_1
+        this.slider_1 = new Slider_1(
+            Setting[1].num, 
+            this.createItemBoxAll[0], 
+            this.width + 16,
+            this.createPrevBtnAll[0],
+            this.createNextBtnAll[0]
+
+         );
     }
 
     resize() {
-        this.width = this.createBox.clientWidth;
+        this.width = this.createItemBox.clientWidth;
     }
 }
 
