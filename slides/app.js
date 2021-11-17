@@ -9,82 +9,76 @@ import Setting from './setting/setting.js';
 class App {
     constructor() {
         // create app
-        this.app = document.createElement('div');
-        this.app.setAttribute('id', 'app');
+        this.createApp = document.createElement('div');
+        this.createApp.setAttribute('id', 'app');
 
         // add to app
-        document.body.appendChild(this.app);
+        document.body.appendChild(this.createApp);
 
-        // create container
+        // create elements
         for(let i = 0; i < Setting[0].num; i++) {
+            // create wrap
+            this.createWrap = document.createElement('section');
+            this.createWrap.setAttribute('class', 'wrap');
+
+            // add to container
+            this.createApp.appendChild(this.createWrap);
+
+            // create title
+            this.createTitle = document.createElement('span');
+            this.createTitle.setAttribute('class', 'title');
+
+            // add to title
+            this.createWrap.appendChild(this.createTitle);
+
+            // create sub-title
+            this.createSubTitle = document.createElement('h1');
+            this.createSubTitle.setAttribute('class', 'sub-title');
+
+            // add to sub-title
+            this.createTitle.appendChild(this.createSubTitle);
+
+            // text
+            const text = ['Default'];
+
+            // add to text
+            this.createSubTitle.innerText = text;
+
+            // create container
             this.createContainer = document.createElement('section');
             this.createContainer.setAttribute('class', 'container');
 
-            //add to container
-            this.app.appendChild(this.createContainer);
+            // add to container
+            this.createWrap.appendChild(this.createContainer);
 
-            // create number
-            this.createNumber = document.createElement('span');
-            this.createNumber.setAttribute('class', 'number');
+            // create BG
+            this.createBG = document.createElement('div');
+            this.createBG.setAttribute('class', 'BG');
 
-            // add to number
-            this.createContainer.appendChild(this.createNumber);
+            // add to BG
+            this.createWrap.appendChild(this.createBG);
 
-            // number inner text
-            this.createNumber.innerText = [i + 1];
+            // create box
+            this.createBox = document.createElement('ul');
+            this.createBox.setAttribute('class', 'box');
 
-            // create item-box-wrap;
-            this.createItemBoxWrap = document.createElement('div');
-            this.createItemBoxWrap.setAttribute('class', 'item-box-wrap');
-
-            // add to item-box
-            this.createContainer.appendChild(this.createItemBoxWrap);
+            // add to box
+            this.createContainer.appendChild(this.createBox);
 
             // create prev btn
             this.createPrevBtn = document.createElement('button');
             this.createPrevBtn.setAttribute('class', 'prev');
 
+            // add to prev
+            this.createContainer.appendChild(this.createPrevBtn);
+
             // create next btn
             this.createNextBtn = document.createElement('button');
             this.createNextBtn.setAttribute('class', 'next');
 
-            // add to prev, next btn
-            this.createContainer.appendChild(this.createPrevBtn);
+            // add to next
             this.createContainer.appendChild(this.createNextBtn);
-
-            // create item-box
-            this.createItemBox = document.createElement('ul');
-            this.createItemBox.setAttribute('class', 'item-box');
-
-            // add to item-box
-            this.createItemBoxWrap.appendChild(this.createItemBox);
         }
-
-        // add to container
-        this.app.appendChild(this.createContainer);
-
-        // resize()
-        window.addEventListener('resize', this.resize.bind(this), false);
-        this.resize();
-
-        // select all
-        this.createItemBoxAll = document.querySelectorAll('.item-box');
-        this.createPrevBtnAll = document.querySelectorAll('.prev');
-        this.createNextBtnAll = document.querySelectorAll('.next');
-
-        // slider_1
-        this.slider_1 = new Slider_1(
-            Setting[1].num, 
-            this.createItemBoxAll[0], 
-            this.width + 16,
-            this.createPrevBtnAll[0],
-            this.createNextBtnAll[0]
-
-         );
-    }
-
-    resize() {
-        this.width = this.createItemBox.clientWidth;
     }
 }
 

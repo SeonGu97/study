@@ -2,30 +2,46 @@
 @import url(./reset.css);
 
 /* font */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
 /* html */
-html {
-    width: 100%;
-    height: 100%;
+html{
+
 }
 
 /* body */
 body {
-    width: 100%;
-    height: 100%;
-    background: #fafafa;
     font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(145deg, #90caf9, 10%, #bbdefb, #e3f2fd);
 }
 
 /* app */
 #app {
+    padding: 0 25px;
+}
+
+/* wrap */
+.wrap {
     display: flex;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 1rem;
-    box-sizing: border-box;
+}
+
+/* title */
+.title {
+    max-width: 600px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* sub-title */
+.sub-title {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* container */
@@ -34,98 +50,59 @@ body {
     max-width: 600px;
     width: 100%;
     height: 300px;
-    padding: 2em;
-    margin-bottom: 1rem;
-    background: #eee;
-    border: 2px solid #cfd8dc;
-    border-radius: 0.2rem;
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid transparent;
+    border-radius: 1rem;
+    background-image: linear-gradient(#222222, #222222), linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
     position: relative;
 }
 
-.container:last-child {
-    margin-bottom: 0;
-}
-
-/* number */
-.number {
-    display: flex;
-    width: 24px;
-    height: 24px;
-    justify-content: center;
-    align-items: center;
-    color: #757575;
-    background: #b0bec5;
-    border-radius: 50%;
-    font-size: 1rem;
-    position: absolute;
-    top: 0.4rem;
-    left: 0.4rem;
-}
-
-/* item-box-wrap */
-.item-box-wrap {
-    width: 100%;
-    height: 100%;
-    background: #e0e0e0;
-    border-radius: 0.2rem;
-    padding: 1rem;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-/* item-box */
-.item-box {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-/* item */
-.item {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: flex-end;
-    flex: none;
-    padding: 1rem;
-    margin-right: 1rem;
-    background: rgba(0, 0, 0, 0.075);
-    box-sizing: border-box;
-    font-size: 2rem;
-    color: #757575;
-}
-
-/* prev, next btn */
+/* prev, next */
 .prev,
 .next {
-    display: flex;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     border: none;
     background: none;
+    color: #9e9e9e;
     font-size: 2rem;
     cursor: pointer;
-    color: #616161;
 }
 
+.prev:hover,
+.next:hover {
+    color: #eeeeee;
+    transition: ease-in-out 0.2s;
+}
+
+/* prev */
 .prev {
-    left: 0;
+    left: 0.5rem;
 }
 
+.prev::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f053";
+}
+
+/* next */
 .next {
-    right: 0;
+    right: 0.5rem;
 }
 
-.prev::before {
-    font-family: "Font Awesome 5 Free"; 
+.next::after {
+    font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    content: "\f104";
+    content: "\f054";
 }
 
-.next::before {
-    font-family: "Font Awesome 5 Free"; 
-    font-weight: 900;
-    content: "\f105";
+/* box */
+.box {
+    width: 80%;
+    height: 60%;
 }
