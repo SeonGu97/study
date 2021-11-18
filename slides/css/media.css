@@ -1,0 +1,16 @@
+@media screen and (max-width: 480px) {
+    /* box-wrap */
+    .box-wrap {
+        width: 70%;
+    }
+    
+    /* prev */
+    .prev {
+        left: 0.2rem;
+    }
+
+    /* next */
+    .next {
+        right: 0.2rem;
+    }
+}
