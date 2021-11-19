@@ -15,7 +15,7 @@ export default class Slider_1 {
         this.resize();
 
         // item()
-        this.item(num_1, this.createBoxAll[0], this.counter, this.width);
+        this.item(num_1, this.createBoxAll[0]);
 
         // prev btn event
         createPrevBtnAll.addEventListener('click', () => {
@@ -29,7 +29,7 @@ export default class Slider_1 {
             createPrevBtnAll.style.pointerEvents = 'none';
             
             // trans()
-            this.trans(num_1);
+            this.trans();
         }, false);
 
         // next btn event
@@ -44,10 +44,12 @@ export default class Slider_1 {
             createNextBtnAll.style.pointerEvents = 'none';
             
             // trans()
-            this.trans(num_1);
+            this.trans();
         }, false);
 
+        // box event
         this.createBoxAll[0].addEventListener('transitionend', () => {
+            // min
             if(this.counter == 0) {
                 console.log(true)
                 this.createBoxAll[0].style.transition = 'none';
@@ -55,17 +57,28 @@ export default class Slider_1 {
                 this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter}px)`;
             }
 
+            // max
             if(this.counter == num_1 - 1) {
                 this.createBoxAll[0].style.transition = 'none';
                 this.counter = 1;
                 this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter}px)`;
             }
 
+            // pointer event
             createPrevBtnAll.style.pointerEvents = 'auto';
             createNextBtnAll.style.pointerEvents = 'auto';
+
+            // reset active
+            for(let i = 0; i < num_1; i++) {
+                this.createBoxAll[0].childNodes[i].style.background = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // active
+            this.createBoxAll[0].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
         }, false);
     }
 
+    // item
     item(num_1, createBoxAll) {
         for(let i = 0; i < num_1; i++) {
             // create item
@@ -77,7 +90,7 @@ export default class Slider_1 {
 
             // create text
             this.createText = document.createElement('span');
-            this.createText.setAttribute('class', 'text');
+            this.createText.setAttribute('class', 'text t_1');
 
             // add to text
             this.createItem.appendChild(this.createText);
@@ -92,13 +105,16 @@ export default class Slider_1 {
         }
 
         // select all
-        this.createTextAll = document.querySelectorAll('.text');
+        this.createTextAll = document.querySelectorAll('.t_1');
 
         // first child inner text
         this.createTextAll[0].innerText = this.createTextAll[num_1 - 2].innerText;
 
         // last child inner text
         this.createTextAll[num_1 - 1].innerText = this.createTextAll[1].innerText;
+    
+        // active
+        this.createBoxAll[0].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
     }
 
     // resize
@@ -111,7 +127,8 @@ export default class Slider_1 {
         this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
-    trans(num_1) {
+    // trans
+    trans() {
         // transform
         this.createBoxAll[0].style.transition = '0.4s ease-in-out';
         this.createBoxAll[0].style.transitionDuration = '0.5s'

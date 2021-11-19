@@ -2,6 +2,7 @@
 
 // slider
 import Slider_1 from './js/slider_1.js';
+import Slider_2 from './js/slider_2.js';
 
 // setting
 import Setting from './setting/setting.js';
@@ -51,13 +52,6 @@ export default class App {
             // add to container
             this.createWrap.appendChild(this.createContainer);
 
-            // create BG
-            this.createBG = document.createElement('div');
-            this.createBG.setAttribute('class', 'BG');
-
-            // add to BG
-            this.createWrap.appendChild(this.createBG);
-
             // create box-wrap
             this.createBoxWrap = document.createElement('div');
             this.createBoxWrap.setAttribute('class', 'box-wrap');
@@ -91,12 +85,21 @@ export default class App {
         this.createBoxAll = document.querySelectorAll('.box');
         this.createPrevBtnAll = document.querySelectorAll('.prev');
         this.createNextBtnAll = document.querySelectorAll('.next');
+        this.createContainerAll = document.querySelectorAll('.container');
 
         // slider_1
         this.slider_1 = new Slider_1(
             Setting[1].num,
             this.createPrevBtnAll[0],
             this.createNextBtnAll[0],
+        );
+
+        // slider_2
+        this.slider_2 = new Slider_2(
+            Setting[2].num,
+            this.createPrevBtnAll[1],
+            this.createNextBtnAll[1],
+            this.createContainerAll[1],
         );
     }
 }
