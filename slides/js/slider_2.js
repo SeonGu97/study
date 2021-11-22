@@ -88,7 +88,7 @@ export default class Slider_2 {
             }
 
             // active
-            this.createBoxAll[1].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
+            this.createBoxAll[1].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffe0b2 20%,#fff3e0)';
         }, false);
 
         // radios event
@@ -99,7 +99,20 @@ export default class Slider_2 {
                 this.createBoxAll[1].style.transition = '0.4s ease-in-out';
                 this.createBoxAll[1].style.transform = `translateX(${-this.width * this.counter}px)`;
             }, false);
-        })
+        });
+    }
+
+    // resize
+    resize() {
+        // gap
+        let gap = 20;
+
+        // width
+        this.width = this.createBoxAll[1].clientWidth + gap;
+        
+        // first child skip
+        this.createBoxAll[1].style.transition = 'none';
+        this.createBoxAll[1].style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
     item(num_2, createBoxAll) {
@@ -137,17 +150,7 @@ export default class Slider_2 {
         this.createTextAll[num_2 - 1].innerText = this.createTextAll[1].innerText;
     
         // active
-        this.createBoxAll[1].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
-    }
-
-    // resize
-    resize() {
-        // width
-        this.width = this.createBoxAll[1].clientWidth;
-        
-        // first child skip
-        this.createBoxAll[1].style.transition = 'none';
-        this.createBoxAll[1].style.transform = `translateX(${-this.width * this.counter}px)`;
+        this.createBoxAll[1].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffe0b2 20%,#fff3e0)';
     }
 
     // trans
@@ -178,7 +181,7 @@ export default class Slider_2 {
             // create radio
             this.createRadio = document.createElement('input');
             this.createRadio.setAttribute('type', 'radio');
-            this.createRadio.setAttribute('name', 'radio');
+            this.createRadio.setAttribute('name', 'radio_1');
             this.createRadio.setAttribute('value', `${i + 1}`);
 
             // add to radio

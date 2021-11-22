@@ -3,6 +3,7 @@
 // slider
 import Slider_1 from './js/slider_1.js';
 import Slider_2 from './js/slider_2.js';
+import Slider_3 from './js/slider_3.js';
 
 // setting
 import Setting from './setting/setting.js';
@@ -40,10 +41,10 @@ export default class App {
             this.createTitle.appendChild(this.createSubTitle);
 
             // text
-            const text = ['Default'];
+            const text = ['기본', '라디오 버튼이 있는', '추가, 삭제 버튼이 있는'];
 
             // add to text
-            this.createSubTitle.innerText = text;
+            this.createSubTitle.innerText = text[i];
 
             // create container
             this.createContainer = document.createElement('section');
@@ -101,6 +102,14 @@ export default class App {
             this.createNextBtnAll[1],
             this.createContainerAll[1],
         );
+
+        // slider_3
+        this.slider_3 = new Slider_3(
+            Setting[3].num,
+            this.createPrevBtnAll[2],
+            this.createNextBtnAll[2],
+            this.createContainerAll[2],
+        ); 
     }
 }
 

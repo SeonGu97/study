@@ -10,12 +10,12 @@ export default class Slider_1 {
         // counter
         this.counter = 1;
 
+        // item()
+        this.item(num_1, this.createBoxAll[0]);
+
         // resize()
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
-
-        // item()
-        this.item(num_1, this.createBoxAll[0]);
 
         // prev btn event
         createPrevBtnAll.addEventListener('click', () => {
@@ -119,8 +119,11 @@ export default class Slider_1 {
 
     // resize
     resize() {
+        // gap
+        let gap = 20;
+
         // width
-        this.width = this.createBoxAll[0].clientWidth;
+        this.width = this.createBoxAll[0].clientWidth + gap;
         
         // first child skip
         this.createBoxAll[0].style.transition = 'none';
