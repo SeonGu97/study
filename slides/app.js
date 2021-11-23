@@ -109,6 +109,8 @@ export default class App {
             this.createPrevBtnAll[2],
             this.createNextBtnAll[2],
             this.createContainerAll[2],
+            Setting[3].min,
+            Setting[3].max,
         ); 
     }
 }

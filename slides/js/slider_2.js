@@ -1,7 +1,7 @@
 'use strict';
 
 export default class Slider_2 {
-    constructor(num_2, createPrevBtnAll, createNextBtnAll, createBoxWrapAll) {
+    constructor(num_2, createPrevBtnAll, createNextBtnAll, createContainerAll) {
         // select all
         this.createBoxAll = document.querySelectorAll('.box');
 
@@ -16,7 +16,7 @@ export default class Slider_2 {
         this.item(num_2, this.createBoxAll[1]);
 
         // radio()
-        this.radio(createBoxWrapAll, num_2);
+        this.radio(createContainerAll, num_2);
 
         // prev btn event
         createPrevBtnAll.addEventListener('click', () => {
@@ -140,7 +140,7 @@ export default class Slider_2 {
             }
         }
 
-        // select all
+        // select all 
         this.createTextAll = document.querySelectorAll('.t_2');
 
         // first child inner text
@@ -148,9 +148,9 @@ export default class Slider_2 {
 
         // last child inner text
         this.createTextAll[num_2 - 1].innerText = this.createTextAll[1].innerText;
-    
+
         // active
-        this.createBoxAll[1].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffe0b2 20%,#fff3e0)';
+        createBoxAll.childNodes[1].style.background = 'linear-gradient(0deg,#ffe0b2 20%,#fff3e0)';
     }
 
     // trans
@@ -162,13 +162,13 @@ export default class Slider_2 {
     }
 
     // radio
-    radio(createBoxWrapAll, num_2) {
+    radio(createContainerAll, num_2) {
         // create radio-box
         this.createSubContainer = document.createElement('div');
         this.createSubContainer.setAttribute('class', 'sub-container');
 
         // add to radio box
-        createBoxWrapAll.appendChild(this.createSubContainer);
+        createContainerAll.appendChild(this.createSubContainer);
 
         // create radio-box
         this.createRadioBox = document.createElement('span');

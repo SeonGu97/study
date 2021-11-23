@@ -51,7 +51,6 @@ export default class Slider_1 {
         this.createBoxAll[0].addEventListener('transitionend', () => {
             // min
             if(this.counter == 0) {
-                console.log(true)
                 this.createBoxAll[0].style.transition = 'none';
                 this.counter = num_1 - 2;
                 this.createBoxAll[0].style.transform = `translateX(${-this.width * this.counter}px)`;
@@ -104,7 +103,7 @@ export default class Slider_1 {
             }
         }
 
-        // select all
+        // select all 
         this.createTextAll = document.querySelectorAll('.t_1');
 
         // first child inner text
@@ -112,9 +111,10 @@ export default class Slider_1 {
 
         // last child inner text
         this.createTextAll[num_1 - 1].innerText = this.createTextAll[1].innerText;
-    
+
         // active
-        this.createBoxAll[0].childNodes[this.counter].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
+        createBoxAll.childNodes[1].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
+
     }
 
     // resize
