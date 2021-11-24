@@ -4,25 +4,78 @@ export default class Slider_3 {
     constructor(num_3, createPrevBtnAll, createNextBtnAll, createContainerAll, min, max) {
         // select all
         this.createBoxAll = document.querySelectorAll('.box');
-        console.log(min, max)
+
+        // resize
+        window.addEventListener('resize', this.resize.bind(this), false);
+        this.resize();
+
+        // create sub-container
+        this.createSubContainer = document.createElement('div');
+        this.createSubContainer.setAttribute('class', 'sub-container');
+
+        // add to sub-container
+        createContainerAll.appendChild(this.createSubContainer);
+
+        // create radio-box
+        this.createRadioBox = document.createElement('span');
+        this.createRadioBox.setAttribute('class', 'radio-box');
+
+        // add to radio-box
+        this.createSubContainer.appendChild(this.createRadioBox);
+
         // counter
         this.counter = 1;
 
-        // resize()
-        window.addEventListener('resize', this.resize.bind(this), false);
-        this.resize();
-        
-        // item()
-        this.item(num_3, this.createBoxAll[2]);
+        // loop()
+        this.loop(num_3, this.createBoxAll[2], this.createRadioBox);
 
-        // radio()
-        this.radio(createContainerAll, num_3);
+        // first radio checked
+        this.createRadioBox.firstChild.checked = true;
+
+        // MPB()
+        this.MPB(this.createSubContainer);
+
+        // first child skip
+        this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
+
+        // first child active
+        this.createBoxAll[2].childNodes[this.counter].style.background = 'linear-gradient(0deg,#fff59d 20%,#fff9c4)';
+
+        // minus btn event
+        this.createMinusBtn.addEventListener('click', () => {
+            // min
+            if(num_3 == min) return;
+
+            // num_3 --
+            num_3--;
+            
+            // remove()
+            this.remove(this.createBoxAll[2], this.createRadioBox);
+
+            // innerText()
+            this.innerText(num_3);
+        }, false);
+
+        // plus btn event
+        this.createPlusBtn.addEventListener('click', () => {
+            // max
+            if(num_3 == max) return;
+
+            // num_3 ++
+            num_3++;
+
+            // item()
+            this.item(this.createBoxAll[2]);
+            this.radio(this.createBoxAll[2], this.createRadioBox);
+
+            // innerText()
+            this.innerText(num_3);
+        }, false);
 
         // prev btn event
         createPrevBtnAll.addEventListener('click', () => {
             // min
             if(this.counter == 0) return;
-            if(num_3 == min) return;
             
             // counter--;
             this.counter--;
@@ -37,15 +90,14 @@ export default class Slider_3 {
                 this.createRadioBox.childNodes[this.counter - 1].checked = true;
             }
 
-            // trans()
-            this.trans();
+            // transform()
+            this.transform(this.createBoxAll[2]);
         }, false);
 
         // next btn event
         createNextBtnAll.addEventListener('click', () => {
             // max
             if(this.counter == num_3 - 1) return;
-            if(num_3 == min) return; 
 
             // counter++
             this.counter++;
@@ -59,9 +111,9 @@ export default class Slider_3 {
             }else {
                 this.createRadioBox.childNodes[this.counter - 1].checked = true;
             }
-            
-            // trans()
-            this.trans();
+
+            // transform()
+            this.transform(this.createBoxAll[2]);
         }, false);
 
         // box event
@@ -92,39 +144,85 @@ export default class Slider_3 {
             // active
             this.createBoxAll[2].childNodes[this.counter].style.background = 'linear-gradient(0deg,#fff59d 20%,#fff9c4)';
         }, false);
+        
+        // radios
+        this.radios(this.createBoxAll[2], this.createRadioBox);
+    }
 
-        // MPB()
-        this.MPB();
+    // item
+    item(createBoxAll) {
+        // create item
+        this.createItem = document.createElement('li');
+        this.createItem.setAttribute('class', 'item');
 
-        // minus btn event
-        this.createMinusBtn.addEventListener('click', () => {
-            // min
-            if(num_3 == min) return;
+        // add to item
+        createBoxAll.appendChild(this.createItem);
 
-            // num_3 --
-            num_3--;
+        // create text
+        this.createText = document.createElement('span');
+        this.createText.setAttribute('class', 'text t_3');
 
-            // remove()
-            this.remove(num_3, this.createBoxAll[2]);
-        }, false);
+        // add to text
+        this.createItem.appendChild(this.createText);
+    }
 
-        // plus btn event
-        this.createPlusBtn.addEventListener('click', () => {
-            // max
-            if(num_3 == max) return;
-            
-            // num_3 ++
-            num_3++;
+    // radio 
+    radio(createBoxAll, createRadioBox) {
+        // create radio
+        this.createRadio = document.createElement('input');
+        this.createRadio.setAttribute('class', 'radio_2');
+        this.createRadio.setAttribute('type', 'radio');
+        this.createRadio.setAttribute('name', 'radio_2');
+        
+        // add to radio
+        createRadioBox.appendChild(this.createRadio);
 
-            // add()
-            this.add(num_3, this.createBoxAll[2]);
-        }, false);
+        // radios()
+        this.radios(createBoxAll, createRadioBox);
+    }
 
+    // loop
+    loop(value, createBoxAll, createRadioBox) {
+        // create item
+        for(let i = 0; i < value; i++) {
+            this.item(createBoxAll);
+        }
+
+        // create radio
+        for(let i = 0; i < value - 2; i++) {
+            this.radio(createBoxAll, createRadioBox);
+        }
+
+        // innerText()
+        this.innerText(value);
+    }
+
+    // innerText
+    innerText(value) {
         // select all
-        this.createRadioBoxAll = document.querySelectorAll('.radio-box');
+        this.createTextAll = document.querySelectorAll('.t_3');
+        this.createRadioAll = document.querySelectorAll('.radio_2');
 
-        // transitionend()
-        this.transitionend(this.createRadioBoxAll[1]);
+        // inner text
+        for(let i = 0; i < value; i++) {
+            this.createTextAll[i].innerText = [i];
+
+            // +0
+            if(this.createTextAll[i].textContent < 10) {
+                this.createTextAll[i].innerText = 0 + [i];
+            }
+        }
+
+        // inner value
+        for(let i = 0; i < value - 2; i++) {
+            this.createRadioAll[i].value = [i + 1];
+        }
+
+        // first child inner text
+        this.createTextAll[0].innerText = this.createTextAll[value - 2].innerText;
+
+        // last child inner text
+        this.createTextAll[value - 1].innerText = this.createTextAll[1].innerText;
     }
 
     // resize
@@ -140,197 +238,73 @@ export default class Slider_3 {
         this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
-    // item
-    item(num_3, createBoxAll) {
-        for(let i = 0; i < num_3; i++) {
-            // create item
-            this.createItem = document.createElement('li');
-            this.createItem.setAttribute('class', 'item');
-
-            // add to item
-            createBoxAll.appendChild(this.createItem);
-
-            // create text
-            this.createText = document.createElement('span');
-            this.createText.setAttribute('class', 'text t_3');
-
-            // add to text
-            this.createItem.appendChild(this.createText);
-            
-            // inner text
-            this.createText.innerText = [i];
-
-             // +0
-             if(this.createText.textContent < 10) {
-                this.createText.innerText = 0 + [i];
-            }
-        };
-
-        // select all 
-        this.createTextAll = document.querySelectorAll('.t_3');
-
-        // first child inner text
-        this.createTextAll[0].innerText = this.createTextAll[num_3 - 2].innerText;
-
-        // last child inner text
-        this.createTextAll[num_3 - 1].innerText = this.createTextAll[1].innerText;
-
-        // active
-        createBoxAll.childNodes[1].style.background = 'linear-gradient(0deg,#fff59d 20%,#fff9c4)';
-    }
-
-    // trans
-    trans() {
-        // transform
-        this.createBoxAll[2].style.transition = '0.4s ease-in-out';
-        this.createBoxAll[2].style.transitionDuration = '0.5s'
-        this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
-    }
-
-    // MPB (minus, plus btn)
-    MPB() {
+    // MPB
+    MPB(createSubContainer) {
         // create MPB-box
         this.createMPBbox = document.createElement('span');
         this.createMPBbox.setAttribute('class', 'MPB-box');
 
         // add to MPB-box
-        this.createSubContainer.appendChild(this.createMPBbox);
+        createSubContainer.appendChild(this.createMPBbox);
 
-        // create minus-btn
+        // create minus btn
         this.createMinusBtn = document.createElement('button');
         this.createMinusBtn.setAttribute('class', 'minus');
 
-        // add to minus-btn
+        // add to minus btn
         this.createMPBbox.appendChild(this.createMinusBtn);
 
-        // create plus-btn
+        // create plus btn
         this.createPlusBtn = document.createElement('button');
         this.createPlusBtn.setAttribute('class', 'plus');
 
-        // add to plus-btn
+        // add to plus btn
         this.createMPBbox.appendChild(this.createPlusBtn);
     }
 
-    // radio
-    radio(createContainerAll, num_3) {
-        // create radio-box
-        this.createSubContainer = document.createElement('div');
-        this.createSubContainer.setAttribute('class', 'sub-container');
-
-        // add to radio box
-        createContainerAll.appendChild(this.createSubContainer);
-
-        // create radio-box
-        this.createRadioBox = document.createElement('span');
-        this.createRadioBox.setAttribute('class', 'radio-box');
-
-        // add to radio-box
-        this.createSubContainer.appendChild(this.createRadioBox);
-
-        for(let i = 0; i < num_3 - 2; i++) {
-            // create radio
-            this.createRadio = document.createElement('input');
-            this.createRadio.setAttribute('type', 'radio');
-            this.createRadio.setAttribute('name', 'radio_2');
-            this.createRadio.setAttribute('value', `${i + 1}`);
-
-            // add to radio
-            this.createRadioBox.appendChild(this.createRadio);
-        }
-
-        // first child checked
-        this.createRadioBox.firstChild.checked = true;
-    }
-
     // remove
-    remove(num_3, createBoxAll) {
-        // remove item
+    remove(createBoxAll, createRadioBox) {
+        // create item
+        this.createItem = document.createElement('li');
+
+        // remove to item
         createBoxAll.removeChild(createBoxAll.lastChild);
 
-        // select all 
-        this.createTextAll = document.querySelectorAll('.t_3');
+        // create radio
+        this.createRadio = document.createElement('input');
 
-        // first child inner text
-        this.createTextAll[0].innerText = this.createTextAll[num_3 - 2].innerText;
-
-        // last child inner text
-        this.createTextAll[num_3 - 1].innerText = this.createTextAll[1].innerText;
-    
-        // select all
-        this.createRadioBoxAll = document.querySelectorAll('.radio-box');
-
-        // remove radio
-        this.createRadioBoxAll[1].removeChild(this.createRadioBoxAll[1].lastChild);
+        // remove to radio
+        createRadioBox.removeChild(createRadioBox.lastChild);
 
         // first child checked
-        this.createRadioBoxAll[1].firstChild.checked = true;
+        createRadioBox.firstChild.checked = true;
 
         // reset counter
         this.counter = 1;
 
         // transform
-        this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
+        createBoxAll.style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
-    // add
-    add(num_3, createBoxAll) {
-        // create item
-        this.createItem = document.createElement('li');
-        this.createItem.setAttribute('class', 'item');
-
-        // add to item
-        createBoxAll.appendChild(this.createItem);
-
-        // create text
-        this.createText = document.createElement('span');
-        this.createText.setAttribute('class', 'text t_3');
-
-        // add to text
-        this.createItem.appendChild(this.createText);
-
-        // select all 
-        this.createTextAll = document.querySelectorAll('.t_3');
-
-        for(let i = 0; i < num_3; i++) {
-            this.createTextAll[i].innerText = [i];
-
-            // +0
-            if(this.createTextAll[i].textContent < 10) {
-                this.createTextAll[i].innerText = 0 + [i];
-            }
-        }
-
-        // first child inner text
-        this.createTextAll[0].innerText = this.createTextAll[num_3 - 2].innerText;
-
-        // last child inner text
-        this.createTextAll[num_3 - 1].innerText = this.createTextAll[1].innerText;
-
-        for(let i = 0; i < num_3 - 2; i++) {
-            // create radio
-            this.createRadio = document.createElement('input');
-            this.createRadio.setAttribute('type', 'radio');
-            this.createRadio.setAttribute('name', 'radio_2');
-            this.createRadio.setAttribute('value', `${i + 1}`);
-        }
-
-        // select all
-        this.createRadioBoxAll = document.querySelectorAll('.radio-box');
-
-        // add to radio
-        this.createRadioBoxAll[1].appendChild(this.createRadio);
-
-        this.transitionend(this.createRadioBoxAll[1]);
+    // transform
+    transform(createBoxAll) {
+        // transform
+        createBoxAll.style.transition = '0.4s ease-in-out';
+        createBoxAll.style.transitionDuration = '0.5s';
+        createBoxAll.style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
-    transitionend(createRadioBoxAll) {
+    // radios
+    radios(createBoxAll, createRadioBoxAll) {
         // radios event
-        createRadioBoxAll.childNodes.forEach( radios => {
+        createRadioBoxAll.childNodes.forEach(radios => {
             radios.addEventListener('click', e => {
+                // target
                 this.counter = e.target.value;
 
-                this.createBoxAll[2].style.transition = '0.4s ease-in-out';
-                this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
+                // transform
+                createBoxAll.style.transition = '0.4s ease-in-out';
+                createBoxAll.style.transform = `translateX(${-this.width * this.counter}px)`;
             }, false);
         });
     }

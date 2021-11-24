@@ -185,7 +185,7 @@ input[type="radio"]:checked {
 /* MPB-box */
 .MPB-box {
     display: flex;
-    width: 10%;
+    width: 4rem;
     justify-content: space-between;
     padding-top: 5px;
 }
