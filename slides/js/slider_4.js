@@ -42,13 +42,45 @@ export default class Slider_4 {
 
         // prev event
         createPrevBtnAll.addEventListener('click', () => {
+            // min
+            if(this.counter == 1) this.counter = num_4 + 1;
+
+            // counter--
+            this.counter--;
+
+            // radio checked
+            if(this.counter == 0) {
+                this.createRadioBox.childNodes[num_4 - 3].checked = true;
+            }else {
+                this.createRadioBox.childNodes[this.counter - 1].checked = true;
+            }
+
+            // fade()
             this.fade(num_4, this.createBoxAll[3]);
         }, false);
 
         // next event
         createNextBtnAll.addEventListener('click', () => {
+            // max
+            if(this.counter == num_4) this.counter = 0;
+            
+            // counter++
+            this.counter++;
+
+            // radio checked
+            if(this.counter == num_4 + 1) {
+                this.createRadioBox.childNodes[0].checked = true
+            }else {
+                this.createRadioBox.childNodes[this.counter - 1].checked = true;
+            }
+
+            // fade()
             this.fade(num_4, this.createBoxAll[3]);
         }, false);
+
+
+        // radios()
+        this.radios(num_4, this.createBoxAll[3], this.createRadioBox);
     }
 
     // item
@@ -127,8 +159,40 @@ export default class Slider_4 {
     }
 
     fade(num_4, createBoxAll) {
+        // fade out
         for(let i = 0; i < num_4; i++) {
+            // transition
+            createBoxAll.childNodes[i].style.transition = 'none';
+
+            // reset active
+            createBoxAll.childNodes[i].style.background = 'rgba(255, 255, 255, 0.2)';
+
+            // fade out
             createBoxAll.childNodes[i].style.opacity = 0;
+            createBoxAll.childNodes[i].style.zIndex = 20;
         }
+
+        // fade in
+        createBoxAll.childNodes[this.counter - 1].style.zIndex = 25;
+        createBoxAll.childNodes[this.counter - 1].style.opacity = 1;
+
+        // transition
+        createBoxAll.childNodes[this.counter - 1].style.transition = '0.5s ease-out';
+
+        // active
+        this.createBoxAll[3].childNodes[this.counter - 1].style.background = 'linear-gradient(0deg,#a5d6a7 20%,#c8e6c9)';
+    }
+
+    // radios
+    radios(num_4, createBoxAll, createRadioBox) {
+        // radios event
+        createRadioBox.childNodes.forEach(radios => {
+            radios.addEventListener('click', e => {
+                // target
+                this.counter = e.target.value;
+
+                this.fade(num_4, createBoxAll);
+            }, false);
+        });
     }
 }

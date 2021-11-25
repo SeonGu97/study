@@ -305,9 +305,9 @@ export default class Slider_3 {
     }
 
     // radios
-    radios(createBoxAll, createRadioBoxAll) {
+    radios(createBoxAll, createRadioBox) {
         // radios event
-        createRadioBoxAll.childNodes.forEach(radios => {
+        createRadioBox.childNodes.forEach(radios => {
             radios.addEventListener('click', e => {
                 // target
                 this.counter = e.target.value;
