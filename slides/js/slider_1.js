@@ -114,7 +114,6 @@ export default class Slider_1 {
 
         // active
         createBoxAll.childNodes[1].style.background = 'linear-gradient(0deg,#ffcdd2 20%,#ffebee)';
-
     }
 
     // resize

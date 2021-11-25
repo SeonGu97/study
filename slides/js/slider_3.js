@@ -50,7 +50,7 @@ export default class Slider_3 {
             num_3--;
             
             // remove()
-            this.remove(this.createBoxAll[2], this.createRadioBox);
+            this.remove(num_3, this.createBoxAll[2], this.createRadioBox);
 
             // innerText()
             this.innerText(num_3);
@@ -76,6 +76,7 @@ export default class Slider_3 {
         createPrevBtnAll.addEventListener('click', () => {
             // min
             if(this.counter == 0) return;
+            if(num_3 == min) return;
             
             // counter--;
             this.counter--;
@@ -98,6 +99,7 @@ export default class Slider_3 {
         createNextBtnAll.addEventListener('click', () => {
             // max
             if(this.counter == num_3 - 1) return;
+            if(num_3 == min) return;
 
             // counter++
             this.counter++;
@@ -263,7 +265,7 @@ export default class Slider_3 {
     }
 
     // remove
-    remove(createBoxAll, createRadioBox) {
+    remove(num_3, createBoxAll, createRadioBox) {
         // create item
         this.createItem = document.createElement('li');
 
@@ -284,6 +286,14 @@ export default class Slider_3 {
 
         // transform
         createBoxAll.style.transform = `translateX(${-this.width * this.counter}px)`;
+        
+        // reset active
+        for(let i = 0; i < num_3; i++) {
+            createBoxAll.childNodes[i].style.background = 'rgba(255, 255, 255, 0.2)';
+        }
+
+        // active
+        createBoxAll.childNodes[this.counter].style.background = 'linear-gradient(0deg,#fff59d 20%,#fff9c4)';
     }
 
     // transform

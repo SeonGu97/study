@@ -4,6 +4,7 @@
 import Slider_1 from './js/slider_1.js';
 import Slider_2 from './js/slider_2.js';
 import Slider_3 from './js/slider_3.js';
+import Slider_4 from './js/slider_4.js';
 
 // setting
 import Setting from './setting/setting.js';
@@ -41,7 +42,7 @@ export default class App {
             this.createTitle.appendChild(this.createSubTitle);
 
             // text
-            const text = ['기본', '라디오 버튼이 있는', '추가, 삭제 버튼이 있는'];
+            const text = ['기본', '라디오 버튼이 있는', '추가, 삭제 버튼이 있는', '페이드 인, 페이드 아웃'];
 
             // add to text
             this.createSubTitle.innerText = text[i];
@@ -111,7 +112,15 @@ export default class App {
             this.createContainerAll[2],
             Setting[3].min,
             Setting[3].max,
-        ); 
+        );
+
+        // slider_4
+        this.slider_4 = new Slider_4(
+            Setting[4].num,
+            this.createPrevBtnAll[3],
+            this.createNextBtnAll[3],
+            this.createContainerAll[3],
+        );
     }
 }
 
