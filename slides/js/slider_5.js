@@ -35,7 +35,7 @@ export default class Slider_5 {
         this.createBoxAll[4].firstChild.style.opacity = 1;
 
         // first child active
-        this.createBoxAll[4].firstChild.style.background = 'linear-gradient(0deg,#a5d6a7 20%,#c8e6c9)';
+        this.createBoxAll[4].firstChild.style.background = 'linear-gradient(0deg,#90caf9 20%,#bbdefb)';
     
         // counter
         this.counter = 1;
@@ -194,7 +194,7 @@ export default class Slider_5 {
         createBoxAll.childNodes[this.counter - 1].style.transition = '0.5s ease-out';
 
         // active
-        this.createBoxAll[4].childNodes[this.counter - 1].style.background = 'linear-gradient(0deg,#a5d6a7 20%,#c8e6c9)';
+        this.createBoxAll[4].childNodes[this.counter - 1].style.background = 'linear-gradient(0deg,#90caf9 20%,#bbdefb)';
     }
 
     // radios
@@ -229,7 +229,5 @@ export default class Slider_5 {
             // fade()
             this.fade(num_5, this.createBoxAll[4]);
         }, 4000);
-
-        console.log(this.setTimer == true)
     }
 }

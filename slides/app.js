@@ -6,6 +6,7 @@ import Slider_2 from './js/slider_2.js';
 import Slider_3 from './js/slider_3.js';
 import Slider_4 from './js/slider_4.js';
 import Slider_5 from './js/slider_5.js';
+import Slider_6 from './js/slider_6.js';
 
 // setting
 import Setting from './setting/setting.js';
@@ -129,6 +130,14 @@ export default class App {
             this.createPrevBtnAll[4],
             this.createNextBtnAll[4],
             this.createContainerAll[4],
+        );
+
+        // slider_6
+        this.slider_6 = new Slider_6(
+            Setting[6].num,
+            this.createPrevBtnAll[5],
+            this.createNextBtnAll[5],
+            this.createContainerAll[5],
         );
     }
 }

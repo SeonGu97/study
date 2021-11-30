@@ -31,7 +31,7 @@ body {
 
 /* title */
 .title {
-    max-width: 600px;
+    max-width: 750px;
     width: 100%;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -47,7 +47,7 @@ body {
 /* container */
 .container {
     display: flex;
-    max-width: 600px;
+    max-width: 750px;
     width: 100%;
     height: 300px;
     flex-direction: column;
@@ -106,7 +106,7 @@ body {
 .box-wrap {
     width: 80%;
     height: 60%;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 10;
 }
 
@@ -149,10 +149,15 @@ body {
     user-select: none;
 }
 
+.t_6 {
+    bottom: -0.4rem;
+    left: 0.5rem;
+}
+
 /* sub-container */
 .sub-container {
     display: flex;
-    width: 100%;
+    width: 80%;
     height: 3rem;
     flex-direction: column;
     justify-content: center;
@@ -215,4 +220,29 @@ input[type="radio"]:checked {
     font-size: 1.2rem;
     padding: 0;
     cursor: pointer;
+}
+
+/* items-wrap */
+.items-wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    flex: none;
+    margin-right: 20px;
+}
+
+/* items */
+.items {
+    width: 31%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* bar */
+.bar {
+    width: 100%;
+    height: 0.2rem;
+    background: rgba(255, 255, 255, 0.1);
 }
