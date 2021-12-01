@@ -44,7 +44,14 @@ export default class App {
             this.createTitle.appendChild(this.createSubTitle);
 
             // text
-            const text = ['기본', '라디오 버튼이 있는', '추가, 삭제 버튼이 있는', '페이드 인, 페이드 아웃', '타이머 페이드 인, 페이드 아웃'];
+            const text = [
+                '기본', // 1
+                '라디오 버튼이 있는', // 2
+                '추가, 삭제 버튼이 있는', // 3
+                '페이드 인, 페이드 아웃',  // 4
+                '타이머 페이드 인, 페이드 아웃', // 5
+                '세개의 아이템이 있는', // 6 
+            ];
 
             // add to text
             this.createSubTitle.innerText = text[i];
