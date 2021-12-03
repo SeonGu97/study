@@ -98,6 +98,7 @@ export default class App {
         this.createPrevBtnAll = document.querySelectorAll('.prev');
         this.createNextBtnAll = document.querySelectorAll('.next');
         this.createContainerAll = document.querySelectorAll('.container');
+        this.createBoxWrapAll = document.querySelectorAll('.box-wrap');
 
         // slider_1
         this.slider_1 = new Slider_1(
@@ -154,6 +155,7 @@ export default class App {
             this.createPrevBtnAll[6],
             this.createNextBtnAll[6],
             this.createContainerAll[6],
+            this.createBoxWrapAll[6]
         );
     }
 }
