@@ -1,7 +1,5 @@
 'use strict';
 
-import App from '../app.js';
-
 export default class Slider_1 {
     constructor(num_1, createPrevBtnAll, createNextBtnAll) {
         // select all

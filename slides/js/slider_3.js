@@ -5,6 +5,9 @@ export default class Slider_3 {
         // select all
         this.createBoxAll = document.querySelectorAll('.box');
 
+        // counter
+        this.counter = 1;
+
         // resize
         window.addEventListener('resize', this.resize.bind(this), false);
         this.resize();
@@ -22,9 +25,6 @@ export default class Slider_3 {
 
         // add to radio-box
         this.createSubContainer.appendChild(this.createRadioBox);
-
-        // counter
-        this.counter = 1;
 
         // loop()
         this.loop(num_3, this.createBoxAll[2], this.createRadioBox);
@@ -50,7 +50,7 @@ export default class Slider_3 {
             num_3--;
             
             // remove()
-            this.remove(num_3, this.createBoxAll[2], this.createRadioBox);
+            this.remove(this.createBoxAll[2], this.createRadioBox);
 
             // innerText()
             this.innerText(num_3);
@@ -76,7 +76,6 @@ export default class Slider_3 {
         createPrevBtnAll.addEventListener('click', () => {
             // min
             if(this.counter == 0) return;
-            if(num_3 == min) return;
             
             // counter--;
             this.counter--;
@@ -99,7 +98,6 @@ export default class Slider_3 {
         createNextBtnAll.addEventListener('click', () => {
             // max
             if(this.counter == num_3 - 1) return;
-            if(num_3 == min) return;
 
             // counter++
             this.counter++;
@@ -149,6 +147,19 @@ export default class Slider_3 {
         
         // radios
         this.radios(this.createBoxAll[2], this.createRadioBox);
+    }
+
+    // resize
+    resize() {
+        // gap
+        let gap = 20;
+
+        // width
+        this.width = this.createBoxAll[2].clientWidth + gap;
+
+        // first child skip
+        this.createBoxAll[2].style.transition = 'none';
+        this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
     // item
@@ -227,19 +238,6 @@ export default class Slider_3 {
         this.createTextAll[value - 1].innerText = this.createTextAll[1].innerText;
     }
 
-    // resize
-    resize() {
-        // gap
-        let gap = 20;
-
-        // width
-        this.width = this.createBoxAll[2].clientWidth + gap;
-        
-        // first child skip
-        this.createBoxAll[2].style.transition = 'none';
-        this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
-    }
-
     // MPB
     MPB(createSubContainer) {
         // create MPB-box
@@ -265,7 +263,7 @@ export default class Slider_3 {
     }
 
     // remove
-    remove(num_3, createBoxAll, createRadioBox) {
+    remove(createBoxAll, createRadioBox) {
         // create item
         this.createItem = document.createElement('li');
 
@@ -286,14 +284,6 @@ export default class Slider_3 {
 
         // transform
         createBoxAll.style.transform = `translateX(${-this.width * this.counter}px)`;
-        
-        // reset active
-        for(let i = 0; i < num_3; i++) {
-            createBoxAll.childNodes[i].style.background = 'rgba(255, 255, 255, 0.2)';
-        }
-
-        // active
-        createBoxAll.childNodes[this.counter].style.background = 'linear-gradient(0deg,#fff59d 20%,#fff9c4)';
     }
 
     // transform
@@ -305,9 +295,9 @@ export default class Slider_3 {
     }
 
     // radios
-    radios(createBoxAll, createRadioBox) {
+    radios(createBoxAll, createRadioBoxAll) {
         // radios event
-        createRadioBox.childNodes.forEach(radios => {
+        createRadioBoxAll.childNodes.forEach(radios => {
             radios.addEventListener('click', e => {
                 // target
                 this.counter = e.target.value;

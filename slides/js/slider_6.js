@@ -142,11 +142,11 @@ export default class Slider_6 {
         let gap = 20;
 
         // width
-        this.width = this.createBoxAll[2].clientWidth + gap;
+        this.width = this.createBoxAll[5].clientWidth + gap;
         
         // first child skip
-        this.createBoxAll[2].style.transition = 'none';
-        this.createBoxAll[2].style.transform = `translateX(${-this.width * this.counter}px)`;
+        this.createBoxAll[5].style.transition = 'none';
+        this.createBoxAll[5].style.transform = `translateX(${-this.width * this.counter}px)`;
     }
 
     // transform

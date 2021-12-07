@@ -91,11 +91,6 @@ export default class Slider_7 {
 
         // radios
         this.radios(num_7, this.createRadioBox, this.createBoxAll[6]);
-
-        // box event
-        this.createBoxAll[6].addEventListener('mouseenter', () => {
-            this.scroll();
-        }, false);
     }
 
     // resize
@@ -135,7 +130,7 @@ export default class Slider_7 {
         createSubContainer.style.width = '1.5rem';
         createSubContainer.style.height = '100%';
         createSubContainer.style.top = '0px';
-        createSubContainer.style.right = '1.5rem';
+        createSubContainer.style.right = '0.5rem';
 
         // createRadioBox style
         createRadioBox.style.flexDirection = 'column';
@@ -241,10 +236,5 @@ export default class Slider_7 {
                 createBoxAll.style.transform = `translateY(${-this.height * this.counter}px)`;
             }, false);
         });
-    }
-
-    // scroll
-    scroll() {
-        
     }
 }
