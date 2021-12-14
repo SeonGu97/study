@@ -1,0 +1,29 @@
+@media screen and (max-width: 768px) {
+    .wrap {
+        padding: 2rem 1rem;
+    }
+
+    /* header */
+    header {
+        top: 0.5rem;
+        left: 1rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+        top: 2rem;
+    }
+
+    footer {
+        bottom: 0.75rem;
+        padding: 0px 1rem;
+    }
+
+    .copyright {
+        font-size: 0.5rem;
+    }
+
+    .github {
+        font-size: 0.5rem;
+    }
+}
