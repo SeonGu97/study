@@ -92,6 +92,19 @@ class App {
         // add to nav
         this.wrap.appendChild(this.nav);
 
+        // create menu
+        this.menu = document.createElement('span');
+        this.menu.setAttribute('class', 'menu');
+
+        // menu
+        const menu = `<i class="fas fa-dice-d20"></i>`;
+
+        // inner text in menu
+        this.menu.innerHTML = menu;
+
+        // add to menu
+        this.nav.appendChild(this.menu);
+
         // create radios
         this.radios = document.createElement('div');
         this.radios.setAttribute('class', 'radios');
@@ -188,7 +201,7 @@ class App {
             stagger: 0.2,
             ease: "elastic", 
             force3D: true
-          });
+        });
     }
 }
 

@@ -34,7 +34,7 @@ body {
     height: 100%;
     justify-content: center;
     align-items: center;
-    padding: 3.5rem 2.5rem;
+    padding: 3.5rem 2rem 2.5rem 2rem;
     box-sizing: border-box;
     position: relative;
 }
@@ -88,7 +88,7 @@ footer {
     width: 100%;
     justify-content: space-between;
     position: absolute;
-    bottom: 1.25rem;
+    bottom: 0.75rem;
     box-sizing: border-box;
     padding: 0px 2.5rem;
     color: #fdd835;
@@ -104,15 +104,43 @@ footer {
 
 /* nav */
 nav {
-    width: 1rem;
-    height: 1rem;
-    background: red;
+    width: 3rem;
+    height: 3rem;
     position: fixed;
     top: 50%;
-    left: 0.75rem;
+    left: 0.5rem;
     transform: translateY(-50%);
     z-index: 20;
 }
+
+/* menu */
+.menu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.menu > i {
+    display: flex;
+    font-size: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(-360deg);
+    }
+  }
 
 /* radios */
 .radios {
