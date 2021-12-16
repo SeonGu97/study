@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <!-- script -->
+    <script defer src="./script/javascript.js" type="text/javascript"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/2478dc2d32.js" crossorigin="anonymous"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>TO-DO-LIST.</h1>
+    <!-- start form -->
+    <form>
+        <!-- select all btn -->
+        <button type="button" class="select-all"><i class="fas fa-angle-double-down"></i></button>
+        <!-- add list -->
+        <input type="text" class="text" placeholder="Please add me to the list.." maxlength="15">
+        <!-- submit -->
+        <button type="submit" class="submit"><i class="fas fa-plus"></i></button>
+    </form>
+    <!-- end form -->
+
+    <!-- start todolist -->
+    <div class="todolist"></div>
+    <!-- end todolist -->
+
+    <!-- start container -->
+    <div class="container">
+        <!-- number of list -->
+        <span class="items"></span>
+        <!-- all btn -->
+        <button class="all">All</button>
+        <!-- completed btn -->
+        <button class="completed">Completed</button>
+        <!-- uncompleted btn -->
+        <button class="uncompleted">Uncompleted</button>
+        <!-- clear btn -->
+        <button class="clear">Clear</button>
+    </div>
+    <!-- end container -->
+</body>
+
+</html>

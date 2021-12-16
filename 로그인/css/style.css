@@ -1,0 +1,73 @@
+/* reset css */
+@import url(./reset.css);
+
+/* body */
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* wrap */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 300px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #fafafa;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* h1 */
+h1 {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  text-align: center;
+}
+
+/* id, password, submit */
+input:focus {
+  outline: none;
+  border: 1px solid #0091ea;
+}
+
+.id,
+.password {
+  height: 30px;
+  padding-left: 10px;
+  font-size: 1rem;
+  background: #eeeeee;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+
+/* submit */
+.submit {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #0091ea;
+  color: #f0f0f0;
+}
+
+/* forgot, join */
+.forgot,
+.join {
+  text-decoration: none;
+  color: #333333;
+  font-size: 0.9rem;
+}

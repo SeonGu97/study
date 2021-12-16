@@ -1,0 +1,97 @@
+/* reset css */
+@import url(../css/reset.css);
+
+/* google font */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 100px;
+}
+
+/* h1 */
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* a */
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* button */
+button {
+  border: 1px solid #cfd8dc;
+  border-radius: 5px;
+  background: #eee;
+  cursor: pointer;
+}
+
+/* font awesome */
+.fa-trash-alt {
+  pointer-events: none;
+}
+
+form {
+  display: flex;
+  width: 350px;
+  justify-content: center;
+}
+.text {
+  margin: 0 5px;
+}
+
+/* todolist */
+.todolist {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+/* todo-ul */
+.todo-ul {
+}
+
+/* todo-li */
+.todo-li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  padding-left: 30px;
+  margin-top: 5px;
+  background: #00b0ff;
+  position: relative;
+  border-radius: 5px;
+}
+
+/* checkbox */
+.todo-checkbox {
+  position: absolute;
+  left: 5px;
+  transform: scale(1.5);
+}
+
+/* container */
+.container {
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+}
+
+/* active */
+.active {
+  background: #ff1744;
+  color: #37474f;
+  text-decoration: line-through;
+}
+
+/* items */
+.items {
+  border-bottom: 1px solid #333;
+}

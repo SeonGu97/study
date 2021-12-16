@@ -1,0 +1,129 @@
+/* reset css */
+@import url(./reset.css);
+
+/* .to-do-list (div) */
+.to-do-list {
+  display: flex;
+  width: 300px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+/* to-do-list title */
+.to-do-list > h1 {
+  color: #333333;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* form */
+form {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* check-all */
+.check-all {
+  margin-right: 5px;
+}
+
+/* todo-input (text) */
+.todo-input {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+/* todo-btn */
+.todo-btn {
+  margin-left: 10px;
+}
+
+/* todo-lists(div) */
+.todo-lists {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* todo-ul */
+.todo-ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 5px 0;
+  border: 1px solid #424242;
+  border-radius: 5px;
+  background: #42a5f5;
+  position: relative;
+}
+
+/* todo-li */
+.todo-li {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  padding-left: 30px;
+  color: #fafafa;
+  box-sizing: border-box;
+}
+
+/* todo-checkbox(input) */
+input[type="checkbox"] {
+  -ms-transform: scale(1.5); /* IE */
+
+  -moz-transform: scale(1.5); /* FF */
+
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+
+  -o-transform: scale(1.5); /* Opera */
+}
+
+/* todo-checkbox */
+.todo-checkbox {
+  position: absolute;
+  left: 5px;
+}
+
+/* toggle checkbox */
+.done {
+  background: #f44336;
+  text-decoration: line-through;
+  color: #aeaeae;
+  text-decoration-color: #aeaeae;
+}
+
+/* todo-delete(button) */
+.todo-delete {
+  cursor: pointer;
+}
+
+/* font awesome */
+.fa-trash-alt {
+  pointer-events: none;
+}
+
+/* options */
+.options {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  font-size: 0.8rem;
+}
+
+.options > li {
+  padding: 10px 0;
+}
+
+.options > li > a {
+  text-decoration: none;
+  color: #333333;
+}

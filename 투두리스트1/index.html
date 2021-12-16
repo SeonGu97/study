@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+
+    <!-- To-Do-List.js -->
+    <script defer type="text/javascript" src="./script/To-do-List-R.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/2478dc2d32.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- start to-do-list -->
+    <div class="to-do-list">
+        <!-- todo title -->
+        <h1>To-Do-List</h1>
+
+        <!-- start form -->
+        <form>
+            <button class="check-all" type="button"><i class="fas fa-angle-down"></i></button>
+            <input class="todo-input" type="text" placeholder="add to list.." value="">
+            <button class="todo-btn" type="submit"><i class="fas fa-plus"></i></button>
+        </form>
+        <!-- end form -->
+
+        <!-- start todo-lists-->
+        <div class="todo-lists"></div>
+        <!-- end todo-lists -->
+
+        <!-- start options -->
+        <ul class="options">
+            <li class="item-length">(<span></span> item left)</li>
+            <li><a href="#" class="all">All</a></li>
+            <li><a href="#" class="completed">Completed</a></li>
+            <li><a href="#" class="uncompleted">Uncompleted</a></li>
+            <li><a href="#" class="clear">Clear</a></li>
+        </ul>
+        <!-- end option -->
+    </div>
+    <!-- end to-do-list -->
+</body>
+</html>

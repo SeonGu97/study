@@ -97,13 +97,20 @@ class App {
         this.menu.setAttribute('class', 'menu');
 
         // menu
-        const menu = `<i class="fas fa-dice-d20"></i>`;
+        const menu = `<i class="fas fa-dot-circle"></i>`;
 
         // inner text in menu
         this.menu.innerHTML = menu;
 
         // add to menu
         this.nav.appendChild(this.menu);
+
+        // create ul
+        this.ul = document.createElement('ul');
+        this.ul.setAttribute('class', 'ul');
+
+        // add to ul
+        this.wrap.appendChild(this.ul);
 
         // create radios
         this.radios = document.createElement('div');
@@ -124,6 +131,19 @@ class App {
             this.radios.appendChild(this.item);
         }
 
+        // first radio checked
+        this.radios.firstChild.checked = true;
+
+        // click event
+        this.menu.addEventListener('click', () => {
+            gsap.to('.menu', 
+                {
+                    rotate: -180,
+                    opacity: 0,
+                }
+            );
+        }, false);
+
         // wrap
         gsap.to('.wrap',
             {
@@ -136,9 +156,8 @@ class App {
         // cnter
         gsap.fromTo('.cntr',
             {
-                width: '50%',
+                width: '35%',
                 height: '0.5%',
-                borderRadius: '1rem',
                 opacity: 0.5,
             },
             {
@@ -202,6 +221,22 @@ class App {
             ease: "elastic", 
             force3D: true
         });
+
+        // menu
+        gsap.from('.menu', 
+            {
+                rotate: 180,
+                delay: 4.5
+            }
+        );
+
+        gsap.to('.ul', 
+            {
+                width: '0.3rem',
+                opacity: 0,
+                duration: 0
+            }
+        );
     }
 }
 
