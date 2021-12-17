@@ -52,6 +52,12 @@ class App {
         // add to cntr
         this.wrap.appendChild(this.cntr);
 
+        // create main
+        this.main = document.createElement('main');
+
+        // add to main
+        this.cntr.appendChild(this.main);
+
         // create footer
         this.footer = document.createElement('footer');
 
@@ -149,7 +155,7 @@ class App {
             {
                 background: '#1B365C',
                 duration: 0.5,
-                delay: 1.5
+                delay: 1.5,
             },
         );
 
@@ -172,7 +178,7 @@ class App {
         gsap.to('.cntr',
             {
                 height: '100%',
-                delay: 2.1
+                delay: 2.1,
             }
         );
 
@@ -230,6 +236,7 @@ class App {
             }
         );
 
+        // ul
         gsap.to('.ul', 
             {
                 width: '0.3rem',

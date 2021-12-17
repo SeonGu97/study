@@ -18,7 +18,6 @@ body {
     background: linear-gradient(#212121, #1b1b1b);
     font-family: 'Noto Sans KR', sans-serif;
     letter-spacing: 0.25rem;
-    overflow: hidden;
     -webkit-user-select:none; 
     -moz-user-select:none; 
     -ms-user-select:none; 
@@ -79,11 +78,23 @@ header {
 
 /* cntr */
 .cntr {
+    display: flex;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
     background: #eceff1;
     position: relative;
     z-index: 15;
+    overflow: hidden;
+    background-image: url(../img/BG_2.jpg);
+    background-size: 100%;
+}
+
+/* main */
+main {
+    width: 95%;
+    height: 300%;
 }
 
 /* footer */
@@ -151,7 +162,7 @@ nav {
     justify-content: space-between;
     position: fixed;
     top: 50%;
-    right: 2.5rem;
+    right: 3rem;
     transform: translateY(-50%);
     z-index: 20;
 }

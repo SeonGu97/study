@@ -26,4 +26,8 @@
     .github {
         font-size: 0.5rem;
     }
+
+    nav {
+        display: none;
+    }
 }
