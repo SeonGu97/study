@@ -12,238 +12,35 @@ class App {
         // add to app
         document.body.appendChild(this.app);
 
-        // create wrap
-        this.wrap = document.createElement('div');
-        this.wrap.setAttribute('class', 'wrap');
-
-        // add to wrap
-        this.app.appendChild(this.wrap);
-
-        // create BG
-        this.BG = document.createElement('div');
-        this.BG.setAttribute('class', 'BG');
-
-        // add to BG
-        this.wrap.appendChild(this.BG);
-
-        // create header
-        this.header = document.createElement('header');
-
-        // create logo
-        this.logo = document.createElement('span');
-        this.logo.setAttribute('class', 'logo');
-
-        // title
-        const title = 'PORTFOLIO-';
-
-        // inner text in logo 
-        this.logo.innerText = title;
-
-        // add to logo
-        this.header.appendChild(this.logo);
-        
-        // add to header 
-        this.wrap.appendChild(this.header);
-
         // create cntr
-        this.cntr = document.createElement('section');
+        this.cntr = document.createElement('div');
         this.cntr.setAttribute('class', 'cntr');
 
         // add to cntr
-        this.wrap.appendChild(this.cntr);
+        this.app.appendChild(this.cntr);
 
-        // create main
-        this.main = document.createElement('main');
-
-        // add to main
-        this.cntr.appendChild(this.main);
-
-        // create footer
-        this.footer = document.createElement('footer');
-
-        // add to footer
-        this.wrap.appendChild(this.footer);
-
-        // cerate copyright
-        this.copyright = document.createElement('span');
-        this.copyright.setAttribute('class', 'copyright');
-
-        // copyright
-        const copyright = '©2021 PORTPOLIO-';
-
-        // inner text in copyright
-        this.copyright.innerText = copyright;
-
-        // add to copyright
-        this.footer.appendChild(this.copyright);
-
-        // create github
-        this.github = document.createElement('a');
-        this.github.setAttribute('class', 'github');
-        this.github.setAttribute('href', 'https://github.com/SeonGu97');
-        this.github.setAttribute('target', 'blank');
-
-        // add to github
-        this.footer.appendChild(this.github);
-
-        // github
-        const github = `<i class="fab fa-github"></i>` + 'seongu97';
-
-        // inner HTML in github
-        this.github.innerHTML = github;
-
-        // create nav
-        this.nav = document.createElement('nav');
-        
-        // add to nav
-        this.wrap.appendChild(this.nav);
-
-        // create menu
-        this.menu = document.createElement('span');
-        this.menu.setAttribute('class', 'menu');
-
-        // menu
-        const menu = `<i class="fas fa-dot-circle"></i>`;
-
-        // inner text in menu
-        this.menu.innerHTML = menu;
-
-        // add to menu
-        this.nav.appendChild(this.menu);
-
-        // create ul
-        this.ul = document.createElement('ul');
-        this.ul.setAttribute('class', 'ul');
-
-        // add to ul
-        this.wrap.appendChild(this.ul);
-
-        // create radios
-        this.radios = document.createElement('div');
-        this.radios.setAttribute('class', 'radios');
-
-        // add to radios
-        this.wrap.appendChild(this.radios);
-
-        // create item
+        // create box
         for(let i = 0; i < Setting[0].value; i++) {
-            this.item = document.createElement('input');
+            this.box = document.createElement('section');
+            this.box.setAttribute('class', `box num-${i + 1}`);
+
+            // add to box
+            this.cntr.appendChild(this.box);
+
+            // create item
+            this.item = document.createElement('div');
             this.item.setAttribute('class', 'item');
-            this.item.setAttribute('type', 'radio');
-            this.item.setAttribute('name', 'items');
-            this.item.setAttribute('value', i);
 
             // add to item
-            this.radios.appendChild(this.item);
+            this.box.appendChild(this.item);
         }
 
-        // first radio checked
-        this.radios.firstChild.checked = true;
-
-        // click event
-        this.menu.addEventListener('click', () => {
-            gsap.to('.menu', 
-                {
-                    rotate: -180,
-                    opacity: 0,
-                }
-            );
-        }, false);
-
-        // wrap
-        gsap.to('.wrap',
-            {
-                background: '#1B365C',
-                duration: 0.5,
-                delay: 1.5,
-            },
-        );
-
-        // cnter
-        gsap.fromTo('.cntr',
-            {
-                width: '35%',
-                height: '0.5%',
-                opacity: 0.5,
-            },
-            {
-                width: '100%',
-                borderRadius: '0',
-                rotation: 0,
-                opacity: 1,
-                delay: 1,
-            }
-        );
-
-        gsap.to('.cntr',
-            {
-                height: '100%',
-                delay: 2.1,
-            }
-        );
-
-        // header
-        gsap.from('header',
-            {
-                y: '200%',
-                delay: 3,
-                opacity: 0
-            }
-        );
-
-        // footer
-        gsap.from('footer', 
-            {
-                y: '-200%',
-                delay: 3.5,
-                opacity: 0
-            }
-        );
-
-        // nav
-        gsap.from('nav', 
-            {
-                opacity: 0,
-                delay: 4,
-            }
-        );
-
-        // radios
-        gsap.from('.radios', 
-            {
-                opacity: 0,
-                delay: 4.5,
-                stagger: 1,
-            }
-        );
-
-        // item
-        gsap.from(".item", {
-            duration: 2,
-            scale: 0.5, 
-            opacity: 0, 
-            delay: 5, 
-            stagger: 0.2,
-            ease: "elastic", 
-            force3D: true
-        });
-
-        // menu
-        gsap.from('.menu', 
-            {
-                rotate: 180,
-                delay: 4.5
-            }
-        );
-
-        // ul
-        gsap.to('.ul', 
-            {
-                width: '0.3rem',
-                opacity: 0,
-                duration: 0
-            }
-        );
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // create box
+        for(let i = 0; i < Setting[0].value; i++) {
+            
+        }
     }
 }
 
