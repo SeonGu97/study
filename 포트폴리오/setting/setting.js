@@ -1,5 +1,5 @@
 const setting = [
-    {id: 1, value : 3},
+    {id: 1, value : 4},
 ]
 
 export default setting;
