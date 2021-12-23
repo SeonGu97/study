@@ -4,53 +4,46 @@
 /* font style */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+/* all */
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 /* html */
 html {
-    width: 100%;
-    height: 100%;
 }
 
 /* body */
 body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Noto Sans KR', sans-serif;
-    background: linear-gradient(#212121, #1b1b1b);
     letter-spacing: 0.25rem;
-    -webkit-user-select:none; 
-    -moz-user-select:none; 
-    -ms-user-select:none; 
-    user-select:none;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
 }
 
-body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+/* container */
+.container {
+
 }
 
-/* app */
-#app {
-    width: 100%;
-    height: 100%;
+/* section */
+section {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
-/* cntr */
-.cntr {
-    width: 100%;
-    height: 100%;
-    transition: 1s;
+section:nth-child(1n) {
+    background: lightseagreen;
 }
 
-/* page */
-.page {
-    width: 100%;
-    height: 100%;
-    background: lightblue;
-}
-
-.page:nth-child(2n) {
+section:nth-child(2n) {
     background: lightcoral;
+}
+
+/* title */
+.title {
+    font-size: 2rem;
+    color: #eee;
 }
 
 input[type="radio"] {
