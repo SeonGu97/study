@@ -17,11 +17,37 @@ html {
 /* body */
 body {
     letter-spacing: 0.25rem;
+    background-image: url(../img/BG_2.jpg);
+    background-size: 100%;
+}
+
+/* header */
+header {
+    width: 100%;
+    padding: 0.75rem 2rem;
+    position: fixed;
+    top: 0;
+    z-index: 15;
+}
+
+/* logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffc400;
 }
 
 /* container */
 .container {
-
+    width: 100%;
+    height: 100%;
+    border-top: 3rem solid #1B365C;
+    border-right: 2rem solid #1B365C;
+    border-left: 2rem solid #1B365C;
+    border-bottom: 2.5rem solid #1B365C;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 /* section */
@@ -32,18 +58,36 @@ section {
     align-items: center;
 }
 
-section:nth-child(1n) {
-    background: lightseagreen;
-}
-
-section:nth-child(2n) {
-    background: lightcoral;
-}
-
 /* title */
 .title {
+    width: 100%;
     font-size: 2rem;
-    color: #eee;
+    color: #757575;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* footer */
+footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    color: #ffc400;
+    padding: 0.75rem 2rem;
+    font-weight: bold;
+}
+
+/* github */
+.github {
+    color: #eceff1;
+    cursor: pointer;
+}
+
+nav {
+    right: 2.5rem;
 }
 
 input[type="radio"] {
