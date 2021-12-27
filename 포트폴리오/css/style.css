@@ -17,7 +17,6 @@ html {
 /* body */
 body {
     letter-spacing: 0.25rem;
-    background-image: url(../img/BG_2.jpg);
     background-size: 100%;
 }
 
@@ -82,8 +81,13 @@ footer {
 
 /* github */
 .github {
-    color: #eceff1;
+    color: #90a4ae;
     cursor: pointer;
+}
+
+.github:hover {
+    transition: 0.3s;
+    color: #fff8e1;
 }
 
 nav {

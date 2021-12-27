@@ -56,6 +56,76 @@ class App {
             anchors: ['1', '2', '3', '4'],
             menu: '#fp-nav',
         });
+
+        // animation
+        gsap.from('header', {
+            y: '-100%',
+            opacity: 0,
+            delay: 4
+        })
+
+        gsap.from('footer', {
+            y: '100%',
+            opacity: 0,
+            delay: 4.5
+        })
+
+        gsap.fromTo('.container', 
+            {
+                width: '45%',
+                height: '0.5%',
+                top: '50%',
+                left: '30%',
+                border: 0,
+                borderRadius: '2rem',
+                background: '#eceff1'
+            },
+            {
+                width: '100%',
+                left: '0',
+                borderRadius: '0',
+                delay: 1   
+            }
+        )
+
+        gsap.to('.container', {
+            delay: 2,
+            height: '100%',
+            top: '0',
+        })
+
+        gsap.to('.container', {
+            delay: 3,
+            borderTop: '3rem solid #1B365C',
+            borderRight: '2rem solid #1B365C',
+            borderLeft: '2rem solid #1B365C',
+            borderBottom: '2.5rem solid #1B365C',
+            background: ''
+        })
+
+        gsap.fromTo('body',
+            {
+                background: '#212121'
+            },
+            {
+                background: '',
+                delay: 3
+            }
+        )
+
+        gsap.from('#fullpage',
+            {
+                opacity: 0,
+                duration: 1,
+                delay: 5.5
+            },
+        )
+
+        gsap.from('#fp-nav', {
+            x: '250%',
+            opacity: 1,
+            delay: 6
+        })
     }
 }
 
