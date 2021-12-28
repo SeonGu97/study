@@ -124,7 +124,7 @@ class App {
         gsap.from('#fp-nav', {
             x: '250%',
             opacity: 1,
-            delay: 6
+            delay: 6.5
         })
     }
 }
