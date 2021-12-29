@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* item */
+.item {
+    width: 100%;
+    height: 100vh;
+    background: #212121;
+}
+
+.item:nth-child(2n) {
+    background: #757575;
+}
