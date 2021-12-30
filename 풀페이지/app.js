@@ -14,8 +14,7 @@ box.setAttribute('class', 'box');
 // add to box
 app.appendChild(box);
 
-// value
-let value = 4;
+const value = 5;
 
 // create item
 for(let i = 0; i < value; i++) {
@@ -26,40 +25,55 @@ for(let i = 0; i < value; i++) {
     box.appendChild(item);
 }
 
-// window scroll event
-window.addEventListener('scroll', windowScroll, false);
+// resize event
+window.addEventListener('resize', resize, false);
 
-let counter = 1;
+// H
+let H = document.documentElement.offsetHeight;
 
-let Top = document.documentElement.scrollTop || 0;
+// gap
+let gap = window.scrollY;
 
-// windowScroll
-function windowScroll(e) {
+let result;
+
+// resize
+function resize(H, gap, value) {
+   return result = (H  / value) - gap;
+}
+
+// resize()
+const windowSize = resize(H, gap, value, result);
+
+
+// ST
+let ST = document.documentElement.scrollTop || 0;
+
+// counter
+let counter = 0;
+
+// scroll event
+window.addEventListener('scroll', () => {
     // Y
     let Y = document.documentElement.scrollTop;
 
-    // result
-    let result = Y - Top >= 0 ? true : false;
+    // size
+    let size = Y - ST >= 0 ? true : false;
+    console.log(result);
 
-    //  Top = Y
-    Top = Y;
+    // ST = Y
+    ST = Y;
+    counter++;
 
-    // gap
-    let gap = window.scrollY;
+    box.style.transition = '0.4s';
+    box.style.transform = `translateY(-${result * counter}px)`;
+}, false);
+
+// transitionend event
+window.addEventListener('transitionend', trans, false);
+
+function trans() {
     
-    // height
-    let height = window.innerHeight;
-
-    // style
-    document.body.style.overflow = 'hidden';
-    box.style.transition = '0.5s';
-    box.style.transform = `translateY(-${(height * counter) - gap}px)`;
 }
 
-box.addEventListener('transitionend', () => {
-    setTimeout( () => {
-        document.body.style.overflow = 'auto';
-        counter++;
-    }, 500);
-}, false);
+const transitionend = trans();
 
