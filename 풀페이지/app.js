@@ -52,28 +52,38 @@ let ST = document.documentElement.scrollTop || 0;
 let counter = 0;
 
 // scroll event
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', e => {
     // Y
     let Y = document.documentElement.scrollTop;
 
     // size
     let size = Y - ST >= 0 ? true : false;
-    console.log(result);
 
     // ST = Y
     ST = Y;
-    counter++;
 
-    box.style.transition = '0.4s';
-    box.style.transform = `translateY(-${result * counter}px)`;
+    // gap
+    let gap = window.scrollY;
+    
+    if(size) {
+        document.body.style.overflow = 'hidden';
+        counter++;
+        box.style.transition = '0.4s';
+        box.style.transform = `translateY(-${(result * counter) - gap}px)`;
+    }else {
+        document.body.style.overflow = 'hidden';
+        counter--;
+        box.style.transition = '0.4s';
+        box.style.transform = `translateY(-${(result * counter) - gap}px)`;
+    }
+
+    console.log((result * counter) - gap);
 }, false);
 
 // transitionend event
-window.addEventListener('transitionend', trans, false);
-
-function trans() {
-    
-}
-
-const transitionend = trans();
+window.addEventListener('transitionend', () => {
+    setTimeout(() => {
+        document.body.style.overflow = 'auto';
+    }, 500);
+}, false);
 
