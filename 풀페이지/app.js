@@ -21,69 +21,39 @@ for(let i = 0; i < value; i++) {
     const item = document.createElement('li');
     item.setAttribute('class', 'item');
 
+    // inner text in item
+    item.innerText = [i + 1];
+
     // add to item
     box.appendChild(item);
 }
 
-// resize event
-window.addEventListener('resize', resize, false);
-
-// H
-let H = document.documentElement.offsetHeight;
-
-// gap
-let gap = window.scrollY;
-
-let result;
-
-// resize
-function resize(H, gap, value) {
-   return result = (H  / value) - gap;
-}
-
-// resize()
-const windowSize = resize(H, gap, value, result);
-
-
-// ST
-let ST = document.documentElement.scrollTop || 0;
+// html
+const html = document.querySelector('html');
 
 // counter
 let counter = 0;
 
 // scroll event
-window.addEventListener('scroll', e => {
-    // Y
-    let Y = document.documentElement.scrollTop;
+window.addEventListener('wheel', e => {
+    e.preventDefault();
 
-    // size
-    let size = Y - ST >= 0 ? true : false;
+    // scroll
+    let scroll = e.deltaY;
 
-    // ST = Y
-    ST = Y;
+    // min
+    if(counter < 0) counter = 0;
 
-    // gap
-    let gap = window.scrollY;
-    
-    if(size) {
-        document.body.style.overflow = 'hidden';
+    // max
+    if(counter > value) counter = value - 1;
+
+    if(scroll == 100) {
         counter++;
-        box.style.transition = '0.4s';
-        box.style.transform = `translateY(-${(result * counter) - gap}px)`;
-    }else {
-        document.body.style.overflow = 'hidden';
+    }else if(scroll == -100) {
         counter--;
-        box.style.transition = '0.4s';
-        box.style.transform = `translateY(-${(result * counter) - gap}px)`;
     }
 
-    console.log((result * counter) - gap);
-}, false);
-
-// transitionend event
-window.addEventListener('transitionend', () => {
-    setTimeout(() => {
-        document.body.style.overflow = 'auto';
-    }, 500);
-}, false);
-
+    window.scrollTo({
+        top: window.innerHeight * counter,
+    });
+}, {passive: false});
