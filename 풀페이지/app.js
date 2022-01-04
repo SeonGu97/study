@@ -28,32 +28,16 @@ for(let i = 0; i < value; i++) {
     box.appendChild(item);
 }
 
-// html
-const html = document.querySelector('html');
+const counter = 0;
 
-// counter
-let counter = 0;
-
-// scroll event
 window.addEventListener('wheel', e => {
-    e.preventDefault();
+    const Ani = ani();
+},);
 
-    // scroll
-    let scroll = e.deltaY;
 
-    // min
-    if(counter < 0) counter = 0;
+// ani
+function ani() {
+    requestAnimationFrame(ani);
+}
 
-    // max
-    if(counter > value) counter = value - 1;
 
-    if(scroll == 100) {
-        counter++;
-    }else if(scroll == -100) {
-        counter--;
-    }
-
-    window.scrollTo({
-        top: window.innerHeight * counter,
-    });
-}, {passive: false});
