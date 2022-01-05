@@ -21,6 +21,12 @@ for(let i = 0; i < value; i++) {
     const item = document.createElement('li');
     item.setAttribute('class', 'item');
 
+    // inner text in item
+    item.innerText = [i + 1];
+
+    // add to item
+    box.appendChild(item);
+
     // create num
     const num = document.createElement('span');
     num.setAttribute('class', 'num');
@@ -29,12 +35,6 @@ for(let i = 0; i < value; i++) {
     num.innerText = [i + 1];
 
     item.appendChild(num);
-
-    // inner text in item
-    item.innerText = [i + 1];
-
-    // add to item
-    box.appendChild(item);
 }
 
 window.addEventListener('resize', () => {
@@ -42,71 +42,60 @@ window.addEventListener('resize', () => {
     box.style.transform = `translateY(-${(window.innerHeight * counter) - window.scrollY}px)`;
 })
 
-// html
-const html = document.querySelector('html');
-
-// ST
-let ST = document.documentElement.scrollTop || 0;
-
 // counter
-let counter = 1;
-
-// ani
-function ani(sensors, H, gap) {
-    if(counter < 0) {
-        counter = 1
-    }else if(counter >= value) {
-        counter = value;
-    }
-
-    let result = (H * counter) - gap;
-
-    if(!sensors) {
-        ++counter;
-    }else {
-        --counter;
-    };
-    // box.style.transform = `translateY(-${result}px)`;
-}
-
-// scroll
-window.addEventListener('scroll', () => {
-    // html.style.overflow = 'hidden';
-
-    let Y = document.documentElement.scrollTop;
-
-    let sensors = Y - ST >= 0 ? false : true;
-    console.log(sensors)
-    
-    ST = Y;
-
-    // H
-    let H = window.innerHeight;
-
-    // gap
-    let gap = window.scrollY;
-
-    // ani()
-    ani(sensors, H, gap);
-
-    window.addEventListener('transitionend', () => {
-        setTimeout(() => {
-            html.style.overflow = 'auto';
-        }, 500);
-    }, false);
-
-    active();
-})
+let counter = 0;
 
 const items = document.querySelectorAll('.item');
 items[0].classList.add('active');
 
-// active
-function active() {
+// scroll
+window.addEventListener('wheel', e => {
+    e.preventDefault();
+
+    // scroll
+    let scroll = e.deltaY;
+
+    if(scroll === 100){
+        counter++;
+    }else if(scroll === -100) {
+        counter--;
+    }
+
     for(let i = 0; i < value; i++) {
         items[i].classList.remove('active');
     }
+
+    if(counter >= value) {
+        counter = value - 1;
+        add();
+    }else if(counter < 0) {
+        counter = 0;
+        add();
+    }
+    else {
+        add();
+    }
+
+    move();
+}, {passive: false});
+
+
+function add() {
+    items[counter].classList.add('active');
+}
+
+function move() {
+    // find
+    let find =items[counter].classList.contains('active');
+
+    // text
+    let text = items[counter].childNodes[1].innerText - 1;
+
+    // result
+    let result = window.innerHeight * text;
     
-    items[counter - 1].classList.add('active');
+    if(find) {
+        box.style.transform = `translateY(-${result}px)`;
+    }   
 }
 

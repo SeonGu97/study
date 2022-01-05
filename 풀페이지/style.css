@@ -6,7 +6,7 @@
 
 /* html */
 html {
-    overflow: auto;
+ 
 }
 
 /* body */
@@ -31,4 +31,9 @@ body {
     color: #f0f0f0;
     font-size: 20rem;
     scroll-snap-align: start;
+}
+
+/* num */
+.num {
+    opacity: 0;
 }
