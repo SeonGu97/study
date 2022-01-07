@@ -74,11 +74,10 @@ class App {
             {
                 width: '45%',
                 height: '0.5%',
-                top: '50%',
-                left: '30%',
+                top: '55%',
+                left: '27%',
                 border: 0,
                 borderRadius: '2rem',
-                background: '#eceff1'
             },
             {
                 width: '100%',
@@ -92,6 +91,11 @@ class App {
             delay: 2,
             height: '100%',
             top: '0',
+        })
+
+        gsap.to('.subTitle', {
+            delay: 1.5,
+            display: 'none'
         })
 
         gsap.to('.container', {
