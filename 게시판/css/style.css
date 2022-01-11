@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* html */
@@ -29,7 +30,6 @@ body {
     justify-content: space-between;
     background: darkgrey;
     padding: 1rem;
-    box-sizing: border-box;
     margin: 0 auto;
 }
 
@@ -38,6 +38,24 @@ header {
     width: 100%;
     height: 10%;
     background: lightgray;
+    padding: 0.5rem;
+}
+
+/* library */
+.library {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+/* book */
+.book {
+    width: 10%;
+    height: 100%;
+    background: #bdbdbd;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 /* main */
@@ -45,13 +63,60 @@ main {
     width: 100%;
     height: 80%;
     background: lightgray;
-    box-sizing: border-box;
     padding: 1rem;
+}
+
+/* board */
+.board {
+    width: 100%;
+    height: 100%;
+    max-height: calc(100% - 5.5%);
+    margin-top: 1rem;
+}
+
+/* box */
+.box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* item */
+.item {
+    height: 3rem;
+    background: #bdbdbd;
+    border-radius: 0.5rem;
 }
 
 /* footer */
 footer {
+    display: flex;
     width: 100%;
     height: 5%;
+    justify-content: center;
     background: lightgray;
+    padding: 0.5rem;
+}
+
+/* page */
+.page {
+    width: 35%;
+    height: 100%;
+    background: #bdbdbd;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+/* btn */
+.btn {
+    font-size: 1.5rem;
+}
+
+/* num-box */
+.num-box {
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
 }
