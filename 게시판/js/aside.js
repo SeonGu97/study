@@ -1,47 +1,55 @@
 'use strict';
 
+import Setting from "./setting.js";
+
 export default class Aside {
     constructor(app) {
-        // value
-        this.value = 3;
-
-        // titles
-        this.titles = ['게시판', 'undefined', 'undefined', 'undefined'];
-
         // create aside
         this.aside = document.createElement('aside');
-        this.aside.setAttribute('class', 'aside');
+        this.aside.setAttribute('class', 'aside Y');
 
         // add to aside
         app.appendChild(this.aside);
 
-        // create lists
-        this.lists = document.createElement('ul');
-        this.lists.setAttribute('class', 'lists');
+        // create aside-title
+        this.aside_title = document.createElement('h4');
+        this.aside_title.setAttribute('class', 'aside-title');
 
-        // add to lists
-        this.aside.appendChild(this.lists);
+        // aside-title-text
+        this.aside_title_text = '게시판';
 
-        // create title
-        this.title = document.createElement('div');
-        this.title.setAttribute('class', 'title');
+        // inner text to aside-title-text
+        this.aside_title.innerText = this.aside_title_text;
 
-        // add to title
-        this.lists.appendChild(this.title);
+        // add to aside-title
+        this.aside.appendChild(this.aside_title);
 
-        // inner text in title
-        this.title.innerText = this.titles[0];
+        // create library
+        this.library = document.createElement('ul');
+        this.library.setAttribute('class', 'library');
+
+        // add to library
+        this.aside.appendChild(this.library);
+
+        // value
+        this.value = 1;
+
+        // titles
+        this.titles = ['First-list'];
 
         for(let i = 0; i < this.value; i++) {
-            // create list
-            this.list = document.createElement('li');
-            this.list.setAttribute('class', 'list');
+            // create book
+            this.book = document.createElement('li');
+            this.book.setAttribute('class', 'li');
 
-            // inner text in list
-            this.list.innerText = this.titles[i + 1];
+            // inner text in book
+            this.book.innerText = this.titles[i];
 
-            // add to list
-            this.lists.appendChild(this.list);
+            // add to book
+            this.library.appendChild(this.book);
         }
+
+        // component
+        this.setting = new Setting(this.aside);
     }
 }

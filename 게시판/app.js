@@ -11,7 +11,7 @@ export default class App {
         // add to app
         document.body.appendChild(this.app);
 
-        // components
+        // component
         this.aside = new Aside(this.app);
     }
 }
