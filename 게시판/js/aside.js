@@ -1,28 +1,25 @@
 'use strict';
 
-import Setting from "./setting.js";
+import Tool from "./tool.js";
 
 export default class Aside {
     constructor(app) {
         // create aside
         this.aside = document.createElement('aside');
-        this.aside.setAttribute('class', 'aside Y');
+        this.aside.setAttribute('class', 'aside Y common');
 
         // add to aside
         app.appendChild(this.aside);
 
-        // create aside-title
-        this.aside_title = document.createElement('h4');
-        this.aside_title.setAttribute('class', 'aside-title');
+        // create title
+        this.title = document.createElement('h4');
+        this.title.setAttribute('class', 'title');
 
-        // aside-title-text
-        this.aside_title_text = '게시판';
+        // inner text in title
+        this.title.innerText = '게시판';
 
-        // inner text to aside-title-text
-        this.aside_title.innerText = this.aside_title_text;
-
-        // add to aside-title
-        this.aside.appendChild(this.aside_title);
+        // add to title
+        this.aside.appendChild(this.title);
 
         // create library
         this.library = document.createElement('ul');
@@ -31,25 +28,37 @@ export default class Aside {
         // add to library
         this.aside.appendChild(this.library);
 
-        // value
-        this.value = 1;
+        // create tool-btn
+        this.tool_btn = document.createElement('span');
+        this.tool_btn.setAttribute('class', 'tool-btn');
 
-        // titles
-        this.titles = ['First-list'];
+        // tool-btn-icon
+        this.tool_btn_icon = `<i class="fas fa-cog"></i>`;
 
-        for(let i = 0; i < this.value; i++) {
-            // create book
-            this.book = document.createElement('li');
-            this.book.setAttribute('class', 'li');
+        // inner html in tool-btn
+        this.tool_btn.innerHTML = this.tool_btn_icon;
 
-            // inner text in book
-            this.book.innerText = this.titles[i];
+        // add to tool-btn
+        this.aside.appendChild(this.tool_btn);
 
-            // add to book
-            this.library.appendChild(this.book);
-        }
+        this.tool_btn.addEventListener('click', e => {
+            // target
+            this.target = e.target;
+
+            // select tool-wrap
+            const tool_wrap = document.querySelector('.tool-wrap');
+
+            // toggle
+            tool_wrap.classList.toggle('active');
+
+            if(tool_wrap.classList.contains('active')) {
+                this.target.style.transform = 'rotate(0.5turn)';
+            }else {
+                this.target.style.transform = 'rotate(-0.25turn)';
+            }
+        }, false);
 
         // component
-        this.setting = new Setting(this.aside);
+        this.tool = new Tool(this.aside, this.library);
     }
 }

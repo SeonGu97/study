@@ -25,88 +25,108 @@ body {
 
 /* aside */
 aside {
-    display: flex;
-    width: 100px;
-    flex-direction: column;
-    align-items: center;
-    background: red;
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-}
+    width: 150px;
+    height: auto;
+    padding: 0.5rem;
 
-/* X */
-.X {
-  transform: translateX(-50%);  
+    position: absolute;
+    top: 50%;
+    left: 1rem;
 }
 
 /* Y */
 .Y {
-    transform: translateY(-50%);  
+    transform: translateY(-50%);
+}
+
+/* common */
+.common {
+    background: #eceff1;
+    border: 1px solid #9e9e9e;
+    border-radius: 0.25rem;
+}
+
+/* title */
+.title {
+    text-align: center;
+    padding: 0.1rem 0;
+    background: #616161;
+    border-radius: 0.25rem;
+    color: #f0f0f0;
 }
 
 /* library */
 .library {
     width: 100%;
-    height: 100%;
 }
 
 /* book */
 .book {
-    width: 100%;
+    margin-top: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space:nowrap;
+
+    position: relative;
 }
 
 li {
     list-style: none;
 }
 
-/* tool-box */
-.tool-box {
+/* tool-wrap */
+.tool-wrap {
     width: 1rem;
     height: 1rem;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 0;
     transition: all 0.3s;
+    pointer-events: none;
+
+    position: absolute;
+    top: 130%;
+    left: 0.5rem;
+}
+
+/* tool-box */
+.tool-box { 
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+/* tool-text */
+.tool-text {
+    width: 70%;
+    margin-right: 1rem;
 }
 
 /* tool-btn */
 .tool-btn {
     cursor: pointer;
+
+    position: absolute;
+    bottom: -1.75rem;
+    left: 0;
+    z-index: 10;
 }
 
-/* tool-container */
-.tool-container {
-    width: 100%;
-    height: 100%;
-    background: blue;
-    margin-left: 1rem;
-    opacity: 0;
+.fa-cog {
     transition: all 0.3s;
-    position: relative;
-    top: -0.6rem;
-    left: -0.5rem;
+    color: #424242;
 }
 
 /* active */
 .active {
-    width: 200px;
-    height: 250px;
-}
-
-/* ghost */
-.ghost {
+    width: 250px;
+    height: 300px;
     opacity: 1;
-    top: 0;
-    left: 0;
-}
+    pointer-events: auto;
 
-/* turn */
-.turn {
-    transform: rotate(0.5turn);
-}
-
-/* return */
-.return {
-    transform: rotate(-0.5turn);
+    top: 140%;
+    left: 1rem;
 }
