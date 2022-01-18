@@ -4,50 +4,49 @@ import Aside from "./js/aside.js";
 
 export default class App {
     constructor() {
-        // 만들 엘리먼트의 개수를 정한다.
-        this.num = 1;
-
-        // 엘리먼트의 속성을 정한다.
-        this.box = [
-            {type: 'id', value: 'app'},
-        ];
-
-        // 엘리먼트를 만드는 함수를 실행한다.
-        this.loop(this.num, this.app, 'div', this.box, document.body);
-
-        // #app을 변수에 넣는다.
-        this.app = document.querySelector('#app');
-
-        // 컴포넌트
-        this.aside = new Aside(this, this.app);
+        this.Getter('app', 'div', 2, ['id'], ['app'], ['<i class="fab fa-500px"></i>', 'Hello World'], document.body);
     }
 
-    // this.num의 값만큼 this.create 함수를 실행한다.
-    loop(num, variable, element, box, parent) {
-        for(let i = 0; i < num; i++) {
-            this.create(variable, element, box, parent);
+    Getter(variable, tag, number, name, value, innerHTML, parent) {
+        this.property = [];
+
+        this.property.push({variable, tag, number}, {name, value}, {innerHTML}, {parent});
+        console.log(this.property)
+
+        this.Setter(this.property);
+    }
+
+    Setter(property) {
+        property[0].variable = 'this.' + property[0].variable;
+
+        for(let i = 0; i < property[0].number; i++) {
+            this.create(property);
+            this.innerHTML(property, i);
         }
     }
 
-    // 매개변수에 변수 이름, 태그를 받아와서 만든다.   
-    create(variable, element, box, parent) {
-        variable = document.createElement(element);
+    create(property) {
+        property[0].variable = document.createElement(property[0].tag);
 
-        this.attrs(parent, variable, box);
+        this.attrs(property);
     }
 
-    // 만든 엘리먼트에 속성을 부여한다.
-    attrs(parent, variable, box) {
-        for(let j = 0; j < box.length; j++) {
-            variable.setAttribute(box[j].type, box[j].value);
+    innerHTML(property, i) {
+        property[0].variable.innerHTML = property[2].innerHTML[i]
+    }
+
+    attrs(property) {
+        for(let i = 0; i < property[0].number; i++) {
+            property[0].variable.setAttribute(property[1].name[i], property[1].value[i]);
+            
+            property[0].variable.removeAttribute(undefined);
         }
 
-        this.append(parent, variable);
+        this.append(property);
     }
 
-    // 완성된 엘리먼트를 사용한다.
-    append(parent, variable) {
-        parent.appendChild(variable);
+    append(property) {
+        property[3].parent.appendChild(property[0].variable);
     }
 }
 

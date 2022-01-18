@@ -19,31 +19,10 @@ body {
 
 /* app */
 #app {
-    width: 100%;
-    height: 100%;
+
 }
 
 /* aside */
 aside {
-    display: flex;
-    width: 150px;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.25rem;
-    background: #eceff1;
-    border: 1px solid #b0bec5;
-    border-radius: 0.25rem;
 
-    /* position */
-    position: fixed;
-    top: 50%;
-    left: 1rem;
-}
-
-aside::before {
-    content: '게시판';
-    padding: 0.25rem 0.75rem;
-    background: #424242;
-    border-radius: 0.25rem;
-    color: #f0f0f0;
 }

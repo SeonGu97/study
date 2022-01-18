@@ -1,7 +1,7 @@
 'use strict';
 
-export default class Tool {
+export default class Tool_btn {
     constructor(This, aside) {
-
+        
     }
 }
