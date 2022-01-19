@@ -1,9 +1,9 @@
 'use strict';
 
-import Book from "./book.js";
-
 export default class Library {
-    constructor(This, aside) {
+    constructor(This) {
+        this.aside = document.querySelector('aside');
 
+        This.Getter('library', 'ul', 1, ['class'], ['library'], [''], this.aside);
     }
 }

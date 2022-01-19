@@ -1,11 +1,12 @@
 'use strict';
 
-import Tool from "./tool.js";
 import Library from "./library.js";
-import Tool_btn from "./tool-btn.js";
 
 export default class Aside {
-    constructor() {
+    constructor(This) {
+        This.Getter('aside', 'aside', 1, ['class'], ['aside common'], [''], This.app);
 
+        // components
+        this.library = new Library(This);
     }
 }

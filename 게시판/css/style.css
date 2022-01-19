@@ -19,10 +19,107 @@ body {
 
 /* app */
 #app {
-
+    width: 100%;
+    height: 100%;
 }
 
 /* aside */
 aside {
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    align-items: center;
 
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+/* library */
+.library {
+
+}
+
+.library::before {
+    content: '게시판';
+
+    display: flex;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    background: #424242;
+    color: #f0f0f0;
+}
+
+/* book */
+.book {
+
+}
+
+li {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+/* container */
+.container {
+    position: fixed;
+    top: 57.5%;
+    left: 2.5rem;
+}
+
+/* tool-box */
+.tool-box {
+
+}
+
+/* tool-btn */
+.tool-btn {
+    position: absolute;
+    top: -50%;
+    left: -1.5rem;
+}
+
+/* common */
+.common {
+    border: 1px solid #cfd8dc;
+    border-radius: 0.25rem;
+    background: #eceff1;
+    border-radius: 0.25rem;
+    padding: 0.25rem;
+}
+
+.text-box {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.text-box::before {
+    content: '게시판 추가';
+    padding: 0.25rem 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    position: absolute;
+    top: 0;
+}
+
+.text {
+    height: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+.submit {
+    display: flex;
+    align-items: center;
+    color: #424242;
+    font-size: 1.25rem;
+}
+
+/* button */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }

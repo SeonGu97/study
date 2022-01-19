@@ -1,17 +1,26 @@
 'use strict';
 
 import Aside from "./js/aside.js";
+import Container from "./js/container.js";
+import Storage from "./js/storage.js";
 
 export default class App {
     constructor() {
-        this.Getter('app', 'div', 2, ['id'], ['app'], ['<i class="fab fa-500px"></i>', 'Hello World'], document.body);
+        // 엘리먼트 생성기 (변수이름, 만들태그, 만들개수, 속성, 속성벨류, 넣을 텍스트&아이콘, 만들어진 엘리먼트를 넣을 부모)
+        this.Getter('app', 'div', 1, ['id'], ['app'], [''], document.body);
+
+        this.app = document.querySelector('#app');
+        
+        // component
+        this.aside = new Aside(this);
+        this.container = new Container(this);
+        this.storage = new Storage(this);
     }
 
     Getter(variable, tag, number, name, value, innerHTML, parent) {
         this.property = [];
 
         this.property.push({variable, tag, number}, {name, value}, {innerHTML}, {parent});
-        console.log(this.property)
 
         this.Setter(this.property);
     }
