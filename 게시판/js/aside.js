@@ -1,6 +1,7 @@
 'use strict';
 
 import Library from "./library.js";
+import Tool_box from "./tool-box.js";
 
 export default class Aside {
     constructor(This) {
@@ -8,5 +9,6 @@ export default class Aside {
 
         // components
         this.library = new Library(This);
+        this.tool_box = new Tool_box(This);
     }
 }

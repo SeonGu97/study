@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     white-space: nowrap;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
 }
 
 /* html */
@@ -21,105 +29,156 @@ body {
 #app {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 /* aside */
 aside {
     display: flex;
-    width: 150px;
+    width: 9rem;
     flex-direction: column;
     align-items: center;
+    transform: translateY(-50%);
 
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 1rem;
-    transform: translateY(-50%);
+}
+
+aside::before {
+    width: min-content;
+    content: '게시판';
+    background: #263238;
+    color: #f0f0f0;
+    padding: 0.25rem 2rem;
+    border-radius: 0.25rem;
 }
 
 /* library */
 .library {
-
-}
-
-.library::before {
-    content: '게시판';
-
     display: flex;
-    padding: 0.25rem 1rem;
-    border-radius: 0.25rem;
-    background: #424242;
-    color: #f0f0f0;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* book */
 .book {
-
-}
-
-li {
-    list-style: none;
+    display: inline-flex;
     margin-top: 0.5rem;
+    font-size: 0.85rem;
+    padding-bottom: 0.25rem;
+
+    position: relative;
 }
 
-/* container */
-.container {
-    position: fixed;
-    top: 57.5%;
-    left: 2.5rem;
-}
+.book::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f9a825;
 
-/* tool-box */
-.tool-box {
-
-}
-
-/* tool-btn */
-.tool-btn {
     position: absolute;
-    top: -50%;
-    left: -1.5rem;
+    left: 50%;
+    bottom: 0;
+}
+
+.book:hover::after {
+    width: 50%;
+    transition: width 0.4s;
+}
+
+.book::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #f9a825;
+
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+}
+
+.book:hover::before {
+    width: 50%;
+    transition: width 0.4s;
 }
 
 /* common */
 .common {
+    background: #eceff1;
     border: 1px solid #cfd8dc;
     border-radius: 0.25rem;
-    background: #eceff1;
-    border-radius: 0.25rem;
-    padding: 0.25rem;
+    padding: 0.5rem;
 }
 
-.text-box {
+/* pointer */
+.pointer {
+    cursor: pointer;
+}
+
+/* tool-box */
+.tool-box {
     display: flex;
-    align-items: center;
-    margin-top: 1.5rem;
+    flex-direction: column-reverse;
+
+    position: absolute;
+    bottom: -2.5rem;
+    left: 0;
 }
 
-.text-box::before {
-    content: '게시판 추가';
-    padding: 0.25rem 0;
-    font-size: 0.75rem;
-    font-weight: bold;
+/* tool */
+.tool {
+    opacity: 0;
+    transition: all 0.4s;
 
     position: absolute;
     top: 0;
+    left: -14rem;
 }
 
-.text {
-    height: 1.25rem;
-    margin-right: 0.5rem;
+/* active */
+.active {
+    opacity: 1;
+    transition: all 0.4s;
+
+    left: 1.5rem;
 }
 
-.submit {
-    display: flex;
-    align-items: center;
-    color: #424242;
-    font-size: 1.25rem;
-}
-
-/* button */
-button {
+/* tool-btn */
+.tool-btn {
+    width: min-content;
     background: none;
     border: none;
-    cursor: pointer;
+    font-size: 1rem;
+    pointer-events: none;
+
+    position: absolute;
+    top: -1.5rem;
+}
+
+.fa-cog {
+    pointer-events: auto;
+    transition: all 0.4s;
+}
+
+/* text */
+.text {
+    width: 9rem;
+    margin-right: 0.5rem;
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid #b0bec5;;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #f9a825;;
+}
+
+/* submit */
+.submit {
+    padding: 0 0.25rem;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 0px 2px #263238;
 }

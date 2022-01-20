@@ -2,6 +2,6 @@
 
 export default class Book {
     constructor(This, value, library) {
-        This.Getter('book', 'li', null, ['class'], ['book'], value, library);
+        This.Getter('book', 'li', value.length, ['class'], ['book pointer'], value, library);
     }
 }

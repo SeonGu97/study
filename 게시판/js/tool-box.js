@@ -1,12 +1,17 @@
 'use strict';
 
-import Text_box from "./text-box.js";
+import Tool_btn from "./tool-btn.js";
+import Tool from "./tool.js";
+
 
 export default class Tool_box {
-    constructor(This, container) {
-        This.Getter('tool_box', 'div', 1, ['class'], ['tool-box'], [''], container);
+    constructor(This) {
+        this.aside = document.querySelector('aside')
 
+        This.Getter('tool_box', 'div', 1, ['class'], ['tool-box'], [''], this.aside);
+    
         // component
-        this.text_box = new Text_box(This);
+        this.tool = new Tool(This);
+        this.tool_btn = new Tool_btn(This);
     }
 }

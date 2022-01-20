@@ -16,7 +16,7 @@ export default class Storage {
 
         this.update(this.submit, this.text, This, this.library);
 
-        this.create(This, this.library)
+        this.create(This, this.library);
     }
 
     type() {
@@ -46,10 +46,13 @@ export default class Storage {
             if(!text.value.trim()) {
                 return this.clear(text);
             }else {
+                this.clone();
+
                 this.push(text);
                 this.stringify();
-                this.create(This, library)
 
+                this.create(This, library);
+                
                 return this.clear(text);
             }
         }, false);
@@ -65,5 +68,13 @@ export default class Storage {
 
     create(This, library) {
         this.book = new Book(This, this.value, library);
+    }
+
+    clone() {
+        this.clone_length = this.library.cloneNode(true).childNodes.length;
+
+        for(let i = 0; i < this.clone_length; i++) {
+            this.library.removeChild(this.library.firstChild);
+        }
     }
 }

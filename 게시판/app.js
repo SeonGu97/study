@@ -1,7 +1,6 @@
 'use strict';
 
 import Aside from "./js/aside.js";
-import Container from "./js/container.js";
 import Storage from "./js/storage.js";
 
 export default class App {
@@ -13,7 +12,6 @@ export default class App {
         
         // component
         this.aside = new Aside(this);
-        this.container = new Container(this);
         this.storage = new Storage(this);
     }
 
@@ -45,7 +43,7 @@ export default class App {
     }
 
     attrs(property) {
-        for(let i = 0; i < property[0].number; i++) {
+        for(let i = 0; i < property[1].name.length; i++) {
             property[0].variable.setAttribute(property[1].name[i], property[1].value[i]);
             
             property[0].variable.removeAttribute(undefined);
