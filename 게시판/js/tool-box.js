@@ -10,7 +10,7 @@ export default class Tool_box {
 
         This.Getter('tool_box', 'div', 1, ['class'], ['tool-box'], [''], this.aside);
     
-        // component
+        // components
         this.tool = new Tool(This);
         this.tool_btn = new Tool_btn(This);
     }
