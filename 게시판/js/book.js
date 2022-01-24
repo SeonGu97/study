@@ -1,7 +1,16 @@
-'use strict';
+'use strict'
 
 export default class Book {
-    constructor(This, value, library) {
-        This.Getter('book', 'li', value.length, ['class'], ['book pointer'], value, library);
+    constructor(CE, value, library) {
+        
+        CE.generator(
+            'book',
+            'li',
+            ['class'],
+            ['book pointer'],
+            value,
+            library,
+            value.length
+        );
     }
 }

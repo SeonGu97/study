@@ -1,28 +1,66 @@
-'use strict';
+'use strict'
 
 export default class Tool_btn {
-    constructor(This) {
-        this.tool_box = document.querySelector('.tool-box');
-        
-        This.Getter('tool_btn', 'button', 1, ['class'], ['tool-btn pointer'], ['<i class="fas fa-cog"></i>'], this.tool_box);
-    
-        this.tool_btn = document.querySelector('.tool-btn');
-        this.tool = document.querySelector('.tool');
+    constructor(CE, tool) {
+        CE.generator(
+            'tool_btn',
+            'button',
+            ['class'],
+            ['tool-btn'],
+            ['<i class="fas fa-cog"></i>'],
+            tool,
+            1
+        );
 
-        this.active(this.tool_btn, this.tool);
+        this.tool_btn = document.querySelector('.tool-btn');
+        this.add = document.querySelector('.add');
+        this.remove = document.querySelector('.remove');
+        this.library = document.querySelector('.library');
+
+        this.active(this.tool_btn, this.add, this.remove)
+        this.delay(this.tool_btn, this.add, this.remove, this.library);
     }
 
-    active(tool_btn, tool) {
+    active(tool_btn, add, remove) {
         tool_btn.addEventListener('click', e => {
             this.target = e.target;
-            
-            tool.classList.toggle('active');
 
-            if(tool.classList.contains('active')) {
+            add.classList.toggle('active');
+            remove.classList.toggle('active');
+
+            tool_btn.style.pointerEvents = 'none';
+
+            if(add.classList.contains('active')) {
                 this.target.style.transform = 'rotate(0.5turn)';
             }else {
                 this.target.style.transform = 'rotate(-0.5turn)';
             }
         }, false);
+    }
+
+    delay(tool_btn, add, remove, library) {
+        tool_btn.addEventListener('transitionend', () => {
+            if(add.classList.contains('active')) {
+                add.style.transform = 'translateX(0%)';
+                remove.style.transform = 'translateX(0%)';
+            }else {
+                add.style.transform = 'translateX(-100%)';
+                remove.style.transform = 'translateX(-100%)';
+
+                for(let i = 0; i < library.childNodes.length; i++) {
+                    this.trash = document.querySelector('.trash');
+
+                    library.childNodes[i].removeChild(this.trash);
+                }
+            }
+
+            this.timer(tool_btn);
+        }, false);
+    }
+
+    timer(tool_btn) {
+        setTimeout(() => {
+            tool_btn.style.pointerEvents = 'auto';
+        }, 500);
     }
 }

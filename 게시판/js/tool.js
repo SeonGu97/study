@@ -1,16 +1,26 @@
-'use strict';
+'use strict'
 
-import Remove_box from "./remove-box.js";
-import Text_box from "./text-box.js";
+import Add from "./add.js";
+import Remove from "./remove.js";
+import Tool_btn from "./tool-btn.js";
 
 export default class Tool {
-    constructor(This) {
-        this.tool_box = document.querySelector('.tool-box');
+    constructor(CE, wrap) {
+        CE.generator(
+            'tool',
+            'div',
+            ['class'],
+            ['tool'],
+            [''],
+            wrap,
+            1
+        );
 
-        This.Getter('tool', 'div', 1, ['class'], ['tool common'], [''], this.tool_box);
+        this.tool = document.querySelector('.tool');
 
         // components
-        this.text_box = new Text_box(This);
-        this.remove_box = new Remove_box(This);
+        this.remove = new Remove(CE, this.tool);
+        this.add = new Add(CE, this.tool);
+        this.tool_btn = new Tool_btn(CE, this.tool);
     }
 }

@@ -1,9 +1,17 @@
 'use strict';
 
 export default class Library {
-    constructor(This) {
+    constructor(CE) {
         this.aside = document.querySelector('aside');
 
-        This.Getter('library', 'ul', 1, ['class'], ['library'], [''], this.aside);
+        CE.generator(
+            'library',
+            'ul',
+            ['class'],
+            ['library'],
+            [''],
+            this.aside,
+            1
+        );
     }
 }

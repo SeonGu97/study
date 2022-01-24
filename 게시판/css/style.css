@@ -3,9 +3,11 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
     box-sizing: border-box;
-    white-space: nowrap;
+    overflow: hidden;
     font-family: 'Noto Sans KR', sans-serif;
+    white-space: nowrap;
 
     -webkit-user-select:none;
     -moz-user-select:none;
@@ -31,21 +33,34 @@ body {
     height: 100%;
 }
 
-/* aside */
-aside {
-    display: flex;
-    width: 9rem;
-    flex-direction: column;
-    align-items: center;
-    transform: translateY(-50%);
-
-    position: relative;
-    top: 50%;
-    left: 1rem;
+/* wrap */
+.wrap {
+    width: 15rem;
+    height: 100%;
+    background: #fafafa;
+    border-right: 1px solid #eceff1;
+    padding: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-aside::before {
-    width: min-content;
+/* aside */
+aside {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* library */
+.library {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+}
+
+.library::before {
     content: '게시판';
     background: #263238;
     color: #f0f0f0;
@@ -53,18 +68,10 @@ aside::before {
     border-radius: 0.25rem;
 }
 
-/* library */
-.library {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /* book */
 .book {
-    display: inline-flex;
     margin-top: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     padding-bottom: 0.25rem;
 
     position: relative;
@@ -102,12 +109,13 @@ aside::before {
     transition: width 0.4s;
 }
 
+
 /* common */
 .common {
     background: #eceff1;
-    border: 1px solid #cfd8dc;
+    border: 1px solid #b0bec5;
     border-radius: 0.25rem;
-    padding: 0.5rem;
+    padding: 0.25rem;
 }
 
 /* pointer */
@@ -115,34 +123,11 @@ aside::before {
     cursor: pointer;
 }
 
-/* tool-box */
-.tool-box {
-    display: flex;
-    width: 150%;
-    height: 100%;
-    flex-direction: column-reverse;
-
-    position: absolute;
-    bottom: -11rem;
-    left: 0;
-}
-
 /* tool */
 .tool {
-    opacity: 0;
-    transition: all 0.4s;
-
-    position: absolute;
-    top: 0;
-    left: -14rem;
-}
-
-/* active */
-.active {
-    opacity: 1;
-    transition: all 0.4s;
-
-    left: 1.5rem;
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: column-reverse;
 }
 
 /* tool-btn */
@@ -151,42 +136,91 @@ aside::before {
     background: none;
     border: none;
     font-size: 1rem;
-    pointer-events: none;
-
-    position: absolute;
-    top: -1.5rem;
 }
 
+/* fa-cog */
 .fa-cog {
-    pointer-events: auto;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+/* add */
+.add {
+    display: flex;
+    width: min-content;
+    align-items: center;
+    margin-top: 1rem;
+    transform: translateX(-100%);
     transition: all 0.4s;
+    opacity: 0;
 }
 
-/* text */
-.text {
-    width: 9rem;
-    margin-right: 0.5rem;
-    padding: 0 0.25rem;
-    border-radius: 0.25rem;
-    border: 1px solid #b0bec5;;
-}
-
-input:focus {
+/* text-box */
+.text-box {
+    width: 10rem;
+    height: min-content;
     outline: none;
-    border: 1px solid #f9a825;;
+    padding-left: 0.25rem;
+    border: 2px solid #546e7a;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.text-box:focus {
+    border: 2px solid #f9a825;
 }
 
 /* submit */
 .submit {
-    padding: 0 0.25rem;
-    border-radius: 50%;
+    display: flex;
+    background: none;
     border: none;
-    box-shadow: 0px 0px 2px #263238;
+    align-items: center;
 }
 
-/* remove-box */
-.remove-box {
-    position: absolute;
-    top: 150%;
-    left: 0;
+.submit > i {
+    font-size: 1.5rem;
+    color: #37474f;
+}
+
+/* on */
+.on {
+
+}
+
+/* remove */
+.remove {
+    display: flex;
+    width: min-content;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    transform: translateX(-100%);
+    transition: all 0.4s;
+    opacity: 0;
+    transition-delay: 0.4s;
+}
+
+/* active */
+.active {
+    opacity: 1;
+}
+
+.remove::before {
+    content: '게시판 지우기 모드 :';
+}
+
+/* switch */
+.switch {
+    color: #dd2c00;
+    padding: 0 0.25rem;
+    margin-left: 0.5rem;
+}
+
+/* trash */
+.trash {
+    border: 0;
+    background: none;
+    margin-left: 0.5rem;
+    color: #0d47a1;
 }
