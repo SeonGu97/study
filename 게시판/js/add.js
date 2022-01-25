@@ -29,7 +29,7 @@ export default class Add {
             'button',
             ['class'],
             ['submit pointer'],
-            ['<i class="far fa-plus-square"></i>'],
+            ['<i class="fas fa-plus-circle"></i>'],
             this.add,
             1
         );

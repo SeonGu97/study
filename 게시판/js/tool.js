@@ -19,7 +19,7 @@ export default class Tool {
         this.tool = document.querySelector('.tool');
 
         // components
-        this.remove = new Remove(CE, this.tool);
+        this.remove = new Remove(CE, this.tool)
         this.add = new Add(CE, this.tool);
         this.tool_btn = new Tool_btn(CE, this.tool);
     }

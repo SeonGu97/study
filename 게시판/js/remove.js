@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-export default class Remove {
+export default class remove {
     constructor(CE, tool) {
         CE.generator(
             'remove',
@@ -23,48 +23,41 @@ export default class Remove {
             this.remove,
             1
         );
-
-        this.switch = document.querySelector('.switch');
-        this.library = document.querySelector('.library');
         
-        this.remove_mod(this.switch, this.library);
+        this.switch = document.querySelector('.switch');
+        this.library = document.querySelector('.library').childNodes;
+
+        this.state(this.switch, this.library, this.tool, this.tool_btn);
     }
 
-    remove_mod(btn, library) {
+    state(btn, library, tool, tool_btn) {
         btn.addEventListener('click', e => {
-            this.target = e.target;
+            btn.classList.toggle('state');
 
-            library.classList.toggle('on');
-
-            if(library.classList.contains('on')) {
-                this.add(library); 
-
-                this.target.innerText = 'ON';
-                this.target.style.color = '#00c853';
+            if(btn.classList.contains('state')) {
+                btn.innerText = 'ON';
+                this.add(library);
             }else {
-                this.erase(library);
-
-                this.target.innerText = 'OFF';
-                this.target.style.color = '#dd2c00';
+                btn.innerText = 'OFF';
+                this.removal(library);
             }
-        });
+        }, false);
     }
 
     add(library) {
-        for(let i = 0; i < library.childNodes.length; i++) {
-            this.trash_btn = document.createElement('button');
-            this.trash_btn.setAttribute('class', 'trash pointer');
-            this.trash_btn.innerHTML = '<i class="fas fa-trash"></i>';
+        for(let i = 0; i < library.length; i++) {
+            this.trash = document.createElement('span');
+            this.trash.setAttribute('class', 'trash');
+            
+            this.trash.innerHTML = '<i class="fas fa-trash-alt"></i>';
 
-            library.childNodes[i].appendChild(this.trash_btn);
+            library[i].appendChild(this.trash);
         }
     }
 
-    erase(library) {
-        for(let i = 0; i < library.childNodes.length; i++) {
-            this.trash = document.querySelector('.trash');
-
-            library.childNodes[i].removeChild(this.trash);
+    removal(library) {
+        for(let i = 0; i < library.length; i++) {
+            library[i].removeChild(library[i].childNodes[1]);
         }
     }
 }

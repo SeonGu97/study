@@ -5,9 +5,9 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
-    overflow: hidden;
     font-family: 'Noto Sans KR', sans-serif;
     white-space: nowrap;
+    color: #212121;
 
     -webkit-user-select:none;
     -moz-user-select:none;
@@ -40,6 +40,7 @@ body {
     background: #fafafa;
     border-right: 1px solid #eceff1;
     padding: 0.5rem;
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -128,20 +129,20 @@ aside {
     display: flex;
     margin-top: 1rem;
     flex-direction: column-reverse;
+    overflow: hidden;
 }
 
 /* tool-btn */
 .tool-btn {
-    width: min-content;
-    background: none;
-    border: none;
-    font-size: 1rem;
+    pointer-events: none;
 }
 
 /* fa-cog */
 .fa-cog {
     transition: 0.4s;
     cursor: pointer;
+    pointer-events: auto;
+    color: #263238;
 }
 
 /* add */
@@ -149,10 +150,9 @@ aside {
     display: flex;
     width: min-content;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     transform: translateX(-100%);
     transition: all 0.4s;
-    opacity: 0;
 }
 
 /* text-box */
@@ -161,13 +161,13 @@ aside {
     height: min-content;
     outline: none;
     padding-left: 0.25rem;
-    border: 2px solid #546e7a;
-    margin-right: 0.5rem;
+    border: 1px solid #9e9e9e;
+    margin-right: 0.25rem;
     border-radius: 0.25rem;
 }
 
 .text-box:focus {
-    border: 2px solid #f9a825;
+    border: 1px solid #f9a825;
 }
 
 /* submit */
@@ -179,8 +179,8 @@ aside {
 }
 
 .submit > i {
-    font-size: 1.5rem;
-    color: #37474f;
+    font-size: 1rem;
+    color: #757575;
 }
 
 /* on */
@@ -192,35 +192,42 @@ aside {
 .remove {
     display: flex;
     width: min-content;
+    height: min-content;
     align-items: center;
     margin-top: 1rem;
     font-size: 0.9rem;
     transform: translateX(-100%);
     transition: all 0.4s;
-    opacity: 0;
     transition-delay: 0.4s;
+}
+
+.remove::before {
+    content: '게시판 삭제 모드 :';
 }
 
 /* active */
 .active {
-    opacity: 1;
-}
-
-.remove::before {
-    content: '게시판 지우기 모드 :';
+    
 }
 
 /* switch */
 .switch {
-    color: #dd2c00;
     padding: 0 0.25rem;
+    color: #dd2c00;
     margin-left: 0.5rem;
+}
+
+/* state */
+.state {
+    color: #00c853;
 }
 
 /* trash */
 .trash {
-    border: 0;
-    background: none;
+    position: absolute;
     margin-left: 0.5rem;
-    color: #0d47a1;
+}
+
+.trash > i {
+    color: #d50000;
 }
