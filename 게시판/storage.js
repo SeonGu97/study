@@ -1,6 +1,8 @@
 'use strict';
 
 import Book from "./js/book.js";
+import Remove from "./js/remove.js";
+import Tool_btn from "./js/tool-btn.js";
 
 export default class Storage {
     constructor(CE) {
@@ -17,6 +19,12 @@ export default class Storage {
         this.update(this.submit, this.text_box, CE, this.library);
 
         this.create(CE, this.library);
+
+        this.tool = document.querySelector('.tool');
+        
+        // components
+        this.remove = new Remove(CE, this.tool, this.value);
+        this.tool_btn = new Tool_btn(CE, this.tool);
     }
 
     type() {
@@ -31,7 +39,7 @@ export default class Storage {
         if(localStorage.getItem(this.name) === null) {
             this.value = [];
         }else {
-            this.value = JSON.parse(localStorage.getItem(this.name))
+            this.value = JSON.parse(localStorage.getItem(this.name));
         }
 
         this.stringify();
