@@ -1,16 +1,10 @@
-'use strict'
+'use strict';
 
 export default class Book {
-    constructor(CE, value, library) {
+    constructor(create, value) {
+        this.library = document.querySelector('.library');
         
-        CE.generator(
-            'book',
-            'li',
-            ['class'],
-            ['book pointer'],
-            value,
-            library,
-            value.length
-        );
+        // create aside
+        create.launcher('book', 'li', ['class'], ['book'], [`${value}`], this.library, 1);
     }
 }

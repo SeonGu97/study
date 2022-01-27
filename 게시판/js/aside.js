@@ -1,20 +1,12 @@
-'use strict'
-
+'use strict';
 import Library from "./library.js";
 
 export default class Aside {
-    constructor(CE, wrap) {
-        CE.generator(
-            'aside',
-            'aside',
-            ['class'],
-            ['aside common'],
-            [''],
-            wrap,
-            1
-        );
-
+    constructor(create, wrap) {
+        // create aside
+        create.launcher('aside', 'aside', ['class'], ['aside'], [''], wrap, 1);
+    
         // component
-        this.library = new Library(CE);
+        this.library = new Library(create);
     }
 }

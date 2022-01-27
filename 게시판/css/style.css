@@ -1,233 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 * {
+    font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     padding: 0;
     list-style: none;
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    white-space: nowrap;
-    color: #212121;
-
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none
 }
 
-/* html */
 html {
     width: 100%;
     height: 100%;
 }
 
-/* body */
 body {
     width: 100%;
     height: 100%;
 }
 
-/* app */
 #app {
     width: 100%;
     height: 100%;
 }
 
-/* wrap */
-.wrap {
-    width: 15rem;
+.warp {
+    width: 100%;
     height: 100%;
-    background: #fafafa;
-    border-right: 1px solid #eceff1;
-    padding: 0.5rem;
-    
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
-/* aside */
-aside {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* library */
-.library {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.25rem;
-}
-
-.library::before {
-    content: '게시판';
-    background: #263238;
-    color: #f0f0f0;
-    padding: 0.25rem 2rem;
-    border-radius: 0.25rem;
-}
-
-/* book */
-.book {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    padding-bottom: 0.25rem;
-
-    position: relative;
-}
-
-.book::after {
-    content: '';
-    width: 0;
-    height: 2px;
-    background: #f9a825;
-
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-}
-
-.book:hover::after {
-    width: 50%;
-    transition: width 0.4s;
-}
-
-.book::before {
-    content: '';
-    width: 0;
-    height: 2px;
-    background: #f9a825;
-
-    position: absolute;
-    right: 50%;
-    bottom: 0;
-}
-
-.book:hover::before {
-    width: 50%;
-    transition: width 0.4s;
-}
-
-
-/* common */
-.common {
-    background: #eceff1;
-    border: 1px solid #b0bec5;
-    border-radius: 0.25rem;
-    padding: 0.25rem;
-}
-
-/* pointer */
-.pointer {
-    cursor: pointer;
-}
-
-/* tool */
-.tool {
-    display: flex;
-    margin-top: 1rem;
-    flex-direction: column-reverse;
-    overflow: hidden;
-}
-
-/* tool-btn */
-.tool-btn {
-    pointer-events: none;
-}
-
-/* fa-cog */
-.fa-cog {
-    transition: 0.4s;
-    cursor: pointer;
-    pointer-events: auto;
-    color: #263238;
-}
-
-/* add */
-.add {
-    display: flex;
-    width: min-content;
-    align-items: center;
-    margin-top: 0.75rem;
-    transform: translateX(-100%);
-    transition: all 0.4s;
-}
-
-/* text-box */
-.text-box {
-    width: 10rem;
-    height: min-content;
-    outline: none;
-    padding-left: 0.25rem;
-    border: 1px solid #9e9e9e;
-    margin-right: 0.25rem;
-    border-radius: 0.25rem;
-}
-
-.text-box:focus {
-    border: 1px solid #f9a825;
-}
-
-/* submit */
-.submit {
-    display: flex;
-    background: none;
-    border: none;
-    align-items: center;
-}
-
-.submit > i {
-    font-size: 1rem;
-    color: #757575;
-}
-
-/* on */
-.on {
-
-}
-
-/* remove */
-.remove {
-    display: flex;
-    width: min-content;
-    height: min-content;
-    align-items: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    transform: translateX(-100%);
-    transition: all 0.4s;
-    transition-delay: 0.4s;
-}
-
-.remove::before {
-    content: '게시판 삭제 모드 :';
-}
-
-/* active */
-.active {
-    
-}
-
-/* switch */
-.switch {
-    padding: 0 0.25rem;
-    color: #dd2c00;
-    margin-left: 0.5rem;
-}
-
-/* state */
-.state {
-    color: #00c853;
-}
-
-/* trash */
-.trash {
-    position: absolute;
-    margin-left: 0.5rem;
-}
-
-.trash > i {
-    color: #d50000;
-}

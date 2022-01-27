@@ -1,11 +1,11 @@
 'use strict';
 
-export default class Create_elements {
+export default class Create {
     constructor() {
-        
+
     }
-    
-    generator(variable, element, name, value, innerHTML, parent, number) {
+
+    launcher(variable, element, name, value, innerHTML, parent, number) {
         if(typeof(localStorage) !== undefined) {
             this.push(variable, element, name, value, innerHTML, parent, number);
         }else {
