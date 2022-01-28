@@ -3,21 +3,20 @@
 import Book from "../js/book.js";
 
 export default class Storage {
-    constructor(create, text_box, submit, mod, library) {
-        this.type(create, text_box, submit, mod, library);
-    }
-
-    type(create, text_box, submit, mod, library) {
+    constructor(create, text_box, submit, mod, library, cog, add, remove) {
+        this.type(create, text_box, submit, mod, library, cog, add, remove);
+    }   
+    
+    type(create, text_box, submit, mod, library, cog, add, remove) {
         if(typeof(localStorage) !== undefined) {
-            this.parse(create, text_box, submit, mod, library);
+            this.prase(create, text_box, submit, mod, library, cog, add, remove);
         }else {
-            alert('It does not support local storage.');
+            alert('로컬스토리지를 지원하지 않습니다.');
         }
     }
 
-    parse(create, text_box, submit, mod, library) {
+    prase(create, text_box, submit, mod, library, cog, add, remove) {
         this.name = 'Board';
-
         this.value;
 
         if(localStorage.getItem(this.name) == null) {
@@ -25,103 +24,160 @@ export default class Storage {
         }else {
             this.value = JSON.parse(localStorage.getItem(this.name));
         }
-        
+
         this.stringify(this.name, this.value);
 
-        this.update(create, text_box, submit);
+        this.push(create, text_box, submit, mod, library, this.name, this.value);
 
-        this.mod(mod, library);
+        this.maintain(create, this.value);
+
+        this.mod_change(library, mod, this.name, this.value);
+
+        this.tool_btn(library, submit, this.value, mod, cog, add, remove);
+
+        this.text_box_event(text_box, library, mod, this.value);
     }
 
     stringify(name, value) {
         localStorage.setItem(name, JSON.stringify(value));
     }
 
-    update(create, text_box, submit) {
+    push(create, text_box, submit, mod, library, name, value) {
         submit.addEventListener('click', () => {
-            this.content(create, text_box);
+            if(!text_box.value.trim()) {
+                this.clear(text_box);
+            }else {
+                value.push(text_box.value);
+
+                this.stringify(name, value);
+
+                this.add(create, text_box);
+
+                this.clear(text_box);
+            }
+
+            this.off(library, mod, value);
         }, false);
-
-        this.maintain(create);
     }
 
-    content(create, text_box) {
-        if(!text_box.value.trim()) {
-            return this.clear(text_box);
-        }else {
-            this.push(text_box);
-            this.add(create, text_box);
-            this.clear(text_box);
-            this.stringify(this.name, this.value);
-        }
-    }
-
-    clear(text_box) {
+    clear(text_box){
         text_box.value = '';
-    }
-
-    push(text_box) {
-        this.value.push(text_box.value);
     }
 
     add(create, text_box) {
         this.book = new Book(create, text_box.value);
     }
 
-    maintain(create) {
-        for(let i = 0; i < this.value.length; i++) {
-            this.book = new Book(create, this.value[i]);
+    maintain(create, value) {
+        for(let i = 0; i < value.length; i++) {
+            this.book = new Book(create, value[i]);
         }
     }
 
-    mod(mod, library) {
-        mod.addEventListener('click', e => {
+    mod_change(library, mod, name, value) {
+        mod.addEventListener('click', () => {
             mod.classList.toggle('on');
 
             if(mod.classList.contains('on')) {
-                this.icon_add(library);
+                this.add_trash(library, value);
+                mod.style.color = '#00c853';
+                mod.innerText = 'ON';
+                this.icon_remove(name, value);
             }else {
-                this.icon_remove(library);
+                this.remove(library, value);
+                this.mod_style(mod);
             }
-
-            this.trash_all = document.querySelectorAll('.trash');
-            this.remove(this.trash_all);
         }, false);
     }
 
-    icon_add(library) {
-        for(let i = 0; i < this.value.length; i++) {
+    off(library, mod, value) {
+        if(mod.classList.contains('on')) {
+            mod.classList.remove('on');
+            this.remove(library, value);
+            this.mod_style(mod);
+        }
+    }
+
+    tool_btn(library, submit, value, mod, cog, add, remove) {
+        cog.addEventListener('click', e => {
+            this.off(library, mod, value);
+            this.mod_style(mod);
+
+            cog.classList.toggle('active');
+
+            if(cog.classList.contains('active')) {
+                e.target.style.transform = 'rotate(0.5turn)';
+                this.trans_plus(add, remove, submit, mod);
+            }else {
+                e.target.style.transform = 'rotate(0turn)';
+                this.trans_minus(add, remove, submit, mod);
+            }
+        }, false);
+    }
+
+    remove(library, value) {
+        for(let i = 0; i < value.length; i++) {
+            library[i].removeChild(library[i].childNodes[1]);
+        }
+    }
+
+    add_trash(library, value) {
+        for(let i = 0; i < value.length; i++) {
             this.trash = document.createElement('span');
             this.trash.setAttribute('class', 'trash');
             this.trash.innerHTML = '<i class="fas fa-trash-alt"></i>';
             
-            library[i].appendChild(this.trash);
+            if(library[i].classList.contains('trash')) {
+                return;
+            }else {
+                library[i].appendChild(this.trash);
+            }
         }
     }
 
-    icon_remove(library) {
-        for(let i = 0; i < this.value.length; i++) {
-            console.log(library[i].removeChild(library[i].childNodes[1]))
-        }
+    text_box_event(text_box, library, mod, value) {
+        text_box.addEventListener('click', () => {
+            this.off(library, mod, value)
+        }, false);
     }
 
-    remove(trash_all) {
-        console.log(trash_all)
-        trash_all.forEach(trash => {
-            console.log(trash)
+    mod_style(mod) {
+        mod.innerText = 'OFF';
+        mod.style.color = '#d60000';
+    }
+
+    icon_remove(name, value) {
+        this.trash_all = document.querySelectorAll('.trash');
+        this.trash_all.forEach(trash => {
             trash.addEventListener('click', e => {
                 this.target = e.target;
-                console.log(e.target);
-
-                this.text = this.target.parentElement.parentElement.innerText;
-
-                this.value.splice(this.value.indexOf(this.name), 1);
-
                 this.parent = this.target.parentElement.parentElement;
                 this.parent.remove();
 
-                this.stringify(this.name, this.value);
-            }, false);
+                this.text = this.parent.innerText;
+                console.log(this.text);
+                console.log(value)
+
+                value.splice(value.indexOf(this.text), 1);
+
+                this.stringify(name, value);
+            });
         });
+    }
+
+    trans_minus(add, remove, submit, mod) {
+        add.style.transform = 'translateX(-100%)';
+        remove.style.transform = 'translateX(-100%)';
+
+        submit.style.pointerEvents = 'none';
+        mod.style.pointerEvents = 'none';
+    }
+
+    trans_plus(add, remove, submit, mod) {
+        add.style.transform = 'translateX(0%)';
+        remove.style.transform = 'translateX(0%)';
+
+        submit.style.pointerEvents = 'auto';
+        mod.style.pointerEvents = 'auto';
     }
 }

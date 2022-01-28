@@ -21,9 +21,12 @@ export default class App {
         this.submit = document.querySelector('.submit');
         this.mod = document.querySelector('.mod');
         this.library = document.querySelector('.library').childNodes;
+        this.cog = document.querySelector('.cog');
+        this.add = document.querySelector('.add');
+        this.remove = document.querySelector('.remove');
 
         // component
-        this.storage = new Storage(this.create, this.text_box, this.submit, this.mod, this.library);
+        this.storage = new Storage(this.create, this.text_box, this.submit, this.mod, this.library, this.cog, this.add, this.remove);
     }
 }
 

@@ -7,7 +7,7 @@ import Remove from "./remove.js"
 export default class Tool {
     constructor(create, warp) {
         // create tool
-        create.launcher('tool', 'section', ['class'], ['tool'], [''], warp, 1);
+        create.launcher('tool', 'section', ['class'], ['tool gap'], [''], warp, 1);
 
         // select app
         this.tool = document.querySelector('.tool');

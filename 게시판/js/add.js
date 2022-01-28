@@ -6,7 +6,7 @@ import Submit from "./submit.js";
 export default class Add {
     constructor(create, tool) {
         // create add
-        create.launcher('add', 'div', ['class'], ['add'], [''], tool, 1);
+        create.launcher('add', 'div', ['class'], ['add common gap hide'], [''], tool, 1);
 
         // select add
         this.add = document.querySelector('.add');

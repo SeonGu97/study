@@ -5,6 +5,15 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    color: #212121;
+    font-size: 0.95rem;
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
 }
 
 html {
@@ -22,8 +31,178 @@ body {
     height: 100%;
 }
 
-.warp {
-    width: 100%;
-    height: 100%;
+.wrap {
+    width: min-content;
+    height: min-content;
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
 }
 
+/* aside */
+.aside {
+    width: min-content;
+}
+
+/* library */
+.library {
+    display: flex;
+    width: 11rem;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.library::before {
+    content: '게시판';
+    width: 100%;
+    color: #f0f0f0;
+    background: #212121;
+    padding: 0.25rem 0;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+/* book */
+.book {
+    width: min-content;
+    margin-top: 0.5rem;
+    padding-bottom: 0.15rem;
+
+    position: relative;
+}
+
+.book::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: chocolate;
+    transition: all 0.2s;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+.book:hover::before {
+    width: 50%;
+}
+
+.book::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background: chocolate;
+    transition: all 0.2s;
+
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+}
+
+.book:hover::after {
+    width: 50%;
+}
+
+/* common */
+.common {
+    background: #eceff1;
+    border-radius: 0.25rem;
+    border: 1px solid #cfd8dc;
+    padding: 0.5rem;
+}
+
+/* pointer */
+.pointer {
+    cursor: pointer;
+}
+
+/* mod */
+.mod {
+    color: #d60000;
+}
+
+/* trash */
+.trash {
+    color: #bdbdbd;
+    margin-left: 0.5rem;
+
+    position: fixed;
+    right: 2.5rem;
+}
+
+.trash > i:hover {
+    color: #d60000;
+    transform: translateY(-0.1rem);
+    transition: 0.1s;
+}
+
+/* cog */
+.cog {
+    pointer-events: none;
+}
+
+.fa-cog {
+    transition: transform 0.4s;
+    pointer-events: auto;
+    font-size: 1rem;
+}
+
+.gap {
+    margin-top: 1rem;
+}
+
+/* text-box */
+.text-box {
+    width: 10.25rem;
+    padding-left: 0.25rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+}
+
+.text-box:focus {
+    border: 1px solid chocolate;
+    border-radius: 0.25rem;
+    outline: none;
+}
+
+/* submit */
+.submit {
+    width: min-content;
+    padding: 0 0.25rem;
+    margin-left: 0.5rem;
+    pointer-events: none;
+}
+
+
+/* remove */
+.remove {
+    display: flex;
+    width: min-content;
+    align-items: center;
+}
+
+.remove::before {
+    content: '게시판 삭제 모드 :';
+    color: #757575;
+}
+
+/* mod */
+.mod {
+    margin-top: 1px;
+    margin-left: 0.5rem;
+    padding: 0 0.25rem;
+    pointer-events: none;
+}
+
+/* hide */
+.hide {
+    transform: translateX(-100%);
+    transition: transform 0.4s;
+}
+
+/* delay */
+.delay {
+    transition-delay: 0.4s;
+}
