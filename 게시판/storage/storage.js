@@ -3,19 +3,19 @@
 import Book from "../js/book.js";
 
 export default class Storage {
-    constructor(create, text_box, submit, mod, library, cog, add, remove) {
-        this.type(create, text_box, submit, mod, library, cog, add, remove);
+    constructor(create, text_box, submit, mod, library, cog, add, remove, aside) {
+        this.type(create, text_box, submit, mod, library, cog, add, remove, aside);
     }   
     
-    type(create, text_box, submit, mod, library, cog, add, remove) {
+    type(create, text_box, submit, mod, library, cog, add, remove, aside) {
         if(typeof(localStorage) !== undefined) {
-            this.prase(create, text_box, submit, mod, library, cog, add, remove);
+            this.prase(create, text_box, submit, mod, library, cog, add, remove, aside);
         }else {
             alert('로컬스토리지를 지원하지 않습니다.');
         }
     }
 
-    prase(create, text_box, submit, mod, library, cog, add, remove) {
+    prase(create, text_box, submit, mod, library, cog, add, remove, aside) {
         this.name = 'Board';
         this.value;
 
@@ -27,22 +27,22 @@ export default class Storage {
 
         this.stringify(this.name, this.value);
 
-        this.push(create, text_box, submit, mod, library, this.name, this.value);
+        this.push(create, text_box, submit, mod, library, this.name, this.value, aside);
 
         this.maintain(create, this.value);
 
-        this.mod_change(library, mod, this.name, this.value);
+        this.mod_change(library, mod, this.name, this.value, aside);
 
-        this.tool_btn(library, submit, this.value, mod, cog, add, remove);
+        this.tool_btn(library, submit, this.value, mod, cog, add, remove, aside);
 
-        this.text_box_event(text_box, library, mod, this.value);
+        this.text_box_event(text_box, library, mod, this.value, aside, submit);
     }
 
     stringify(name, value) {
         localStorage.setItem(name, JSON.stringify(value));
     }
 
-    push(create, text_box, submit, mod, library, name, value) {
+    push(create, text_box, submit, mod, library, name, value, aside) {
         submit.addEventListener('click', () => {
             if(!text_box.value.trim()) {
                 this.clear(text_box);
@@ -57,6 +57,8 @@ export default class Storage {
             }
 
             this.off(library, mod, value);
+
+            aside.classList.remove('stretch');
         }, false);
     }
 
@@ -74,9 +76,10 @@ export default class Storage {
         }
     }
 
-    mod_change(library, mod, name, value) {
+    mod_change(library, mod, name, value, aside) {
         mod.addEventListener('click', () => {
             mod.classList.toggle('on');
+            aside.classList.toggle('stretch');
 
             if(mod.classList.contains('on')) {
                 this.add_trash(library, value);
@@ -87,6 +90,7 @@ export default class Storage {
                 this.remove(library, value);
                 this.mod_style(mod);
             }
+
         }, false);
     }
 
@@ -98,7 +102,7 @@ export default class Storage {
         }
     }
 
-    tool_btn(library, submit, value, mod, cog, add, remove) {
+    tool_btn(library, submit, value, mod, cog, add, remove, aside) {
         cog.addEventListener('click', e => {
             this.off(library, mod, value);
             this.mod_style(mod);
@@ -112,6 +116,8 @@ export default class Storage {
                 e.target.style.transform = 'rotate(0turn)';
                 this.trans_minus(add, remove, submit, mod);
             }
+
+            aside.classList.remove('stretch');
         }, false);
     }
 
@@ -135,9 +141,16 @@ export default class Storage {
         }
     }
 
-    text_box_event(text_box, library, mod, value) {
+    text_box_event(text_box, library, mod, value, aside, submit) {
         text_box.addEventListener('click', () => {
             this.off(library, mod, value)
+            aside.classList.remove('stretch');
+
+            if(text_box.value == '') {
+                submit.style.pointerEvents = 'none';
+            }else {
+                submit.style.pointerEvents = 'auto';
+            }
         }, false);
     }
 
@@ -166,8 +179,8 @@ export default class Storage {
     }
 
     trans_minus(add, remove, submit, mod) {
-        add.style.transform = 'translateX(-100%)';
-        remove.style.transform = 'translateX(-100%)';
+        add.style.transform = 'translateX(-110%)';
+        remove.style.transform = 'translateX(-110%)';
 
         submit.style.pointerEvents = 'none';
         mod.style.pointerEvents = 'none';

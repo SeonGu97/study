@@ -32,17 +32,21 @@ body {
 }
 
 .wrap {
+    display: flex;
     width: min-content;
     height: min-content;
+    flex-direction: column;
     position: fixed;
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
+    overflow: hidden;
 }
 
 /* aside */
 .aside {
     width: min-content;
+    padding-right: 0rem;
 }
 
 /* library */
@@ -129,13 +133,20 @@ body {
     margin-left: 0.5rem;
 
     position: fixed;
-    right: 2.5rem;
+    right: 1.75rem;
 }
 
 .trash > i:hover {
     color: #d60000;
     transform: translateY(-0.1rem);
     transition: 0.1s;
+}
+
+/* tool */
+.tool {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 /* cog */
@@ -147,6 +158,11 @@ body {
     transition: transform 0.4s;
     pointer-events: auto;
     font-size: 1rem;
+}
+
+/* add */
+.add {
+    
 }
 
 .gap {
@@ -181,6 +197,7 @@ body {
     display: flex;
     width: min-content;
     align-items: center;
+    padding: 0.35rem 0.5rem;
 }
 
 .remove::before {
@@ -198,11 +215,32 @@ body {
 
 /* hide */
 .hide {
-    transform: translateX(-100%);
+    transform: translateX(-110%);
     transition: transform 0.4s;
+}
+
+/* on */
+.on {
+    
 }
 
 /* delay */
 .delay {
     transition-delay: 0.4s;
+}
+
+/* stretch */
+.stretch {
+    padding-right: 1.5rem;
+}
+
+/* main */
+main {
+    width: 100%;
+    height: 100%;
+    background: #fafafa;
+    border-left: 1px solid #eee;
+    
+    position: fixed;
+    left: 17.5rem;
 }
