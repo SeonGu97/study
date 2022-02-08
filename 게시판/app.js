@@ -2,8 +2,8 @@
 
 import Create from "./create.js";
 import Wrap from "./js/wrap.js";
-import Storage from "./storage/storage.js";
 import Main from "./js/main.js";
+import Storage from "./storage/storage.js";
 
 
 export default class App {
@@ -26,10 +26,11 @@ export default class App {
         this.add = document.querySelector('.add');
         this.remove = document.querySelector('.remove');
         this.aside = document.querySelector('aside');
+        this.main = document.querySelector('main');
 
         // component
-        this.storage = new Storage(this.create, this.text_box, this.submit, this.mod, this.library, this.cog, this.add, this.remove, this.aside);
         this.main = new Main(this.create);
+        this.storage = new Storage(this.create, this.text_box, this.submit, this.mod, this.library, this.cog, this.add, this.remove, this.aside);
     
     }
 }

@@ -33,14 +33,19 @@ body {
 
 .wrap {
     display: flex;
-    width: min-content;
-    height: min-content;
+    width: 16.5rem;
+    height: 100%;
     flex-direction: column;
-    position: fixed;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    z-index: 5;
+    background: #fff;
+    padding: 0 1rem;
+    border-right: 1px solid #eee;
+
+    position: fixed;
+    top: 0;
 }
 
 /* aside */
@@ -55,7 +60,6 @@ body {
     width: 11rem;
     flex-direction: column;
     align-items: center;
-    position: relative;
 }
 
 .library::before {
@@ -133,7 +137,7 @@ body {
     margin-left: 0.5rem;
 
     position: fixed;
-    right: 1.75rem;
+    left: 12.75rem;
 }
 
 .trash > i:hover {
@@ -236,11 +240,42 @@ body {
 
 /* main */
 main {
+    display: flex;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
     background: #fafafa;
-    border-left: 1px solid #eee;
+    padding-left: 16.5rem;
     
     position: fixed;
-    left: 17.5rem;
+    right: 0;
+    z-index: 0;
+}
+
+/* board */
+.board {
+    width: 500px;
+    height: 650px;
+
+    position: relative;
+}
+
+/* title */
+.title {
+    width: min-content;
+    padding: 0px 0.5rem;
+    padding-top: 0.25rem;
+    background: #cfd8dc;
+    border-radius: 1rem 1rem 0 0;
+    font-weight: 100;
+}
+
+/* lists */
+.lists {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+
+    position: absolute;
 }

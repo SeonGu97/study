@@ -5,6 +5,6 @@ export default class Book {
         this.library = document.querySelector('.library');
         
         // create aside
-        create.launcher('book', 'li', ['class'], ['book pointer'], [`${value}`], this.library, 1);
+        create.launcher('book', 'li', ['class'], [''], [`${value}`], this.library, 1);
     }
 }

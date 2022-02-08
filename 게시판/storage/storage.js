@@ -5,6 +5,10 @@ import Book from "../js/book.js";
 export default class Storage {
     constructor(create, text_box, submit, mod, library, cog, add, remove, aside) {
         this.type(create, text_box, submit, mod, library, cog, add, remove, aside);
+    
+        this.title();
+
+        this.changeTitle(library);
     }   
     
     type(create, text_box, submit, mod, library, cog, add, remove, aside) {
@@ -36,6 +40,8 @@ export default class Storage {
         this.tool_btn(library, submit, this.value, mod, cog, add, remove, aside);
 
         this.text_box_event(text_box, library, mod, this.value, aside, submit);
+
+        this.createLists(this.value.length, library);
     }
 
     stringify(name, value) {
@@ -54,6 +60,8 @@ export default class Storage {
                 this.add(create, text_box);
 
                 this.clear(text_box);
+
+                this.createLists(1);
             }
 
             this.off(library, mod, value);
@@ -145,12 +153,6 @@ export default class Storage {
         text_box.addEventListener('click', () => {
             this.off(library, mod, value)
             aside.classList.remove('stretch');
-
-            if(text_box.value == '') {
-                submit.style.pointerEvents = 'none';
-            }else {
-                submit.style.pointerEvents = 'auto';
-            }
         }, false);
     }
 
@@ -192,5 +194,35 @@ export default class Storage {
 
         submit.style.pointerEvents = 'auto';
         mod.style.pointerEvents = 'auto';
+    }
+
+    title() {
+        this.main_title = document.querySelector('.title');
+
+        this.main_title.innerText = this.value[0];
+    }
+
+    changeTitle(library) {
+        this.book = document.querySelectorAll('.book');
+
+        this.book.forEach(books => {
+            books.addEventListener('click', e => {
+                this.target = e.target;
+                
+                this.main_title.innerText = this.target.innerText;
+            }, false);
+        });
+    }
+
+    createLists(value, library) {
+        for(let i = 0; i < value; i++) {
+            this.lists = document.createElement('div');
+            this.lists.setAttribute('class', `lists ${i}`);
+            library[i].setAttribute('class', `book pointer ${i}`)
+
+            this.board = document.querySelector('.board');
+
+            this.board.appendChild(this.lists);
+        }
     }
 }
