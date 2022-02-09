@@ -61,7 +61,7 @@ export default class Storage {
 
                 this.clear(text_box);
 
-                this.createLists(1);
+                this.createLists(value, library);
             }
 
             this.off(library, mod, value);
@@ -210,6 +210,12 @@ export default class Storage {
                 this.target = e.target;
                 
                 this.main_title.innerText = this.target.innerText;
+
+                this.lists_all = document.querySelectorAll('.lists');
+                for(let i = 0; i < this.value.length; i++) {
+                    this.lists_all[i].style.zIndex = '0';
+                }
+                console.log(this.lists_all[this.target.classList[2]].style.zIndex = '10');
             }, false);
         });
     }
@@ -218,11 +224,14 @@ export default class Storage {
         for(let i = 0; i < value; i++) {
             this.lists = document.createElement('div');
             this.lists.setAttribute('class', `lists ${i}`);
-            library[i].setAttribute('class', `book pointer ${i}`)
+            library[i].setAttribute('class', `book pointer ${i}`);
+            this.lists.innerText = i;
 
             this.board = document.querySelector('.board');
 
             this.board.appendChild(this.lists);
         }
+
+        this.board.childNodes[1].style.zIndex = '5';
     }
 }
