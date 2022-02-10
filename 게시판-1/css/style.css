@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html */
+html {
+    width: 100%;
+    height: 100%;
+}
+
+/* body */
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/* app */
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+/* plus */
+.plus {
+    display: flex;
+}
+
+/* text-box */
+.text-box {
+    padding-left: 0.25rem;
+}
