@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 /* html */
@@ -22,6 +23,32 @@ body {
     height: 100%;
 }
 
+/* aside */
+aside {
+    width: 15rem;
+    transform: translateY(-50%);
+
+    position: fixed;
+    top: 50%;
+    left: 1rem;
+}
+
+/* library */
+.library {
+    display: flex;
+    width: 100%;
+}
+
+/* book */
+.book {
+
+}
+
+/* tool */
+.tool {
+    position: absolute;
+}
+
 /* plus */
 .plus {
     display: flex;
@@ -30,4 +57,11 @@ body {
 /* text-box */
 .text-box {
     padding-left: 0.25rem;
+}
+
+/* common */
+.common {
+    background: #eceff1;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
 }

@@ -13,14 +13,19 @@ function push(name, element, type, value, text, parent, loop) {
     );
 
     for(let i = 0; i < gather[4].loop; i++) {
+        // create 호출
         create(gather);
     }
+
+    // innerHTML 호출
+    innerHTML(gather);
 }
 
 // 엘리먼트 생성
 function create(gather) {
     gather[0].name = document.createElement(gather[0].element);
 
+    // attrs 호출
     attrs(gather);
 }
 
@@ -29,14 +34,15 @@ function attrs(gather) {
     for(let i = 0; i < gather[1].type.length; i++) {
         gather[0].name.setAttribute(gather[1].type[i], gather[1].value[i]);
     }
-
-    innerHTML(gather);
 }
 
 // 엘리먼트 텍스트 추가
 function innerHTML(gather) {
-    gather[0].name.innerHTML = gather[2].text;
+    for(let i = 0; i < gather[2].value.length; i++) {
+        gather[0].name.innerHTML = gather[2].text[i];
+    } 
 
+    // add 호출
     add(gather);
 }
 
@@ -51,7 +57,7 @@ const wrap = push('wrap', 'div', ['class'], ['wrap'], '', app, 1);
 const aside = push('aside', 'aside', ['class'], ['aside'], '', app.firstChild, 1);
 const main = push('main', 'main', ['class'], ['main'], '', app.firstChild, 1);
 const board = push('board', 'section', ['class'], ['board'], '', app.firstChild.childNodes[1], 1);
-const library = push('library', 'ul', ['class'], ['library'], '', app.firstChild.childNodes[0], 1);
+const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.childNodes[0], 1);
 const tool = push('tool', 'section', ['class'], ['tool'], '', app.firstChild.childNodes[0], 1);
 const plus = push('plus', 'div', ['class'], ['plus'], '', app.firstChild.childNodes[0].childNodes[1], 1);
 const minus = push('minus', 'div', ['class'], ['minus'], '', app.firstChild.childNodes[0].childNodes[1], 1);
@@ -119,7 +125,7 @@ function submit_event() {
             set_storage();
 
             // add_element 호출
-            add_element();
+            add_elements();
 
             // text_box_clear 호출
             text_box_clear();
@@ -146,10 +152,12 @@ function add_elements() {
     const list = push('list', 'div', ['class'], ['list'], '', app.firstChild.childNodes[1].firstChild, 1);
 }
 
+// innerText_element
+
 // maintain_elements 선언
 function maintain_elements() {
-    const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.childNodes[0].firstChild, 1);
-    const list = push('list', 'div', ['class'], ['list'], '', app.firstChild.childNodes[1].firstChild, 1);
+    const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.childNodes[0].firstChild, value.length);
+    const list = push('list', 'div', ['class'], ['list'], '', app.firstChild.childNodes[1].firstChild, value.length);
 }
 
 // maintain_elements 호출
