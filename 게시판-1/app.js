@@ -38,9 +38,7 @@ function attrs(gather) {
 
 // 엘리먼트 텍스트 추가
 function innerHTML(gather) {
-    for(let i = 0; i < gather[2].value.length; i++) {
-        gather[0].name.innerHTML = gather[2].text[i];
-    } 
+    gather[0].name.innerHTML = gather[2].text;
 
     // add 호출
     add(gather);
@@ -59,10 +57,10 @@ const main = push('main', 'main', ['class'], ['main'], '', app.firstChild, 1);
 const board = push('board', 'section', ['class'], ['board'], '', app.firstChild.childNodes[1], 1);
 const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.childNodes[0], 1);
 const tool = push('tool', 'section', ['class'], ['tool'], '', app.firstChild.childNodes[0], 1);
-const plus = push('plus', 'div', ['class'], ['plus'], '', app.firstChild.childNodes[0].childNodes[1], 1);
+const plus = push('plus', 'div', ['class'], ['plus common'], '', app.firstChild.childNodes[0].childNodes[1], 1);
 const minus = push('minus', 'div', ['class'], ['minus'], '', app.firstChild.childNodes[0].childNodes[1], 1);
 const text_box = push('text_box', 'input', ['class', 'type', 'maxlength'], ['text-box', 'text', '10'], '', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
-const submit = push('submit', 'button', ['class'], ['submit'], '추가', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
+const submit = push('submit', 'button', ['class'], ['submit pointer'], '추가', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
 
 // 엘리먼트 선택
 const text_box_ = document.querySelector('.text-box');
@@ -149,15 +147,17 @@ function add_value() {
 // add_elements 선언
 function add_elements() {
     const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.childNodes[0].firstChild, 1);
-    const list = push('list', 'div', ['class'], ['list'], '', app.firstChild.childNodes[1].firstChild, 1);
+    const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.childNodes[0].childNodes[0].lastChild, 1);
+    const list = push('list', 'div', ['class'], ['list'], value.length, app.firstChild.childNodes[1].firstChild, 1);
 }
-
-// innerText_element
 
 // maintain_elements 선언
 function maintain_elements() {
-    const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.childNodes[0].firstChild, value.length);
-    const list = push('list', 'div', ['class'], ['list'], '', app.firstChild.childNodes[1].firstChild, value.length);
+    for(let i = 0; i < value.length; i++) {
+        const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.childNodes[0].firstChild, 1);
+        const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.childNodes[0].childNodes[0].childNodes[i], 1);
+        const list = push('list', 'div', ['class'], ['list'], i + 1, app.firstChild.childNodes[1].firstChild, 1);
+    }
 }
 
 // maintain_elements 호출
