@@ -58,13 +58,15 @@ const board = push('board', 'section', ['class'], ['board'], '', app.firstChild.
 const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.childNodes[0], 1);
 const tool = push('tool', 'section', ['class'], ['tool'], '', app.firstChild.childNodes[0], 1);
 const plus = push('plus', 'div', ['class'], ['plus common'], '', app.firstChild.childNodes[0].childNodes[1], 1);
-const minus = push('minus', 'div', ['class'], ['minus'], '', app.firstChild.childNodes[0].childNodes[1], 1);
 const text_box = push('text_box', 'input', ['class', 'type', 'maxlength'], ['text-box', 'text', '10'], '', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
-const submit = push('submit', 'button', ['class'], ['submit pointer'], '추가', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
+const submit = push('submit', 'button', ['class'], ['submit pointer btn'], '추가', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
+const minus = push('minus', 'div', ['class'], ['minus common'], '', app.firstChild.childNodes[0].childNodes[1], 1);
+const mod = push('mod', 'button', ['class'], ['mod btn pointer'], 'OFF', app.firstChild.childNodes[0].childNodes[1].childNodes[1], 1);
 
 // 엘리먼트 선택
 const text_box_ = document.querySelector('.text-box');
 const submit_ = document.querySelector('.submit');
+const mod_ = document.querySelector('.mod');
 
 const name = 'my storage';
 let value;
@@ -149,6 +151,10 @@ function add_elements() {
     const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.childNodes[0].firstChild, 1);
     const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.childNodes[0].childNodes[0].lastChild, 1);
     const list = push('list', 'div', ['class'], ['list'], value.length, app.firstChild.childNodes[1].firstChild, 1);
+
+    if(mod_.classList.contains('mod-change')) {
+        const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle"></i>', app.firstChild.childNodes[0].firstChild.lastChild, 1);
+    }
 }
 
 // maintain_elements 선언
@@ -162,3 +168,43 @@ function maintain_elements() {
 
 // maintain_elements 호출
 const maintain_elements_ = maintain_elements();
+
+// mod_check 선언
+function mod_check() {
+    mod_.addEventListener('click', () => {
+        mod_.classList.toggle('mod-change');
+
+        if(mod_.classList.contains('mod-change')) {
+            mod_.classList.add('paint');
+            mod_.innerText = 'ON';
+
+            // add_trash 호출
+            add_trash();
+        }else {
+            mod_.classList.remove('paint');
+            mod_.innerText = 'OFF';
+
+            // remove_trash 호출
+            remove_trash();
+        }
+    }, false);
+}
+
+// mod_check 호출
+const mod_check_ = mod_check();
+
+// add_trash 선언
+function add_trash() {
+    for(let i = 0; i < value.length; i++) {
+        const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle"></i>', app.firstChild.childNodes[0].firstChild.childNodes[i], 1);
+    }
+}
+
+// remove_trash 선언
+function remove_trash() {
+    for(let i = 0; i < value.length; i++) {
+        const book_ = document.querySelectorAll('.book');
+
+        book_[i].removeChild(book_[i].childNodes[1]);
+    }
+}

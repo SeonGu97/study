@@ -6,6 +6,7 @@
     box-sizing: border-box;
     list-style: none;
     font-family: 'Noto Sans KR', sans-serif;
+    white-space: nowrap;
 }
 
 /* html */
@@ -46,7 +47,7 @@ aside {
 /* library */
 .library {
     display: flex;
-    width: 12rem;
+    width: 12.5rem;
     flex-direction: column;
 }
 
@@ -64,6 +65,8 @@ aside {
     margin-top: 0.5rem;
     margin-bottom: 0.15rem;
     text-align: center;
+
+    position: relative;
 }
 
 /* word */
@@ -104,14 +107,38 @@ aside {
 
 /* submit */
 .submit {
-    border: 1px solid #9e9e9e;
-    background: none;
     color: #757575;
+}
+
+/* minus */
+.minus {
+    display: flex;
+    width: min-content;
+    margin-top: 1rem;
+}
+
+.minus::before {
+    content: '게시판 삭제모드 :';
+    color: #757575;
+}
+
+/* trash */
+.trash {
     margin-left: 0.25rem;
-    padding: 0 0.25rem;
-    padding-bottom: 0.1rem;
-    background: #fafafa;
-    border-radius: 0.25rem;
+    color: #d50000;
+
+    position: absolute;
+    right: 0;
+}
+
+/* mod */
+.mod {
+    color: #d50000;
+}
+
+/* paint */
+.paint {
+    color: #00c853;
 }
 
 /* common */
@@ -127,6 +154,16 @@ aside {
     cursor: pointer;
 }
 
+/* btn */
+.btn {
+    border: 1px solid #9e9e9e;
+    background: none;
+    margin-left: 0.25rem;
+    padding: 0 0.25rem;
+    background: #fafafa;
+    border-radius: 0.25rem;
+}
+
 /* main */
 main {
     width: calc(100% - 17rem);
@@ -137,4 +174,15 @@ main {
 
     position: fixed;
     left: 17rem;
+}
+
+/* board */
+.board {
+    
+}
+
+/* list */
+.list {
+    position: absolute;
+    background: aquamarine;
 }
