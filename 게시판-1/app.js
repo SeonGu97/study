@@ -67,6 +67,7 @@ const mod = push('mod', 'button', ['class'], ['mod btn pointer'], 'OFF', app.fir
 const text_box_ = document.querySelector('.text-box');
 const submit_ = document.querySelector('.submit');
 const mod_ = document.querySelector('.mod');
+const library_ = document.querySelector('.library');
 
 const name = 'my storage';
 let value;
@@ -194,7 +195,7 @@ function mod_check() {
 const mod_check_ = mod_check();
 
 // add_trash 선언
-function add_trash() {
+function add_trash(book_) {
     for(let i = 0; i < value.length; i++) {
         const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle"></i>', app.firstChild.childNodes[0].firstChild.childNodes[i], 1);
     }
@@ -202,9 +203,14 @@ function add_trash() {
 
 // remove_trash 선언
 function remove_trash() {
-    for(let i = 0; i < value.length; i++) {
-        const book_ = document.querySelectorAll('.book');
+    const book_ = document.querySelectorAll('.book');
 
+    for(let i = 0; i < value.length; i++) {
         book_[i].removeChild(book_[i].childNodes[1]);
     }
+}
+
+// remove_book 선언
+function remove_book() {
+    
 }
