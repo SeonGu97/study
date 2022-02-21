@@ -149,9 +149,9 @@ const add_book_ = add_book();
 
 // create_items 선언
 function create_items() {
-    const book = push('book', 'li', ['class'], [`book ${value.length}`], '', app.firstChild.childNodes[0].firstChild, 1);
+    const book = push('book', 'li', ['class'], [`book ${value.length}`], '', app.firstChild.childNodes[0].firstChild, 1, true, 'click', book_event);
     const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.childNodes[0].firstChild.lastChild, 1);
-    const list = push('list', 'section', ['class'], [`list ${value.length}`], value.length, app.firstChild.childNodes[1].firstChild, 1);
+    const list = push('list', 'section', ['class'], [`list ${value.length}`], value[value.length - 1], app.firstChild.childNodes[1].firstChild, 1);
 }
 
 // clear 선언
@@ -170,10 +170,13 @@ function add_value() {
 // maintain_items 선언
 function maintain_items() {
     for(let i = 0; i < value.length; i++) {
-        const book = push('book', 'li', ['class'], [`book ${i + 1}`], '', app.firstChild.childNodes[0].firstChild, 1);
+        const book = push('book', 'li', ['class'], [`book ${i + 1}`], '', app.firstChild.childNodes[0].firstChild, 1, true, 'click', book_event);
         const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.childNodes[0].firstChild.lastChild, 1);
-        const list = push('list', 'section', ['class'], [`list ${i + 1}`], i + 1, app.firstChild.childNodes[1].firstChild, 1);
+        const list = push('list', 'section', ['class'], [`list ${i + 1}`], value[i], app.firstChild.childNodes[1].firstChild, 1);
     }
+
+    const board = document.querySelector('.board');
+    board.firstChild.style.zIndex = 10;
 }
 
 // maintain_items 호출
@@ -212,7 +215,7 @@ function change_text(element, text) {
 
 function add_trash() {
     for(let i = 0; i < value.length; i++) {
-        const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>',app.firstChild.childNodes[0].firstChild.childNodes[i], 1, true, 'click', trash_event);
+        const trash = push('trash', 'span', ['class'], [`trash pointer ${i + 1}`], '<i class="bi bi-dash-circle-dotted"></i>',app.firstChild.childNodes[0].firstChild.childNodes[i], 1, true, 'click', trash_event);
     }
 }
 
@@ -239,9 +242,33 @@ function trash_event(e) {
 
     let text = parent.innerText;
 
+    remove_board(parent);
+
     parent.remove();
 
     value.splice(value.indexOf(text), 1);
 
     set_storage();
+}
+
+function remove_board(parent) {
+    const board = document.querySelector('.board');
+
+    board.childNodes[parent.classList[1] - 1].remove();
+}
+
+function book_event(e) {
+    let target = e.target;
+
+    let parent = target.parentElement.classList[1] - 1;
+
+    const board = document.querySelector('.board');
+
+    if(target.classList[0] == 'word') {
+        for(let i = 0; i < value.length; i++) {
+            board.childNodes[i].classList.remove('z');
+        }
+    
+        board.childNodes[parent].classList.add('z');
+    }
 }
