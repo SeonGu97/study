@@ -63,212 +63,173 @@ function event_(gather) {
 }
 
 // 엘리먼트 생성기로 엘리먼트 생성
-const pusher = push('app', 'div', ['id'], ['app'], '', document.body, 1);
+const App = push('app', 'div', ['id'], ['app'], '', document.body, 1);
 const wrap = push('wrap', 'div', ['class'], ['wrap'], '', app, 1);
 const aside = push('aside', 'aside', ['class'], ['aside'], '', app.firstChild, 1);
-const main = push('main', 'main', ['class'], ['main'], '', app.firstChild, 1);
-const board = push('board', 'section', ['class'], ['board'], '', app.firstChild.childNodes[1], 1);
-const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.childNodes[0], 1);
-const tool = push('tool', 'section', ['class'], ['tool'], '', app.firstChild.childNodes[0], 1);
-const plus = push('plus', 'div', ['class'], ['plus common'], '', app.firstChild.childNodes[0].childNodes[1], 1);
-const text_box = push('text_box', 'input', ['class', 'type', 'maxlength'], ['text-box', 'text', '10'], '', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
-const submit = push('submit', 'button', ['class'], ['submit pointer btn'], '추가', app.firstChild.childNodes[0].childNodes[1].firstChild, 1);
-const minus = push('minus', 'div', ['class'], ['minus common'], '', app.firstChild.childNodes[0].childNodes[1], 1);
-const mod = push('mod', 'button', ['class'], ['mod btn pointer'], 'OFF', app.firstChild.childNodes[0].childNodes[1].childNodes[1], 1);
+const container = push('container', 'div', ['class'], ['container'], '', app.firstChild.firstChild, 1);
+const gear = push('gear', 'span', ['class'], ['gear pointer'], '<i class="fa fa-duotone fa-gear"></i>', app.firstChild.childNodes[0].firstChild, 1);
+const plus = push('plus', 'section', ['class'], ['plus common'], '', app.firstChild.childNodes[0].firstChild, 1);
+const text_box = push('text_box', 'input', ['type', 'class', 'maxlength'], ['text', 'text-box', '10'], '', app.firstChild.childNodes[0].firstChild.childNodes[1], 1);
+const submit = push('submit', 'button', ['class'], ['submit pointer'], '추가', app.firstChild.childNodes[0].firstChild.childNodes[1], 1);
+const minus = push('minus', 'section', ['class'], ['minus common'], '', app.firstChild.childNodes[0].firstChild, 1);
+const mod = push('mod', 'button', ['class'], ['mod pointer'], 'OFF', app.firstChild.childNodes[0].firstChild.childNodes[2], 1);
+const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.firstChild, 1);
+const main = push('main', 'main', ['class'], ['main common'], '', app.firstChild, 1);
 
 // 엘리먼트 선택
+const gear_ = document.querySelector('.gear');
+
+const plus_ = document.querySelector('.plus');
 const text_box_ = document.querySelector('.text-box');
 const submit_ = document.querySelector('.submit');
+
+const minus_ = document.querySelector('.minus');
 const mod_ = document.querySelector('.mod');
-const library_ = document.querySelector('.library');
 
-const name = 'my storage';
-let value;
-
-// storage 선언
-function storage() {
-    if(typeof(localStorage) !== undefined) {
-        // storage_add 호출
-        storage_add();
-    }else {
-        alert('로컬스토리지를 지원하지 않습니다.');
-    }
-}
-
-// storage 호출
-const storage_ = storage();
-
-// storage_add 선언
-function storage_add() {
+// create storage 선언
+function create_storage(name, value) {
     if(localStorage.getItem(name) == null) {
         value = [];
     }else {
         value = JSON.parse(localStorage.getItem(name));
     }
-
-    // set_storage 호출
-    set_storage();
+    
+    set_storage(name, value);
 }
 
 // set_storage 선언
-function set_storage() {
+function set_storage(name, value) {
     localStorage.setItem(name, JSON.stringify(value));
 }
 
-// num
-let num = 0;
+// storage_1 information
+const name_1 = 'btn';
+let value_1;
 
-// add_book 선언
-function add_book() {
+// storage_1 호출
+const storage_1 = create_storage(name_1, value_1);
+
+// gear event
+function gear_event(name, value) {
+    gear_.addEventListener('click', e => {
+        let target = e.target;
+        
+        target.classList.toggle('turn');
+
+        value = JSON.parse(localStorage.getItem(name));
+    
+        if(target.classList.contains('turn')) {
+            value.splice('hide');
+            value.push('show');
+
+            remove_class(plus_, 'hide');
+            remove_class(minus_, 'hide');
+
+            add_class(plus_, 'show');
+            add_class(minus_, 'show');
+        }else {
+            value.splice('show');
+            value.push('hide');
+
+            remove_class(plus_, 'show');
+            remove_class(minus_, 'show');
+
+            add_class(plus_, 'hide');
+            add_class(minus_, 'hide');
+        }
+
+        set_storage(name, value);
+    }, false);
+}
+
+const gear_event_ = gear_event(name_1, value_1);
+
+// maintain_storage_1 선언
+function maintain_storage_1(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
+
+    if(value[0] == 'hide') {
+        remove_class(gear_.firstChild, 'turn');
+        remove_class(plus_, 'show');
+        remove_class(minus_, 'show');
+
+        add_class(plus_, 'hide');
+        add_class(minus_, 'hide');
+    }else if(value[0] == 'show') {
+        add_class(gear_.firstChild, 'turn');
+        add_class(plus_, 'show');
+        add_class(minus_, 'show');
+
+        remove_class(plus_, 'hide');
+        remove_class(minus_, 'hide');
+    }
+}
+
+// maintain_storage_1 호출
+const maintain_storage_1_ = maintain_storage_1(name_1, value_1);
+
+// add_class 선언
+function add_class(element, text) {
+    element.classList.add(text);
+}
+
+// remove_class 선언
+function remove_class(element, text) {
+    element.classList.remove(text);
+}
+
+// storage_2 information
+const name_2 = 'my local';
+let value_2;
+
+// storage_1 호출
+const storage_2 = create_storage(name_2, value_2);
+
+// submit event
+function submit_event(name, value) {
     submit_.addEventListener('click', e => {
         if(!text_box_.value.trim()) {
-            // clear 호출
             clear();
         }else {
-            // add_value 호출
-            add_value();
+            add_items();
 
-            // create_items 호출
-            create_items();
-
-            // clear 호출
+            push_value(name, value);
+    
             clear();
-
-            if(mod_.classList.contains('mod-change')) {
-                // remove_trash_ 호출
-                remove_trash_();
-                // add_trash 호출
-                add_trash();
-            }
         }
     }, false);
 }
 
-// add_book 호출
-const add_book_ = add_book();
-
-// create_items 선언
-function create_items() {
-    const book = push('book', 'li', ['class'], [`book ${value.length}`], '', app.firstChild.childNodes[0].firstChild, 1, true, 'click', book_event);
-    const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.childNodes[0].firstChild.lastChild, 1);
-    const list = push('list', 'section', ['class'], [`list ${value.length}`], value[value.length - 1], app.firstChild.childNodes[1].firstChild, 1);
-}
+const submit_event_ = submit_event(name_2, value_2);
 
 // clear 선언
 function clear() {
     text_box_.value = '';
 }
 
-// add_value 선언
-function add_value() {
-    value.push(text_box_.value);
-
-    // set_storage 호출
-    set_storage();
+// add_items 선언
+function add_items() {
+    const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.firstChild.childNodes[1], 1);
+    const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.childNodes[1].lastChild, 1);
 }
 
 // maintain_items 선언
-function maintain_items() {
-    for(let i = 0; i < value.length; i++) {
-        const book = push('book', 'li', ['class'], [`book ${i + 1}`], '', app.firstChild.childNodes[0].firstChild, 1, true, 'click', book_event);
-        const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.childNodes[0].firstChild.lastChild, 1);
-        const list = push('list', 'section', ['class'], [`list ${i + 1}`], value[i], app.firstChild.childNodes[1].firstChild, 1);
-    }
+function maintain_items(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
 
-    const board = document.querySelector('.board');
-    board.firstChild.style.zIndex = 10;
+    for(let i = 0; i < value.length; i++) {
+        const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.firstChild.childNodes[1], 1);
+        const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
+    }
 }
 
 // maintain_items 호출
-const maintain_items_ = maintain_items();
+const maintain_items_ = maintain_items(name_2, value_2);
 
-// mod_change
-function mod_change() {
-    mod_.addEventListener('click', e => {
-        mod_.classList.toggle('mod-change');
+function push_value(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
 
-        if(mod_.classList.contains('mod-change')) {
-            add_class(mod_, 'paint');
-            change_text(mod_, 'ON');
-            add_trash();
-        }else {
-            remove_class(mod_, 'paint');
-            change_text(mod_, 'OFF');
-            remove_trash();
-        }
-    }, false);
-}
+    value.push(text_box_.value);
 
-const mod_change_ = mod_change();
-
-function add_class(element, text) {
-    element.classList.add(text);
-}
-
-function remove_class(element, text) {
-    element.classList.remove(text);
-}
-
-function change_text(element, text) {
-    element.innerText = text;
-}
-
-function add_trash() {
-    for(let i = 0; i < value.length; i++) {
-        const trash = push('trash', 'span', ['class'], [`trash pointer ${i + 1}`], '<i class="bi bi-dash-circle-dotted"></i>',app.firstChild.childNodes[0].firstChild.childNodes[i], 1, true, 'click', trash_event);
-    }
-}
-
-function remove_trash() {
-    mod_.classList.remove('mod-change');
-
-    for(let i = 0; i < value.length; i++) {
-        const book_ = document.querySelectorAll('.book');
-        book_[i].childNodes[1].remove();
-    }
-}
-
-function remove_trash_() {
-    for(let i = 0; i < value.length - 1; i++) {
-        const book_ = document.querySelectorAll('.book');
-        book_[i].childNodes[1].remove();
-    }
-}
-
-function trash_event(e) {
-    let target = e.target;
-    
-    let parent = target.parentElement.parentElement;
-
-    let text = parent.innerText;
-
-    remove_board(parent);
-
-    parent.remove();
-
-    value.splice(value.indexOf(text), 1);
-
-    set_storage();
-}
-
-function remove_board(parent) {
-    const board = document.querySelector('.board');
-
-    board.childNodes[parent.classList[1] - 1].remove();
-}
-
-function book_event(e) {
-    let target = e.target;
-
-    let parent = target.parentElement.classList[1] - 1;
-
-    const board = document.querySelector('.board');
-
-    if(target.classList[0] == 'word') {
-        for(let i = 0; i < value.length; i++) {
-            board.childNodes[i].classList.remove('z');
-        }
-    
-        board.childNodes[parent].classList.add('z');
-    }
+    set_storage(name, value);
 }
