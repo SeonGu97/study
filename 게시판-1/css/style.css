@@ -149,7 +149,7 @@ aside {
 /* library */
 .library {
     display: flex;
-    width: 13rem;
+    width: 12rem;
     flex-direction: column;
     justify-content: center;
     height: min-content;
@@ -161,7 +161,7 @@ aside {
     background: #000a12;
     color: #f0f0f0;
     text-align: center;
-    padding: 0.15rem 0;
+    padding: 0.25rem 0;
     border-radius: 0.25rem;
 }
 
@@ -169,13 +169,16 @@ aside {
 .book {
     display: flex;
     justify-content: center;
-    margin-top: 0.5rem;
+    margin-top: 0.35rem;
+
+    position: relative;
 }
 
 /* word */
 .word {
     position: relative;
     padding-bottom: 0.1rem;
+    font-size: 0.9rem;
 }
 
 .word::before {
@@ -210,9 +213,20 @@ aside {
     width: 50%;
 }
 
+/* paint */
+.paint {
+    color: #00c853;
+}
+
+/* trash */
+.trash {
+    position: absolute;
+    right: 0;
+}
+
 /* main */
 main {
     width: 100%;
-    height: 75%;
+
     margin-top: 1rem;
 }

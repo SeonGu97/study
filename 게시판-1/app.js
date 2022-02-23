@@ -86,6 +86,8 @@ const submit_ = document.querySelector('.submit');
 const minus_ = document.querySelector('.minus');
 const mod_ = document.querySelector('.mod');
 
+const library_ = document.querySelector('.library');
+
 // create storage 선언
 function create_storage(name, value) {
     if(localStorage.getItem(name) == null) {
@@ -196,6 +198,10 @@ function submit_event(name, value) {
             push_value(name, value);
     
             clear();
+
+            if(mod_.classList.contains('mod-change')) {
+                add_trash(name, value);
+            }
         }
     }, false);
 }
@@ -211,6 +217,7 @@ function clear() {
 function add_items() {
     const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.firstChild.childNodes[1], 1);
     const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.childNodes[1].lastChild, 1);
+    const list = push('list', 'section', ['class'], ['list'], '', app.firstChild.childNodes[1], 1);
 }
 
 // maintain_items 선언
@@ -220,6 +227,7 @@ function maintain_items(name, value) {
     for(let i = 0; i < value.length; i++) {
         const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.firstChild.childNodes[1], 1);
         const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
+        const list = push('list', 'section', ['class'], [`list ${i + 1}`], '', app.firstChild.childNodes[1], 1);
     }
 }
 
@@ -232,4 +240,69 @@ function push_value(name, value) {
     value.push(text_box_.value);
 
     set_storage(name, value);
+}
+
+// mod_event 선언
+function mod_event(name, value) {
+    mod_.addEventListener('click', e => {
+        mod_.classList.toggle('mod-change');
+
+        if(mod_.classList.contains('mod-change')) {
+            mod_.innerText = 'ON';
+            mod_.classList.add('paint');
+
+            add_all_trash(name, value);
+        }else {
+            mod_.innerText = 'OFF';
+            mod_.classList.remove('paint');
+
+            remove_all_trash(name, value);
+        }
+    }, false);
+}
+
+// mod_event 호출
+const mod_event_ = mod_event(name_2, value_2);
+
+// add_trash 선언
+function add_trash(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
+
+    const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>', app.firstChild.firstChild.childNodes[1].lastChild, 1, true, 'click', trash_event);
+}
+
+// add_all_trash 선언
+function add_all_trash(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
+
+    for(let i = 0; i < value.length; i++) {
+        const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>', app.firstChild.firstChild.childNodes[1].childNodes[i], 1, true, 'click', trash_event);
+    }
+}
+
+// remove_all_trash 선언
+function remove_all_trash(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
+
+    for(let i = 0; i < value.length; i++) {
+        library_.childNodes[i].lastChild.remove();
+    }
+}
+
+// trash_event 선언
+function trash_event(e) {
+    let target = e.target;
+
+    let parent = target.parentElement.parentElement;
+
+    parent.remove();
+
+    let text = parent.firstChild.innerText;
+    console.log(text)
+
+    let value = JSON.parse(localStorage.getItem(name_2));
+
+    value.splice(value.indexOf(text), 1);
+
+    set_storage(name_2, value);
 }
