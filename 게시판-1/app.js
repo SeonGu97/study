@@ -65,16 +65,20 @@ function event_(gather) {
 // 엘리먼트 생성기로 엘리먼트 생성
 const App = push('app', 'div', ['id'], ['app'], '', document.body, 1);
 const wrap = push('wrap', 'div', ['class'], ['wrap'], '', app, 1);
-const aside = push('aside', 'aside', ['class'], ['aside'], '', app.firstChild, 1);
-const container = push('container', 'div', ['class'], ['container'], '', app.firstChild.firstChild, 1);
-const gear = push('gear', 'span', ['class'], ['gear pointer'], '<i class="fa fa-duotone fa-gear"></i>', app.firstChild.childNodes[0].firstChild, 1);
-const plus = push('plus', 'section', ['class'], ['plus common'], '', app.firstChild.childNodes[0].firstChild, 1);
-const text_box = push('text_box', 'input', ['type', 'class', 'maxlength'], ['text', 'text-box', '10'], '', app.firstChild.childNodes[0].firstChild.childNodes[1], 1);
-const submit = push('submit', 'button', ['class'], ['submit pointer'], '추가', app.firstChild.childNodes[0].firstChild.childNodes[1], 1);
-const minus = push('minus', 'section', ['class'], ['minus common'], '', app.firstChild.childNodes[0].firstChild, 1);
-const mod = push('mod', 'button', ['class'], ['mod pointer'], 'OFF', app.firstChild.childNodes[0].firstChild.childNodes[2], 1);
-const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.firstChild, 1);
-const main = push('main', 'main', ['class'], ['main common'], '', app.firstChild, 1);
+const main = push('main', 'main', ['class'], ['main'], '', app.firstChild, 1);
+const aside = push('aside', 'aside', ['class'], ['aside'], '', app.firstChild.firstChild, 1);
+const library = push('library', 'ul', ['class'], ['library common'], '', app.firstChild.firstChild.firstChild, 1);
+const container = push('container', 'div', ['class'], ['container'], '', app.firstChild.firstChild.firstChild, 1);
+const gear = push('gear', 'span', ['class'], ['gear pointer'], '<i class="fa fa-duotone fa-gear"></i>', app.firstChild.firstChild.firstChild.childNodes[1], 1);
+const plus = push('plus', 'section', ['class'], ['plus common'], '', app.firstChild.firstChild.firstChild.childNodes[1], 1);
+const text_box = push('text_box', 'input', ['type', 'class', 'maxlength'], ['text', 'text-box', '10'], '', app.firstChild.firstChild.firstChild.childNodes[1].childNodes[1], 1);
+const submit = push('submit', 'button', ['class'], ['submit pointer'], '추가', app.firstChild.firstChild.firstChild.childNodes[1].childNodes[1], 1);
+const minus = push('minus', 'section', ['class'], ['minus common'], '', app.firstChild.firstChild.firstChild.childNodes[1], 1);
+const mod = push('mod', 'button', ['class'], ['mod pointer'], 'OFF', app.firstChild.firstChild.firstChild.childNodes[1].childNodes[2], 1);
+const board = push('board', 'section', ['class'], ['board'], '', app.firstChild.firstChild, 1);
+const standard = push('standard', 'div', ['class'], ['standard'], '', app.firstChild.firstChild, 1);
+const exit = push('exit', 'div', ['class'], ['exit'], '', app.firstChild.firstChild.childNodes[2], 1);
+const exit_btn = push('exit_btn', 'button', ['class'], ['exit-btn pointer'], '<i class="bi bi-x-lg"></i>', app.firstChild.firstChild.childNodes[2].firstChild, 1, true, 'click', exit_event);
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
@@ -87,6 +91,10 @@ const minus_ = document.querySelector('.minus');
 const mod_ = document.querySelector('.mod');
 
 const library_ = document.querySelector('.library');
+
+const board_ = document.querySelector('.board');
+
+const standard_ = document.querySelector('.standard');
 
 // create storage 선언
 function create_storage(name, value) {
@@ -111,7 +119,7 @@ let value_1;
 // storage_1 호출
 const storage_1 = create_storage(name_1, value_1);
 
-// gear event
+// gear event 선언
 function gear_event(name, value) {
     gear_.addEventListener('click', e => {
         let target = e.target;
@@ -144,6 +152,7 @@ function gear_event(name, value) {
     }, false);
 }
 
+// gear_event 호출
 const gear_event_ = gear_event(name_1, value_1);
 
 // maintain_storage_1 선언
@@ -187,13 +196,13 @@ let value_2;
 // storage_1 호출
 const storage_2 = create_storage(name_2, value_2);
 
-// submit event
+// submit event 선언
 function submit_event(name, value) {
     submit_.addEventListener('click', e => {
         if(!text_box_.value.trim()) {
             clear();
         }else {
-            add_items();
+            add_items(name, value);
 
             push_value(name, value);
     
@@ -206,6 +215,7 @@ function submit_event(name, value) {
     }, false);
 }
 
+// submit event 호출
 const submit_event_ = submit_event(name_2, value_2);
 
 // clear 선언
@@ -214,10 +224,14 @@ function clear() {
 }
 
 // add_items 선언
-function add_items() {
-    const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.firstChild.childNodes[1], 1);
-    const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.childNodes[1].lastChild, 1);
-    const list = push('list', 'section', ['class'], ['list'], '', app.firstChild.childNodes[1], 1);
+function add_items(name, value) {
+    value = JSON.parse(localStorage.getItem(name));
+
+    const book = push('book', 'li', ['class'], [`book ${value.length}`], '', app.firstChild.firstChild.firstChild.firstChild, 1, true, 'click', book_event);
+    const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.firstChild.firstChild.lastChild, 1);
+    const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
+    const title = push('title', 'div', ['class'], ['title'], library_.lastChild.innerText, app.firstChild.firstChild.childNodes[1].lastChild, 1);
+    const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].lastChild.lastChild, 1, true, 'click', write_event);
 }
 
 // maintain_items 선언
@@ -225,15 +239,18 @@ function maintain_items(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
     for(let i = 0; i < value.length; i++) {
-        const book = push('book', 'li', ['class'], ['book'], '', app.firstChild.firstChild.childNodes[1], 1);
-        const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
-        const list = push('list', 'section', ['class'], [`list ${i + 1}`], '', app.firstChild.childNodes[1], 1);
+        const book = push('book', 'li', ['class'], [`book ${i}`], '', app.firstChild.firstChild.firstChild.firstChild, 1, true, 'click', book_event);
+        const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.firstChild.firstChild.childNodes[i], 1);
+        const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
+        const title = push('title', 'div', ['class'], ['title'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
+        const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].childNodes[i], 1, true, 'click', write_event);
     }
 }
 
 // maintain_items 호출
 const maintain_items_ = maintain_items(name_2, value_2);
 
+// push_value 선언
 function push_value(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
@@ -268,7 +285,7 @@ const mod_event_ = mod_event(name_2, value_2);
 function add_trash(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
-    const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>', app.firstChild.firstChild.childNodes[1].lastChild, 1, true, 'click', trash_event);
+    const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>', app.firstChild.firstChild.firstChild.firstChild.lastChild, 1, true, 'click', trash_event);
 }
 
 // add_all_trash 선언
@@ -276,7 +293,7 @@ function add_all_trash(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
     for(let i = 0; i < value.length; i++) {
-        const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>', app.firstChild.firstChild.childNodes[1].childNodes[i], 1, true, 'click', trash_event);
+        const trash = push('trash', 'span', ['class'], ['trash pointer'], '<i class="bi bi-dash-circle-dotted"></i>', app.firstChild.firstChild.firstChild.firstChild.childNodes[i], 1, true, 'click', trash_event);
     }
 }
 
@@ -296,13 +313,60 @@ function trash_event(e) {
     let parent = target.parentElement.parentElement;
 
     parent.remove();
-
+    
     let text = parent.firstChild.innerText;
-    console.log(text)
-
+    
     let value = JSON.parse(localStorage.getItem(name_2));
+    
+    remove_list(value);
 
     value.splice(value.indexOf(text), 1);
 
     set_storage(name_2, value);
+}
+
+// remove_list 선언
+function remove_list(value) {
+    board_.childNodes[parent.classList[1]].remove();
+    
+    remove_class_all(value);
+}
+
+// remove_class_all 선언
+function remove_class_all(value) {
+    for(let i = 0; i < value.length - 1; i++) {
+        library_.classList.remove()
+        library_.childNodes[i].classList.remove(library_.childNodes[i].classList.item(1));
+        library_.childNodes[i].classList.add(i);
+    }
+}
+
+// board first child z-index
+board_.firstChild.classList.add('z');
+
+// book_event 선언
+function book_event(e) {
+    let target = e.target;
+
+    let parent = target.parentElement;
+
+    if(parent.classList[0] == 'book') {
+        let list = board_.childNodes[parent.classList[1]];
+
+        for(let i = 0; i < board_.childNodes.length; i++) {
+            board_.childNodes[i].classList.remove('z');
+        }
+    
+        list.classList.add('z');
+    }
+}
+
+// write_event 선언
+function write_event(e) {
+    standard_.classList.add('down');
+}
+
+// exit_event 선언
+function exit_event(e) {
+    standard_.classList.remove('down');
 }
