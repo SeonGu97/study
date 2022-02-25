@@ -76,9 +76,13 @@ const submit = push('submit', 'button', ['class'], ['submit pointer'], '추가',
 const minus = push('minus', 'section', ['class'], ['minus common'], '', app.firstChild.firstChild.firstChild.childNodes[1], 1);
 const mod = push('mod', 'button', ['class'], ['mod pointer'], 'OFF', app.firstChild.firstChild.firstChild.childNodes[1].childNodes[2], 1);
 const board = push('board', 'section', ['class'], ['board'], '', app.firstChild.firstChild, 1);
-const standard = push('standard', 'div', ['class'], ['standard'], '', app.firstChild.firstChild, 1);
+const standard = push('standard', 'div', ['class'], ['standard common'], '', app.firstChild.firstChild, 1);
 const exit = push('exit', 'div', ['class'], ['exit'], '', app.firstChild.firstChild.childNodes[2], 1);
 const exit_btn = push('exit_btn', 'button', ['class'], ['exit-btn pointer'], '<i class="bi bi-x-lg"></i>', app.firstChild.firstChild.childNodes[2].firstChild, 1, true, 'click', exit_event);
+const title_box = push('title_box', 'input', ['type', 'class', 'placeholder'], ['text', 'title-box', '제목을 입력해주세요.'], '', app.firstChild.firstChild.childNodes[2], 1);
+const content_box = push('content_box', 'textarea', ['class'], ['content-box'], '', app.firstChild.firstChild.childNodes[2], 1);
+const save = push('save', 'div', ['class'], ['save'], '', app.firstChild.firstChild.childNodes[2], 1);
+const save_btn = push('save_btn', 'button', ['class'], ['save-btn pointer'], '저장', app.firstChild.firstChild.childNodes[2].lastChild, 1, true, 'click', save_event);
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
@@ -369,4 +373,9 @@ function write_event(e) {
 // exit_event 선언
 function exit_event(e) {
     standard_.classList.remove('down');
+}
+
+// save_event 선언
+function save_event() {
+    confirm('게시물을 저장하시겠습니까?');
 }
