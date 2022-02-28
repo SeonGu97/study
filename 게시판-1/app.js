@@ -82,7 +82,9 @@ const exit_btn = push('exit_btn', 'button', ['class'], ['exit-btn pointer'], '<i
 const title_box = push('title_box', 'input', ['type', 'class', 'placeholder'], ['text', 'title-box', '제목을 입력해주세요.'], '', app.firstChild.firstChild.childNodes[2], 1);
 const content_box = push('content_box', 'textarea', ['class'], ['content-box'], '', app.firstChild.firstChild.childNodes[2], 1);
 const save = push('save', 'div', ['class'], ['save'], '', app.firstChild.firstChild.childNodes[2], 1);
+const select_box = push('select_box', 'select', ['class'], ['select-box'], '', app.firstChild.firstChild.childNodes[2].lastChild, 1);
 const save_btn = push('save_btn', 'button', ['class'], ['save-btn pointer'], '저장', app.firstChild.firstChild.childNodes[2].lastChild, 1, true, 'click', save_event);
+
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
@@ -95,6 +97,8 @@ const library_ = document.querySelector('.library');
 const board_ = document.querySelector('.board');
 const standard_ = document.querySelector('.standard');
 const title_box_ = document.querySelector('.title-box');
+const content_box_ = document.querySelector('.content-box');
+const select_box_ = document.querySelector('.select-box');
 
 // create storage 선언
 function create_storage(name, value) {
@@ -236,6 +240,7 @@ function add_items(name, value) {
     const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.firstChild.firstChild.lastChild, 1);
     const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
     const title = push('title', 'div', ['class'], ['title'], library_.lastChild.innerText, app.firstChild.firstChild.childNodes[1].lastChild, 1);
+    const board_box = push('board_box', 'div', ['class'], ['board_box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
     const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].lastChild.lastChild, 1, true, 'click', write_event);
 }
 
@@ -248,6 +253,7 @@ function maintain_items(name, value) {
         const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.firstChild.firstChild.childNodes[i], 1);
         const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
         const title = push('title', 'div', ['class'], ['title'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
+        const board_box = push('board_box', 'div', ['class'], ['board_box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
         const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].childNodes[i], 1, true, 'click', write_event);
     }
 }
@@ -369,6 +375,8 @@ function book_event(e) {
 // write_event 선언
 function write_event(e) {
     add_class(standard_, 'down');
+
+    create_options(name_2, value_2);
 }
 
 // exit_event 선언
@@ -383,13 +391,25 @@ function save_event() {
     }else {
         confirm('게시물을 저장하시겠습니까?');
 
+        let value = JSON.parse(localStorage.getItem(select_box_.value));
+        console.log([title_box_.value, content_box_.value]);
+
+        value.push({title: title_box_.value, content: content_box_.value});
+
+        set_storage(select_box_.value, value);
+
         clear(title_box_);
+        clear(content_box_);
+
+        remove_class(standard_, 'down');
     }
 }
 
-// board_push 선언
-function board_push(name) {
+// create_options
+function create_options(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
-    value.push();
+    for(let i = 0; i < value.length; i++) {
+        const options = push('option', 'option', ['class'], ['option'], value[i], app.firstChild.firstChild.childNodes[2].lastChild.firstChild, 1);
+    }
 }
