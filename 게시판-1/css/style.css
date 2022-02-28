@@ -164,12 +164,15 @@ aside {
 /* text-box */
 .text-box {
     width: 9rem;
+}
+
+input, textarea {
     padding-left: 0.25rem;
     border: 1px solid #9e9e9e;
     outline: none;
 }
 
-.text-box:focus {
+input:focus, textarea:focus {
     border: 1px solid #ff9e80;
 }
 
@@ -312,7 +315,6 @@ aside {
     height: 10rem;
     overflow-y: scroll;
     padding: 0.25rem;
-    margin-top: 1rem;
 }
 
 /* save */
@@ -324,5 +326,10 @@ aside {
 
 /* save-btn */
 .save-btn {
+    padding: 0 0.25rem;
+}
+
+/*  */
+@media screen () {
     
 }

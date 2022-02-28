@@ -86,19 +86,15 @@ const save_btn = push('save_btn', 'button', ['class'], ['save-btn pointer'], '�
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
-
 const plus_ = document.querySelector('.plus');
 const text_box_ = document.querySelector('.text-box');
 const submit_ = document.querySelector('.submit');
-
 const minus_ = document.querySelector('.minus');
 const mod_ = document.querySelector('.mod');
-
 const library_ = document.querySelector('.library');
-
 const board_ = document.querySelector('.board');
-
 const standard_ = document.querySelector('.standard');
+const title_box_ = document.querySelector('.title-box');
 
 // create storage 선언
 function create_storage(name, value) {
@@ -204,17 +200,22 @@ const storage_2 = create_storage(name_2, value_2);
 function submit_event(name, value) {
     submit_.addEventListener('click', e => {
         if(!text_box_.value.trim()) {
-            clear();
+            clear(text_box_);
         }else {
             add_items(name, value);
 
             push_value(name, value);
-    
-            clear();
 
             if(mod_.classList.contains('mod-change')) {
                 add_trash(name, value);
             }
+
+            let name_ = text_box_.value;
+            let value_;
+
+            create_storage(name_, value_);
+
+            clear(text_box_);
         }
     }, false);
 }
@@ -223,8 +224,8 @@ function submit_event(name, value) {
 const submit_event_ = submit_event(name_2, value_2);
 
 // clear 선언
-function clear() {
-    text_box_.value = '';
+function clear(element) {
+    element.value = '';
 }
 
 // add_items 선언
@@ -367,15 +368,28 @@ function book_event(e) {
 
 // write_event 선언
 function write_event(e) {
-    standard_.classList.add('down');
+    add_class(standard_, 'down');
 }
 
 // exit_event 선언
 function exit_event(e) {
-    standard_.classList.remove('down');
+    remove_class(standard_, 'down');
 }
 
 // save_event 선언
 function save_event() {
-    confirm('게시물을 저장하시겠습니까?');
+    if(!title_box_.value.trim()) {
+        clear(title_box_);
+    }else {
+        confirm('게시물을 저장하시겠습니까?');
+
+        clear(title_box_);
+    }
+}
+
+// board_push 선언
+function board_push(name) {
+    value = JSON.parse(localStorage.getItem(name));
+
+    value.push();
 }
