@@ -240,7 +240,7 @@ function add_items(name, value) {
     const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.firstChild.firstChild.lastChild, 1);
     const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
     const title = push('title', 'div', ['class'], ['title'], library_.lastChild.innerText, app.firstChild.firstChild.childNodes[1].lastChild, 1);
-    const board_box = push('board_box', 'div', ['class'], ['board_box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
+    const board_box = push('board_box', 'div', ['class'], ['board-box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
     const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].lastChild.lastChild, 1, true, 'click', write_event);
 }
 
@@ -253,7 +253,7 @@ function maintain_items(name, value) {
         const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.firstChild.firstChild.childNodes[i], 1);
         const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
         const title = push('title', 'div', ['class'], ['title'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
-        const board_box = push('board_box', 'div', ['class'], ['board_box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
+        const board_box = push('board_box', 'div', ['class'], ['board-box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
         const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].childNodes[i], 1, true, 'click', write_event);
     }
 }
@@ -405,7 +405,7 @@ function save_event() {
     }
 }
 
-// create_options
+// create_options 선언
 function create_options(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
@@ -413,3 +413,13 @@ function create_options(name, value) {
         const options = push('option', 'option', ['class'], ['option'], value[i], app.firstChild.firstChild.childNodes[2].lastChild.firstChild, 1);
     }
 }
+
+// create_board_list 선언
+function create_board_list() {
+    const board_box_ = document.querySelectorAll('.board-box');
+    board_box_.forEach(element => {
+        console.log(element)
+    });
+}
+
+const create_board_list_ = create_board_list();
