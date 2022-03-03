@@ -417,9 +417,10 @@ function create_options(name, value) {
 // create_board_list 선언
 function create_board_list() {
     const board_box_ = document.querySelectorAll('.board-box');
-    board_box_.forEach(element => {
-        console.log(element)
-    });
+
+    for(let i = 0; i < library_.childNodes.length; i++) {
+       let value = JSON.parse(localStorage.getItem(library_.childNodes[i].innerText));
+    }
 }
 
 const create_board_list_ = create_board_list();
