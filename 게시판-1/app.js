@@ -394,7 +394,7 @@ function save_event() {
         let value = JSON.parse(localStorage.getItem(select_box_.value));
         console.log([title_box_.value, content_box_.value]);
 
-        value.push({title: title_box_.value, content: content_box_.value});
+        value.push(`<li><a>${title_box_.value}</a><a>${content_box_.value}</a></li>`);
 
         set_storage(select_box_.value, value);
 
@@ -402,6 +402,8 @@ function save_event() {
         clear(content_box_);
 
         remove_class(standard_, 'down');
+
+        remove_options();
     }
 }
 
@@ -409,8 +411,16 @@ function save_event() {
 function create_options(name, value) {
     value = JSON.parse(localStorage.getItem(name));
 
-    for(let i = 0; i < value.length; i++) {
+    
+    for(let i = 0; i < library_.childNodes.length; i++) {
         const options = push('option', 'option', ['class'], ['option'], value[i], app.firstChild.firstChild.childNodes[2].lastChild.firstChild, 1);
+    }
+}
+
+// remove_options 선언
+function remove_options() {
+    for(let i = 0; i < library_.childNodes.length; i++) {
+        select_box_.lastChild.remove();
     }
 }
 
@@ -418,8 +428,9 @@ function create_options(name, value) {
 function create_board_list() {
     const board_box_ = document.querySelectorAll('.board-box');
 
-    for(let i = 0; i < library_.childNodes.length; i++) {
-       let value = JSON.parse(localStorage.getItem(library_.childNodes[i].innerText));
+    for(var i=0; i < library_.childNodes.length; i++) {
+        let value = JSON.parse(localStorage.getItem(library_.childNodes[i].innerText));
+        board_box_[i].innerHTML = value.toString().replace(',', '');
     }
 }
 
