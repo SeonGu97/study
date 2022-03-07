@@ -330,6 +330,13 @@ input:focus, textarea:focus {
     padding: 0 0.25rem;
 }
 
+/* item */
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
 /* media query */
 @media screen and (max-width: 500px) {
 

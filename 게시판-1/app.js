@@ -392,9 +392,13 @@ function save_event() {
         confirm('게시물을 저장하시겠습니까?');
 
         let value = JSON.parse(localStorage.getItem(select_box_.value));
-        console.log([title_box_.value, content_box_.value]);
 
-        value.push(`<li><a>${title_box_.value}</a><a>${content_box_.value}</a></li>`);
+        let time = new Date();
+        let y = time.getFullYear();
+        let m = time.getMonth() + 1;
+        let d = time.getDate();
+
+        value.push(`<li class="item"><span class="num">${value.length + 1}</span><a class="item-title pointer">${title_box_.value}</a><span class="time">${y}.${m}.${d}</span></li>`);
 
         set_storage(select_box_.value, value);
 
@@ -404,6 +408,8 @@ function save_event() {
         remove_class(standard_, 'down');
 
         remove_options();
+
+        maintain_board_list();
     }
 }
 
@@ -424,14 +430,15 @@ function remove_options() {
     }
 }
 
-// create_board_list 선언
-function create_board_list() {
+// maintain_board_list 선언
+function maintain_board_list() {
     const board_box_ = document.querySelectorAll('.board-box');
 
     for(var i=0; i < library_.childNodes.length; i++) {
         let value = JSON.parse(localStorage.getItem(library_.childNodes[i].innerText));
-        board_box_[i].innerHTML = value.toString().replace(',', '');
+        board_box_[i].innerHTML = value.toString().replace(/,/g, '');
     }
 }
 
-const create_board_list_ = create_board_list();
+// maintain_board_list 호출
+const maintain_board_list_ = maintain_board_list();
