@@ -84,7 +84,8 @@ const content_box = push('content_box', 'textarea', ['class'], ['content-box'], 
 const save = push('save', 'div', ['class'], ['save'], '', app.firstChild.firstChild.childNodes[2], 1);
 const select_box = push('select_box', 'select', ['class'], ['select-box'], '', app.firstChild.firstChild.childNodes[2].lastChild, 1);
 const save_btn = push('save_btn', 'button', ['class'], ['save-btn pointer'], '저장', app.firstChild.firstChild.childNodes[2].lastChild, 1, true, 'click', save_event);
-
+const board_content = push('board_content', 'div', ['class'], ['board-content common'], '', app.firstChild, 1);
+const exit_btn_2 = push('exit_btn_2', 'button', ['class'], ['exit-btn-2 pointer'], '<i class="bi bi-x-lg"></i>', app.firstChild.childNodes[1], 1, true, 'click', exit_event_2);
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
@@ -99,6 +100,7 @@ const standard_ = document.querySelector('.standard');
 const title_box_ = document.querySelector('.title-box');
 const content_box_ = document.querySelector('.content-box');
 const select_box_ = document.querySelector('.select-box');
+const board_content_ = document.querySelector('.board-content');
 
 // create storage 선언
 function create_storage(name, value) {
@@ -238,7 +240,7 @@ function add_items(name, value) {
 
     const book = push('book', 'li', ['class'], [`book ${value.length}`], '', app.firstChild.firstChild.firstChild.firstChild, 1, true, 'click', book_event);
     const word = push('word', 'a', ['class'], ['word pointer'], text_box_.value, app.firstChild.firstChild.firstChild.firstChild.lastChild, 1);
-    const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
+    const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1, true, 'click', list_event);
     const title = push('title', 'div', ['class'], ['title'], library_.lastChild.innerText, app.firstChild.firstChild.childNodes[1].lastChild, 1);
     const board_box = push('board_box', 'div', ['class'], ['board-box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
     const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].lastChild.lastChild, 1, true, 'click', write_event);
@@ -251,7 +253,7 @@ function maintain_items(name, value) {
     for(let i = 0; i < value.length; i++) {
         const book = push('book', 'li', ['class'], [`book ${i}`], '', app.firstChild.firstChild.firstChild.firstChild, 1, true, 'click', book_event);
         const word = push('word', 'a', ['class'], ['word pointer'], value[i], app.firstChild.firstChild.firstChild.firstChild.childNodes[i], 1);
-        const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1);
+        const list = push('list', 'section', ['class'], ['list common'], '', app.firstChild.firstChild.childNodes[1], 1, true, 'click', list_event);
         const title = push('title', 'div', ['class'], ['title'], value[i], app.firstChild.firstChild.childNodes[1].childNodes[i], 1);
         const board_box = push('board_box', 'div', ['class'], ['board-box'], '', app.firstChild.firstChild.childNodes[1].lastChild, 1);
         const write = push('write', 'button', ['class'], ['write pointer'], '글쓰기', app.firstChild.firstChild.childNodes[1].childNodes[i], 1, true, 'click', write_event);
@@ -442,3 +444,17 @@ function maintain_board_list() {
 
 // maintain_board_list 호출
 const maintain_board_list_ = maintain_board_list();
+
+// list_event 선언
+function list_event(e) {
+    let target = e.target;
+
+    if(target.classList[0] == 'item-title') {
+        board_content_.classList.add('boom');
+    }
+}
+
+// exit_event_2 선언
+function exit_event_2(e) {
+    board_content_.classList.remove('boom');
+}
