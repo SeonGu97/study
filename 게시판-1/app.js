@@ -86,6 +86,8 @@ const select_box = push('select_box', 'select', ['class'], ['select-box'], '', a
 const save_btn = push('save_btn', 'button', ['class'], ['save-btn pointer'], '저장', app.firstChild.firstChild.childNodes[2].lastChild, 1, true, 'click', save_event);
 const board_content = push('board_content', 'div', ['class'], ['board-content common'], '', app.firstChild, 1);
 const exit_btn_2 = push('exit_btn_2', 'button', ['class'], ['exit-btn-2 pointer'], '<i class="bi bi-x-lg"></i>', app.firstChild.childNodes[1], 1, true, 'click', exit_event_2);
+const board_content_title = push('board_content_title', 'h1', ['class'], ['board-content-title'], '', app.firstChild.childNodes[1], 1);
+const board_content_content = push('board_content_content', 'div', ['class'], ['board-content-content'], '', app.firstChild.childNodes[1], 1);
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
@@ -101,6 +103,8 @@ const title_box_ = document.querySelector('.title-box');
 const content_box_ = document.querySelector('.content-box');
 const select_box_ = document.querySelector('.select-box');
 const board_content_ = document.querySelector('.board-content');
+const board_content_title_ = document.querySelector('.board-content-title');
+const board_content_content_ = document.querySelector('.board-content-content');
 
 // create storage 선언
 function create_storage(name, value) {
@@ -400,7 +404,7 @@ function save_event() {
         let m = time.getMonth() + 1;
         let d = time.getDate();
 
-        value.push(`<li class="item"><span class="num">${value.length + 1}</span><a class="item-title pointer">${title_box_.value}</a><span class="time">${y}.${m}.${d}</span></li>`);
+        value.push(`<li class="item"><span class="num">${value.length + 1}</span><a class="item-title pointer">${title_box_.value}</a><span class="time">${y}.${m}.${d}</span><span class="content-value">${content_box_.value}</span></li>`);
 
         set_storage(select_box_.value, value);
 
@@ -451,6 +455,14 @@ function list_event(e) {
 
     if(target.classList[0] == 'item-title') {
         board_content_.classList.add('boom');
+
+        let title = target.parentElement.parentElement.parentElement.firstChild.innerText;
+        
+        board_content_title_.innerText = target.innerText;
+
+        let value = JSON.parse(localStorage.getItem(title));
+
+        board_content_content_.innerText = target.parentElement.lastChild.innerText;
     }
 }
 
