@@ -347,13 +347,15 @@ input:focus, textarea:focus {
 /* board-content */
 .board-content {
     width: calc(100% - 1rem);
-    height: calc(100% - 1rem);
+    height: calc(50% - 1rem);
     transform: translate(9%, 5%);
-    transition: all 0.4s;
+    transition: top 0.4s;
     opacity: 0;
+    padding: 1rem;
+    padding-top: 5rem;
 
     position: absolute;
-    bottom: -100%;
+    top: -100%;
     z-index: 20;
 }
 
@@ -361,7 +363,7 @@ input:focus, textarea:focus {
 .boom {
     transform: translate(0%, 0%);
     opacity: 1;
-    bottom: 0.5rem;
+    top: 0.5rem;
 }
 
 /* exit-btn-2 */
@@ -374,9 +376,27 @@ input:focus, textarea:focus {
     font-size: 1rem;
 }
 
+/* board-content-title */
+.board-content-title {
+    border-bottom: 1px solid #bdbdbd;
+    padding-bottom: 1rem;
+}
+
+/* board-content-content */
+.board-content-content {
+    padding-top: 1rem;
+}
+
 /* content-value */
 .content-value {
     display: none;
+}
+
+/* remove-content */
+.remove-content {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
 }
 
 /* media query */

@@ -88,6 +88,7 @@ const board_content = push('board_content', 'div', ['class'], ['board-content co
 const exit_btn_2 = push('exit_btn_2', 'button', ['class'], ['exit-btn-2 pointer'], '<i class="bi bi-x-lg"></i>', app.firstChild.childNodes[1], 1, true, 'click', exit_event_2);
 const board_content_title = push('board_content_title', 'h1', ['class'], ['board-content-title'], '', app.firstChild.childNodes[1], 1);
 const board_content_content = push('board_content_content', 'div', ['class'], ['board-content-content'], '', app.firstChild.childNodes[1], 1);
+const remove_content = push('remove_content', 'button', ['class'], ['remove-content pointer'], '게시물 삭제', app.firstChild.childNodes[1], 1, true, 'click', remove_content_event);
 
 // 엘리먼트 선택
 const gear_ = document.querySelector('.gear');
@@ -469,4 +470,11 @@ function list_event(e) {
 // exit_event_2 선언
 function exit_event_2(e) {
     board_content_.classList.remove('boom');
+}
+
+// remove_content_event 선언
+function remove_content_event(e) {
+    let target = e.target;
+
+    // let value = JSON.parse(localStorage.getItem(select_box_.value));
 }
