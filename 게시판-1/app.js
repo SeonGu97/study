@@ -86,6 +86,7 @@ const select_box = push('select_box', 'select', ['class'], ['select-box'], '', a
 const save_btn = push('save_btn', 'button', ['class'], ['save-btn pointer'], '저장', app.firstChild.firstChild.childNodes[2].lastChild, 1, true, 'click', save_event);
 const board_content = push('board_content', 'div', ['class'], ['board-content common'], '', app.firstChild, 1);
 const exit_btn_2 = push('exit_btn_2', 'button', ['class'], ['exit-btn-2 pointer'], '<i class="bi bi-x-lg"></i>', app.firstChild.childNodes[1], 1, true, 'click', exit_event_2);
+const parent_board = push('parent_board', 'h6', ['class'], ['parent-board'], '', app.firstChild.childNodes[1], 1);
 const board_content_title = push('board_content_title', 'h1', ['class'], ['board-content-title'], '', app.firstChild.childNodes[1], 1);
 const board_content_content = push('board_content_content', 'div', ['class'], ['board-content-content'], '', app.firstChild.childNodes[1], 1);
 const remove_content = push('remove_content', 'button', ['class'], ['remove-content pointer'], '게시물 삭제', app.firstChild.childNodes[1], 1, true, 'click', remove_content_event);
@@ -104,6 +105,7 @@ const title_box_ = document.querySelector('.title-box');
 const content_box_ = document.querySelector('.content-box');
 const select_box_ = document.querySelector('.select-box');
 const board_content_ = document.querySelector('.board-content');
+const parent_board_ = document.querySelector('.parent-board');
 const board_content_title_ = document.querySelector('.board-content-title');
 const board_content_content_ = document.querySelector('.board-content-content');
 
@@ -134,21 +136,12 @@ const storage_1 = create_storage(name_1, value_1);
 function gear_event(name, value) {
     gear_.addEventListener('click', e => {
         let target = e.target;
-        
-        target.classList.toggle('turn');
 
         value = JSON.parse(localStorage.getItem(name));
-    
+        console.log(value);
         if(target.classList.contains('turn')) {
-            value.splice('hide');
-            value.push('show');
+            target.classList.remove('turn');
 
-            remove_class(plus_, 'hide');
-            remove_class(minus_, 'hide');
-
-            add_class(plus_, 'show');
-            add_class(minus_, 'show');
-        }else {
             value.splice('show');
             value.push('hide');
 
@@ -157,6 +150,17 @@ function gear_event(name, value) {
 
             add_class(plus_, 'hide');
             add_class(minus_, 'hide');
+        }else {
+            target.classList.add('turn');
+
+            value.splice('hide');
+            value.push('show');
+
+            remove_class(plus_, 'hide');
+            remove_class(minus_, 'hide');
+
+            add_class(plus_, 'show');
+            add_class(minus_, 'show');
         }
 
         set_storage(name, value);
@@ -169,6 +173,12 @@ const gear_event_ = gear_event(name_1, value_1);
 // maintain_storage_1 선언
 function maintain_storage_1(name, value) {
     value = JSON.parse(localStorage.getItem(name));
+    
+    if(value[0] == undefined) {
+        value.push('show');
+
+        set_storage(name, value);
+    }
 
     if(value[0] == 'hide') {
         remove_class(gear_.firstChild, 'turn');
@@ -204,7 +214,7 @@ function remove_class(element, text) {
 const name_2 = 'my local';
 let value_2;
 
-// storage_1 호출
+// storage_2 호출
 const storage_2 = create_storage(name_2, value_2);
 
 // submit event 선언
@@ -450,6 +460,13 @@ function maintain_board_list() {
 // maintain_board_list 호출
 const maintain_board_list_ = maintain_board_list();
 
+// storage_2 information
+const name_3 = 'num';
+let value_3;
+
+// storage_3 호출
+const storage_3 = create_storage(name_3, value_3);
+
 // list_event 선언
 function list_event(e) {
     let target = e.target;
@@ -461,9 +478,17 @@ function list_event(e) {
         
         board_content_title_.innerText = target.innerText;
 
-        let value = JSON.parse(localStorage.getItem(title));
-
         board_content_content_.innerText = target.parentElement.lastChild.innerText;
+
+        parent_board_.innerText = target.parentElement.parentElement.parentElement.firstChild.innerText;
+    
+        let value = JSON.parse(localStorage.getItem(name_3));
+
+        value.splice(value[1]);
+        
+        value.push(target.parentElement.firstChild.innerText - 1);
+
+        set_storage(name_3, value);
     }
 }
 
@@ -476,5 +501,14 @@ function exit_event_2(e) {
 function remove_content_event(e) {
     let target = e.target;
 
-    // let value = JSON.parse(localStorage.getItem(select_box_.value));
+    let parent_title = target.parentElement.childNodes[1].innerText;
+
+    let value1 = JSON.parse(localStorage.getItem(parent_title));
+    
+    let value2 = JSON.parse(localStorage.getItem(name_3));
+
+    console.log(value1.toString().splice(value1[value2[0]]));
+
+    
+    // set_storage(parent_title, value1);
 }
