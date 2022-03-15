@@ -138,7 +138,7 @@ function gear_event(name, value) {
         let target = e.target;
 
         value = JSON.parse(localStorage.getItem(name));
-        console.log(value);
+
         if(target.classList.contains('turn')) {
             target.classList.remove('turn');
 
@@ -507,8 +507,16 @@ function remove_content_event(e) {
     
     let value2 = JSON.parse(localStorage.getItem(name_3));
 
-    console.log(value1.toString().splice(value1[value2[0]]));
-
+    for(let i = 0; i < value1.length; i++) {
+        let num = board_.childNodes[value2[0]].childNodes[1].childNodes[i].firstChild.innerText;
+        console.log(num);
+        let new_value1 = value1[i].replace(`<span class="num">${num}</span>`, `<span class="num">${i}</span>`);
+        value1[i] = new_value1;
     
+        // let boolean = board_.childNodes[i].classList.contains('z');
+    }
+
+    // value1.splice(value1.indexOf(value1[value2[0]]), 1);
+
     // set_storage(parent_title, value1);
 }
