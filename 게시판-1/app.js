@@ -372,6 +372,13 @@ function remove_class_all(value) {
 // board first child z-index
 board_.firstChild.classList.add('z');
 
+// storage_4 information
+const name_4 = 'book';
+let value_4;
+
+// storage_4 호출
+const storage_4 = create_storage(name_4, value_4);
+
 // book_event 선언
 function book_event(e) {
     let target = e.target;
@@ -386,7 +393,16 @@ function book_event(e) {
         }
     
         list.classList.add('z');
+
+        let value = JSON.parse(localStorage.getItem(name_4));
+
+        value.splice(value[1]);
+
+        value.push(e.currentTarget.classList[1]);
+
+        set_storage(name_4, value);
     }
+
 }
 
 // write_event 선언
@@ -460,7 +476,7 @@ function maintain_board_list() {
 // maintain_board_list 호출
 const maintain_board_list_ = maintain_board_list();
 
-// storage_2 information
+// storage_3 information
 const name_3 = 'num';
 let value_3;
 
@@ -507,16 +523,13 @@ function remove_content_event(e) {
     
     let value2 = JSON.parse(localStorage.getItem(name_3));
 
-    for(let i = 0; i < value1.length; i++) {
-        let num = board_.childNodes[value2[0]].childNodes[1].childNodes[i].firstChild.innerText;
-        console.log(num);
-        let new_value1 = value1[i].replace(`<span class="num">${num}</span>`, `<span class="num">${i}</span>`);
-        value1[i] = new_value1;
-    
-        // let boolean = board_.childNodes[i].classList.contains('z');
+    let value3 = JSON.parse(localStorage.getItem(name_4));
+
+    board_.childNodes[value3[0]].childNodes[1].childNodes[value2[0]].remove();
+
+    board_content_.classList.remove('boom');
+
+    for(let i = 0; i < board_.childNodes[value3[0]].length; i++) {
+        
     }
-
-    // value1.splice(value1.indexOf(value1[value2[0]]), 1);
-
-    // set_storage(parent_title, value1);
 }
