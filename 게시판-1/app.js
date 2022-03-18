@@ -525,17 +525,22 @@ function remove_content_event(e) {
 
     let value3 = JSON.parse(localStorage.getItem(name_4));
 
-    board_.childNodes[value3[0]].childNodes[1].childNodes[value2[0]].remove();
-
     board_content_.classList.remove('boom');
 
-    for(let i = 0; i < board_.childNodes[value3[0]].childNodes[1].childNodes.length; i++) {
-        board_.childNodes[value3[0]].childNodes[1].childNodes[i].firstChild.innerText = i + 1
-    }
+    value1.splice(value1.indexOf(value1[value2[0]]), 1);
 
-    for(let i = 0; i < value1.length; i++) {
-        let replace = value1[value2[0]].replace(`<span class="num">${i + 1}</span>`, `<span class="num">${i + 1}</span>`);
-    }   
+    board_.childNodes[value3[0]].childNodes[1].childNodes[value2[0]].remove();
+    
+    for(let i = 0; i < board_.childNodes[value3[0]].childNodes[1].childNodes.length; i++) {
+        let num = board_.childNodes[value3[0]].childNodes[1].childNodes[i].firstChild.innerText;
+    
+        let new_value1 = value1[i].replace(`<span class="num">${num}</span>`, `<span class="num">${i + 1}</span>`);
+        
+        value1[i] = new_value1;
+
+        board_.childNodes[value3[0]].childNodes[1].childNodes[i].firstChild.innerText = i + 1;
+
+    }
 
     set_storage(parent_title, value1);
 }
