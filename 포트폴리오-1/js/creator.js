@@ -2,7 +2,7 @@
 
 export default class Creator {
     constructor() {
-        
+      
     }
 
     basket(name, element, parent, number, type, value, text, boolean, event, func) {
@@ -36,8 +36,10 @@ export default class Creator {
     }
 
     attrs(repository) {
-        for(let i = 0; i < repository[3].type.length; i++) {
-            repository[0].name.setAttribute(repository[3].type[i], repository[3].value[i]);
+        if(!repository[3].type[0] == '') {
+            for(let i = 0; i < repository[3].type.length; i++) {
+                repository[0].name.setAttribute(repository[3].type[i], repository[3].value[i]);
+            } 
         }
     }
 
