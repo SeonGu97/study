@@ -3,6 +3,7 @@
 import Creator from "./js/creator.js";
 import Header from "./js/header.js";
 import Nav from "./js/nav.js";
+import Gap from "./js/gap.js";
 
 class App {
     constructor() {
@@ -18,6 +19,7 @@ class App {
         // component
         this.header = new Header(this.creator, app);
         this.nav = new Nav(this.creator);
+        this.gap = new Gap(this.creator, app);
     }
 }
 
