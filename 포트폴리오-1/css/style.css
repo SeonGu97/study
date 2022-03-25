@@ -35,3 +35,9 @@ nav {
     height: 10rem;
     background: #baddf9;
 }
+
+.top {
+    width: 100%;
+    height: 25rem;
+    background: #eee;
+}

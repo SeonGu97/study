@@ -11,6 +11,10 @@
     .gap {
         height: 9rem;
     }
+
+    .top {
+        height: 22.5rem;
+    }
 }
 
 /* 테블릿 세로 (해상도 768px ~ 1023px)*/ 
@@ -25,6 +29,10 @@
 
     .gap {
         height: 9rem;
+    }
+
+    .top {
+        height: 22.5rem;
     }
 } 
 
@@ -41,6 +49,10 @@
     .gap {
         height: 8rem;
     }
+
+    .top {
+        height: 20rem;
+    }
 }
 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
@@ -55,5 +67,9 @@
 
     .gap {
         height: 8rem;
+    }
+
+    .top {
+        height: 20rem;
     }
 }
