@@ -5,7 +5,7 @@ export default class Bar {
         // element
         this.nav = document.querySelector('nav');
 
-        // create bar
+        // create
         creator.basket('bar', 'span', this.nav, 1, ['class'], ['bar'], '<i class="bi bi-list"></i>', true, 'click', this.barEvent);
     }
 

@@ -7,7 +7,7 @@ export default class Nav {
         // element
         this.header = document.querySelector('header');
 
-        // create nav
+        // create
         creator.basket('nav', 'nav', this.header, 1, [''], [''], '');
 
         // component

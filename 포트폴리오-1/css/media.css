@@ -15,6 +15,12 @@
     .top {
         height: 22.5rem;
     }
+
+    .picture {
+        width: 150px;
+        height: 200px;
+        font-size: 1.25rem;
+    }
 }
 
 /* 테블릿 세로 (해상도 768px ~ 1023px)*/ 
@@ -33,6 +39,12 @@
 
     .top {
         height: 22.5rem;
+    }
+
+    .picture {
+        width: 150px;
+        height: 200px;
+        font-size: 1.25rem;
     }
 } 
 
@@ -53,6 +65,12 @@
     .top {
         height: 20rem;
     }
+
+    .picture {
+        width: 120px;
+        height: 150px;
+        font-size: 1rem;
+    }
 }
 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
@@ -71,5 +89,11 @@
 
     .top {
         height: 20rem;
+    }
+
+    .picture {
+        width: 120px;
+        height: 150px;
+        font-size: 1rem;
     }
 }

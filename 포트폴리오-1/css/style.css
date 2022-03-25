@@ -37,7 +37,31 @@ nav {
 }
 
 .top {
+    display: flex;
     width: 100%;
     height: 25rem;
+    justify-content: center;
     background: #eee;
+    border-top: 2px solid #e3f2fd;
+}
+
+.gallery {
+    max-width: 1024px;
+    width: 100%;
+    height: 50%;
+    padding: 0 12px;
+    position: relative;
+}
+
+.picture {
+    display: flex;
+    width: 200px;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    background: #b0bec5;
+    color: #eceff1;
+    font-size: 1.5rem;
+    position: absolute;
+    top: -30%;
 }
