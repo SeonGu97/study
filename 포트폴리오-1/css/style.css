@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    list-style: none;
+    white-space: nowrap;
 }
 
 body {
@@ -85,10 +87,12 @@ aside {
 }
 
 .library {
-    width: 17.5rem;
+    max-width: 20rem;
+    width: 100%;
     height: 100%;
     transition: transform 0.3s ease-in-out;
     background: #424242;
+    position: relative;
 }
 
 .active {
@@ -101,6 +105,8 @@ aside {
     padding-right: 0.5rem;
     color: #fff;
     font-size: 1.75rem;
+    position: relative;
+    z-index: 15;
 }
 
 .backward > i {
@@ -113,7 +119,42 @@ aside {
     height: 100%;
 }
 
+.in {
+    display: block;
+}
+
 .book {
-    color: #FFF;
+    display: flex;
+    width: min-content;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-15%);
+    padding: 0 2rem;
+}
+
+.word {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    margin-top: 4rem;
+    cursor: pointer;
+    padding-right: 3.5rem;
+}
+
+.word:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.letter {
+    color: #fff;
     font-size: 2rem;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    color: #bdbdbd;
 }

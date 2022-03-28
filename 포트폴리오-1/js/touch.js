@@ -14,6 +14,6 @@ export default class Touch {
         this.aside.classList.remove('show');
 
         this.touch = document.querySelector('.touch');
-        this.touch.style.display = 'none';
+        this.touch.classList.remove('in');
     }
 }

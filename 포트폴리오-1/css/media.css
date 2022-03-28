@@ -22,39 +22,25 @@
         font-size: 1.25rem;
     }
 
-    aside {
-        width: 15rem;
-    }
-}
-
-/* 테블릿 세로 (해상도 768px ~ 1023px)*/ 
-@media all and (min-width:768px) and (max-width:1023px) {
-    header {
-        height: 2.5rem;
+    .library {
+        max-width: 17.5rem;
     }
 
-    .bar > i {
-        font-size: 2rem;
+    .word {
+        margin-top: 3.5rem;
+        padding-right: 3rem;
     }
 
-    .gap {
-        height: 9rem;
+    .letter {
+        font-size: 1.75rem;
     }
 
-    .top {
-        height: 22.5rem;
-    }
-
-    .picture {
-        width: 150px;
-        height: 200px;
+    .copyright {
+        bottom: 0.5rem;
+        right: 0.5rem;
         font-size: 1.25rem;
     }
-
-    aside {
-        width: 15rem;
-    }
-} 
+}
 
 /* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
 @media all and (min-width:480px) and (max-width:767px) {
@@ -80,8 +66,23 @@
         font-size: 1rem;
     }
 
-    aside {
-        width: 15rem;
+    .library {
+        max-width: 15rem;
+    }
+
+    .word {
+        margin-top: 3rem;
+        padding-right: 2.5rem;
+    }
+
+    .letter {
+        font-size: 1.75rem;
+    }
+
+    .copyright {
+        bottom: 0.5rem;
+        right: 0.5rem;
+        font-size: 1rem;
     }
 }
 
@@ -109,7 +110,28 @@
         font-size: 1rem;
     }
 
-    aside {
+    .library {
+        max-width: 100%;
+    }
+
+    .touch {
+        display: none;
+    }
+
+    .book {
         width: 100%;
+        align-items: center;
+        transform: translateY(-12.5%);
+        padding: 0 1rem;
+    }
+
+    .word {
+        width: min-content;
+        margin-top: 2.5rem;
+        padding-right: 2rem;
+    }
+
+    .letter {
+        font-size: 2rem;
     }
 }

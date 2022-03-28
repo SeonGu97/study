@@ -1,6 +1,8 @@
 'use strict';
 
+import Copyright from "./copyright.js";
 import Library from "./library.js";
+
 
 export default class Aside {
     constructor(creator, app) {
@@ -9,5 +11,6 @@ export default class Aside {
 
         // component
         this.library = new Library(creator);
+        this.copyright = new Copyright(creator);
     }
 }

@@ -17,6 +17,6 @@ export default class Bar {
         this.library.classList.add('active');
 
         this.touch = document.querySelector('.touch');
-        this.touch.style.display = 'block';
+        this.touch.classList.add('in');
     }
 }
