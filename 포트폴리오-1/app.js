@@ -5,10 +5,12 @@ import Header from "./js/header.js";
 import Nav from "./js/nav.js";
 import Gap from "./js/gap.js";
 import Main from "./js/main.js";
+import Aside from "./js/aside.js";
+
 
 class App {
     constructor() {
-        // components
+        // component
         this.creator = new Creator();
 
         // create app
@@ -17,11 +19,12 @@ class App {
         // element
         const app = document.querySelector('#app');
 
-        // component
+        // components
         this.header = new Header(this.creator, app);
         this.nav = new Nav(this.creator);
         this.gap = new Gap(this.creator, app);
         this.main = new Main(this.creator, app);
+        this.aside = new Aside(this.creator, app);
     }
 }
 

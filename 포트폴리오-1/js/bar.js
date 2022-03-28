@@ -10,6 +10,13 @@ export default class Bar {
     }
 
     barEvent() {
-        console.log('bar');
+        this.aside = document.querySelector('aside');
+        this.aside.classList.add('show');
+
+        this.library = document.querySelector('.library');
+        this.library.classList.add('active');
+
+        this.touch = document.querySelector('.touch');
+        this.touch.style.display = 'block';
     }
 }
