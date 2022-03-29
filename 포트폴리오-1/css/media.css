@@ -13,7 +13,7 @@
     }
 
     .top {
-        height: 22.5rem;
+        height: 30rem;
     }
 
     .picture {
@@ -40,6 +40,19 @@
         right: 0.5rem;
         font-size: 1.25rem;
     }
+
+    .introduce {
+        height: 26rem;
+    }
+
+    .board {
+        width: 400px;
+        padding: 0 4rem;
+    }
+    
+    .list {
+        height: 1.75rem;
+    }
 }
 
 /* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/ 
@@ -57,7 +70,7 @@
     }
 
     .top {
-        height: 20rem;
+        height: 25rem;
     }
 
     .picture {
@@ -83,6 +96,19 @@
         bottom: 0.5rem;
         right: 0.5rem;
         font-size: 1rem;
+    }
+
+    .introduce {
+        height: 24.5rem;
+    }
+
+    .board {
+        width: 350px;
+        padding: 0 2.5rem;
+    }
+    
+    .list {
+        height: 1.5rem;
     }
 }
 
@@ -133,5 +159,18 @@
 
     .letter {
         font-size: 2rem;
+    }
+
+    .introduce {
+        height: 13.5rem;
+    }
+
+    .board {
+        max-width: 350px;
+        padding: 0 1rem;
+    }
+    
+    .list {
+        height: 1rem;
     }
 }

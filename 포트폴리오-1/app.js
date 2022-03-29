@@ -8,7 +8,7 @@ import Main from "./js/main.js";
 import Aside from "./js/aside.js";
 
 
-class App {
+export class App {
     constructor() {
         // component
         this.creator = new Creator();

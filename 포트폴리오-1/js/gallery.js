@@ -8,7 +8,7 @@ export default class Gallery {
         this.top = document.querySelector('.top');
 
         // create
-        creator.basket('gallery', 'section', this.top, 1, ['class'], ['gallery'], '');
+        creator.basket('gallery', 'div', this.top, 1, ['class'], ['gallery'], '');
     
         // component
         this.picture = new Picture(creator);

@@ -6,10 +6,6 @@
     white-space: nowrap;
 }
 
-body {
-    
-}
-
 header {
     display: flex;
     width: 100%;
@@ -37,16 +33,19 @@ nav {
 .gap {
     width: 100%;
     height: 10rem;
-    background: #baddf9;
+    background: #bbdefb;
 }
 
 .top {
     display: flex;
     width: 100%;
-    height: 25rem;
+    height: 35rem;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background: #eee;
     border-top: 2px solid #e3f2fd;
+    padding-bottom: 1rem;
 }
 
 .gallery {
@@ -157,4 +156,27 @@ aside {
     right: 0.75rem;
     font-size: 1.5rem;
     color: #bdbdbd;
+}
+
+.introduce {
+    max-width: 1024px;
+    width: 100%;
+    height: 28.5rem;
+    padding: 0 12px;
+}
+
+.board {
+    display: flex;
+    max-width: 500px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #E0E0E0;
+    padding: 0 5rem;
+}
+
+.list {
+    width: 100%;
+    height: 2rem;
+    border-bottom: 1px solid #bdbdbd;
 }

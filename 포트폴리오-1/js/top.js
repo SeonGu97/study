@@ -1,6 +1,7 @@
 'use strict';
 
 import Gallery from "./gallery.js";
+import Introduce from "./introduce.js";
 
 export default class Top {
     constructor(creator) {
@@ -12,5 +13,6 @@ export default class Top {
 
         // component
         this.gallery = new Gallery(creator);
+        this.introduce = new Introduce(creator);
     }
 }
