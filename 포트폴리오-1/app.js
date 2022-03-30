@@ -17,14 +17,14 @@ export class App {
         this.creator.basket('app', 'div', document.body, 1, ['id'], ['app'], '');
 
         // element
-        const app = document.querySelector('#app');
+        this.app = document.querySelector('#app');
 
         // components
-        this.header = new Header(this.creator, app);
+        this.header = new Header(this.creator, this.app);
         this.nav = new Nav(this.creator);
-        this.gap = new Gap(this.creator, app);
-        this.main = new Main(this.creator, app);
-        this.aside = new Aside(this.creator, app);
+        this.gap = new Gap(this.creator, this.app);
+        this.main = new Main(this.creator, this.app);
+        this.aside = new Aside(this.creator, this.app);
     }
 }
 
