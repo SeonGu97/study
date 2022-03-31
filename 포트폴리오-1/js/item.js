@@ -1,11 +1,20 @@
 'use strict';
 
+import Cover from "./cover.js";
+import Subtitle from "./subtitle.js";
+
 export default class Item {
     constructor(creator) {
         // element
-        this.project = document.querySelector('.project');
+        this.box = document.querySelectorAll('.box');
 
         // create
-        creator.basket('item', 'div', this.project, 6, ['class'], ['item'], '');
+        for(let i = 0; i < this.box.length; i++) {
+            creator.basket('item', 'div', this.box[i], 1, ['class'], ['item'], '');
+        }
+
+        // components
+        this.cover = new Cover(creator);
+        this.subtitle = new Subtitle(creator);
     }
 }

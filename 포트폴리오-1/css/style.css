@@ -225,8 +225,40 @@ aside {
     margin: 5rem 0;
 }
 
-.item {
+.box {
     width: 326px;
     height: 326px;
     background: #eceff1;
+    transition: transform 0.3s;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.box:hover > .item > .cover {
+    transform: translateY(0%);
+}
+
+.box:hover {
+    transform: scale(0.95, 0.95);
+}
+
+.cover {
+    width: 100%;
+    height: 75%;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-110%);
+    transition: transform 0.2s;
+}
+
+.subtitle {
+    width: 100%;
+    height: 25%;
+    background: rgba(0, 0, 0, 0.1);
 }

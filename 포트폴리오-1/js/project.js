@@ -1,6 +1,6 @@
 'use strict';
 
-import Item from "./item.js";
+import Box from "./box.js";
 
 export default class Project {
     constructor(creator) {
@@ -11,6 +11,6 @@ export default class Project {
         creator.basket('project', 'div', this.middle, 1, ['class'], ['project'], '');
     
         // component
-        this.item = new Item(creator);
+        this.box = new Box(creator);
     }
 }
