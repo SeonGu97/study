@@ -6,6 +6,8 @@ import Nav from "./js/nav.js";
 import Gap from "./js/gap.js";
 import Main from "./js/main.js";
 import Aside from "./js/aside.js";
+import Footer from "./js/footer.js";
+import More from "./js/more.js";
 
 
 export class App {
@@ -25,6 +27,8 @@ export class App {
         this.gap = new Gap(this.creator, this.app);
         this.main = new Main(this.creator, this.app);
         this.aside = new Aside(this.creator, this.app);
+        this.footer = new Footer(this.creator, this.app);
+        this.more = new More(this.creator, this.app);
     }
 }
 

@@ -7,7 +7,7 @@ export default class Cover {
 
         // create
         for (let i = 0; i < this.item.length; i++) {
-            creator.basket('Cover', 'div', this.item[i], 1, ['class'], ['cover'], '');
+            creator.basket('cover', 'div', this.item[i], 1, ['class'], ['cover'], '');
         }
     }
 }
