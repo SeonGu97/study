@@ -6,6 +6,6 @@ export default class Bubble {
         this.more = document.querySelector('.more');
 
         // create
-        creator.basket('bubble', 'li', this.more, 3, ['class'], ['bubble'], '');
+        creator.basket('bubble', 'div', this.more, 3, ['class'], ['bubble'], '');
     }
 }
