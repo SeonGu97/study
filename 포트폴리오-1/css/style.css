@@ -92,7 +92,7 @@ aside {
     perspective: 200px;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 35;
 }
 
 .show {
@@ -277,29 +277,45 @@ footer {
     height: 2.5rem;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    font-size: 1.5rem;
     border-radius: 50%;
-    background: #0064b7;
+    background: #0091ea;
     color: #fff;
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    z-index: 30;
+    z-index: 20;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .bubble {
-    width: 2rem;
-    height: 2rem;
-    background: lightblue;
-    pointer-events: none;
-    border-radius: 50%;
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    z-index: -1;
-    opacity: 1;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    transition: transform 0.2s;
 }
 
-.smooth {
+.link {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 15;
+    transition: all 0.2s;
+    cursor: pointer;
+    color: #424242;
+    opacity: 0;
+}
+
+.attack {
     opacity: 1;
-    pointer-events: auto;
 }

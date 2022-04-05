@@ -8,6 +8,7 @@ import Main from "./js/main.js";
 import Aside from "./js/aside.js";
 import Footer from "./js/footer.js";
 import More from "./js/more.js";
+import Bubble from "./js/bubble.js";
 
 
 export class App {
@@ -29,6 +30,7 @@ export class App {
         this.aside = new Aside(this.creator, this.app);
         this.footer = new Footer(this.creator, this.app);
         this.more = new More(this.creator, this.app);
+        this.bubble = new Bubble(this.creator, this.app);
     }
 }
 

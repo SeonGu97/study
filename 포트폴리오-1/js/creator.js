@@ -49,7 +49,7 @@ export default class Creator {
 
     event(repository) {
         if(repository[5].boolean == true) {
-            repository[0].name.addEventListener(repository[5].event, repository[5].func);
+            repository[0].name.addEventListener(repository[5].event, repository[5].func, false);
         }
     }
 

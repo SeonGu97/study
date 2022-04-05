@@ -173,4 +173,19 @@
     .list {
         height: 1rem;
     }
+
+    .more {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .bubble {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .link {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 }

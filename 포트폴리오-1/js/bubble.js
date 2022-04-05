@@ -1,11 +1,13 @@
 'use strict';
 
-export default class Bubble {
-    constructor(creator) {
-        // element
-        this.more = document.querySelector('.more');
+import Link from "./link.js";
 
+export default class Bubble {
+    constructor(creator, app) {
         // create
-        creator.basket('bubble', 'div', this.more, 3, ['class'], ['bubble'], '');
+        creator.basket('bubble', 'div', app, 1, ['class'], ['bubble'], '');
+
+        // component
+        this.link = new Link(creator);
     }
 }
