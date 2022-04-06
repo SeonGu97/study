@@ -16,8 +16,8 @@ export default class More {
         this.link[2].style.transitionDelay = '0.4s';
 
         if(this.more.classList.contains('smooth')) {
-            this.link[0].style.transform = 'translate(25%, -200%)';
-            this.link[1].style.transform = 'translate(-175%, -175%)';
+            this.link[0].style.transform = 'translate(0%, -150%)';
+            this.link[1].style.transform = 'translate(0%, -300%)';
             this.link[2].style.transform = 'translate(-200%, 25%)';
 
             for(let i = 0; i < this.link.length; i++) {
