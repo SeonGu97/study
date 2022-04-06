@@ -6,6 +6,6 @@ export default class Picture {
         this.gallery = document.querySelector('.gallery');
 
         // create
-        creator.basket('picture', 'div', this.gallery, 1, ['class'], ['picture'], '사진');
+        creator.basket('picture', 'div', this.gallery, 1, ['class'], ['picture'], '');
     }
 }
