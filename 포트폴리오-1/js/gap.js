@@ -1,8 +1,8 @@
 'use strict';
 
 export default class Gap {
-    constructor(creator, app) {
+    constructor(creator, top) {
         // create
-        creator.basket('gap', 'section', app, 1, ['class'], ['gap'], '');
+        creator.basket('gap', 'div', top, 1, ['class'], ['gap'], '');
     }
 }

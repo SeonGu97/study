@@ -19,16 +19,13 @@ export default class Creator {
     }
 
     modify(repository) {
-        repository[0].name = 'this.' + repository[0].name;
-
         for(let i = 0; i < repository[2].number; i++) {
             this.create(repository);
             this.attrs(repository);
-            this.innerText(repository);
             this.event(repository);
             this.append(repository);
+            this.innerText(repository);
         }
-
     }
 
     create(repository) {
@@ -43,10 +40,6 @@ export default class Creator {
         }
     }
 
-    innerText(repository) {
-        repository[0].name.innerHTML = repository[4].text;
-    }
-
     event(repository) {
         if(repository[5].boolean == true) {
             repository[0].name.addEventListener(repository[5].event, repository[5].func, false);
@@ -55,9 +48,11 @@ export default class Creator {
 
     append(repository) {
         repository[1].parent.appendChild(repository[0].name);
+
+        this.name = repository[0].name;
     }
 
-    appEvent(e) {
-        console.log('boom!');
+    innerText(repository) {
+        repository[0].name.innerHTML = repository[4].text;
     }
 }

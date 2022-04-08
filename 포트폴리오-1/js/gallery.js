@@ -3,13 +3,10 @@
 import Picture from "./picture.js";
 
 export default class Gallery {
-    constructor(creator) {
-        // element
-        this.top = document.querySelector('.top');
-
+    constructor(creator, top) {
         // create
-        creator.basket('gallery', 'div', this.top, 1, ['class'], ['gallery'], '');
-    
+        creator.basket('gallery', 'div', top, 1, ['class'], ['gallery pad'], '');
+
         // component
         this.picture = new Picture(creator);
     }

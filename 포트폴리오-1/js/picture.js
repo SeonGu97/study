@@ -2,10 +2,7 @@
 
 export default class Picture {
     constructor(creator) {
-        // element
-        this.gallery = document.querySelector('.gallery');
-
         // create
-        creator.basket('picture', 'div', this.gallery, 1, ['class'], ['picture'], '');
+        creator.basket('picture', 'img', creator.name, 1, ['class', 'src'], ['picture', '../picture/취업사진1.jpg'], '');
     }
 }

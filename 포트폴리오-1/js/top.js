@@ -1,18 +1,20 @@
 'use strict';
 
+import Board from "./board.js";
 import Gallery from "./gallery.js";
-import Introduce from "./introduce.js";
+import Gap from "./gap.js";
 
 export default class Top {
-    constructor(creator) {
-        // element
-        this.main = document.querySelector('main');
-
+    constructor(creator, wrap) {
         // create
-        creator.basket('top', 'section', this.main, 1, ['class'], ['top'], '');
+        creator.basket('top', 'section', wrap, 1, ['class'], ['top'], '');
 
-        // component
-        this.gallery = new Gallery(creator);
-        this.introduce = new Introduce(creator);
+        // element
+        this.top = creator.name;
+
+        // components
+        this.gap = new Gap(creator, this.top);
+        this.gallery = new Gallery(creator, this.top);
+        this.board = new Board(creator, this.top);
     }
 }
