@@ -1,8 +1,7 @@
 'use strict';
-
-import Aside from "./aside.js";
 import Header from "./header.js";
 import Top from "./top.js";
+import Aside from "./aside.js";
 
 export default class Wrap {
     constructor(creator, app) {

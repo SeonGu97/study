@@ -1,7 +1,6 @@
 'use strict';
 
-import Line_1 from "./line_1.js";
-import Line_2 from "./line_2.js";
+import Line from "./line.js";
 
 export default class Aside {
     constructor(creator, wrap) {
@@ -9,26 +8,22 @@ export default class Aside {
         creator.basket('aside', 'aside', wrap, 1, [''], [''], '');
 
         // window event
-        window.addEventListener('resize', this.resize.bind(this), false);
+        window.addEventListener('resize', this.resize, false);
         this.resize();
 
-        // element
-        this.aside = creator.name;
-
-        // components
-        this.line_1 = new Line_1(creator, this.aside);
-        this.line_2 = new Line_2(creator, this.aside);
+        // component
+        this.line = new Line(creator);
     }
 
     resize() {
+        this.size = (window.innerWidth - 1024) / 2;
+        
         this.aside = document.querySelector('aside');
+
         this.aside.style.transition = 'none';
 
-        this.size = (window.innerWidth - 1024) / 2;
-        console.log(this.size);
-
         if(this.size <= 1024) {
-            this.aside.style.right = `${this.size}px`;
+            this.aside.style.right = `${this.size - 10}px`;
         }
         
         if(this.size < 0){

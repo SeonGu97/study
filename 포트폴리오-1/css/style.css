@@ -43,6 +43,7 @@ nav {
     max-width: 1024px;
     width: 100%;
     justify-content: flex-end;
+    padding-right: 1rem;
 }
 
 .menu {
@@ -53,7 +54,6 @@ nav {
     justify-content: space-around;
     align-items: center;
     padding: 6px;
-    margin-right: 1rem;
 }
 
 .bar {
@@ -93,50 +93,39 @@ nav {
     width: 12.5rem;
     border: 5px solid #f5f5f5;
     position: absolute;
-    top: 10%;
+    top: 5%;
     box-shadow: 0px 0px 4px 1px #aeaeae;
+    z-index: 10;
 }
 
 .board {
     max-width: 1024px;
     width: 100%;
-    height: 20rem;
+    /* height: 20rem; */
+    height: 100vh;
     background: #f5f5f5;
 }
 
 aside {
     display: flex;
-    width: 2.5rem;
-    height: 100vh;
-    justify-content: space-around;
-    transform: translateY(-100%);
+    width: 40px;
+    height: 0;
+    justify-content: center;
     margin-right: 1rem;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
+    z-index: 5;
 }
 
-.line_1 {
-    width: 10px;
-    height: 100%;
-    background: #424242;
-    position: relative;
+.line {
+    border-left: 10px dashed #9e9e9e;
 }
 
-.slide {
-    width: 0;
-    height: 100%;
+.anchor {
+    font-size: 5rem;
+    transform: translateX(-50%);
     position: absolute;
-    background: rgba(0, 0, 0, 0.3);
-    right: 10px;
-    transition: 0.4s;
-}
-
-.line_2 {
-    border-right: 10px dashed #bdbdbd;
-}
-
-.grow {
-    width: 20rem;
-    transition-delay: 0.4s;
+    bottom: -5.5rem;
+    left: 1.25rem;
 }
