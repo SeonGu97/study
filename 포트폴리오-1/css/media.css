@@ -1,20 +1,54 @@
 @media all and (max-width:1350px) {
     aside {
+        width: 250px;
+    }
+
+    .active-1 {
         width: 4.5rem;
+    }
+    
+    .active-2 {
+        padding-left: 250px;
+    }
+    
+    .active-3 {
+        padding-left: 4.5rem;
     }
 }
 
 @media all and (min-width:768px) and (max-width:1023px) {
+    aside {
+        width: 4.5rem;
+    }
+
+    .active-1 {
+        width: 250px;
+    }
     
+    .active-2 {
+        padding-left: 4.5rem;
+    }
+    
+    .active-3 {
+        padding-left: 250px;
+    }
 }
 
 @media all and (min-width:480px) and (max-width:767px) {
     aside {
-        width: 0;
+        width: 4.5rem;
     }
 
-    .wrap {
-        margin-left: 0;
+    .active-1 {
+        width: 250px;
+    }
+    
+    .active-2 {
+        padding-left: 4.5rem;
+    }
+    
+    .active-3 {
+        padding-left: 4.5rem;
     }
 
     .screen {
@@ -23,15 +57,23 @@
 }
 
 @media all and (max-width:479px) {
-    .gallery {
-        justify-content: center;
-    }
-
     aside {
         width: 0;
     }
 
-    .wrap {
-        margin-left: 0;
+    .active-1 {
+        width: 250px;
+    }
+    
+    .active-2 {
+        padding-left: 0;
+    }
+    
+    .active-3 {
+        padding-left: 0;
+    }
+
+    .screen {
+        display: none;
     }
 }

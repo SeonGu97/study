@@ -32,7 +32,7 @@ aside {
     height: 100%;
     background: #fff;
     border-right: 1px solid #E0E0E0;
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 10;
 }
@@ -45,8 +45,9 @@ header {
     background: #fff;
     border-bottom: 1px solid #E0E0E0;
     padding: 0 1rem;
-    position: absolute;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 15;
 }
 
@@ -57,7 +58,6 @@ header {
     background: #fff;
     z-index: 5;
     margin-top: 3.5rem;
-    margin-left: 4.5rem;
     border-left: 1px solid #E0E0E0;
     border-right: 1px solid #E0E0E0;
     padding: 1rem;
@@ -85,4 +85,16 @@ header {
     font-size: 1.25rem;
     font-weight: bold;
     padding: 15px 18px 15px 18px;
+}
+
+.active-1 {
+    width: 4.5rem;
+}
+
+.active-2 {
+    padding-left: 250px;
+}
+
+.active-3 {
+    padding-left: 4.5rem;
 }
