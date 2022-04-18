@@ -1,8 +1,20 @@
 'use strict';
 
+import Aside from "./aside.js";
+import Header from "./header.js";
+import Main from "./main.js";
+
 export default class Wrap {
-    constructor(creator, app) {
-        // creator
-        creator.basket('wrap', 'div', app, 1, ['class'], ['wrap'], '');
+    constructor(creator) {
+        // create
+        creator.basket('wrap', 'div', creator.name, 1, ['class'], ['wrap'], '');
+
+        // element
+        this.wrap = creator.name;
+
+        // components
+        this.header = new Header(creator, this.wrap);
+        this.aside = new Aside(creator, this.wrap);
+        this.main = new Main(creator, this.wrap); 
     }
 }

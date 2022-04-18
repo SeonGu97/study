@@ -1,18 +1,18 @@
 'use strict';
 
-import Menu from "./menu.js";
+import Nav from "./nav.js";
 import Screen from "./screen.js";
 
 export default class Header {
-    constructor(creator, app) {
-        // creator
-        creator.basket('header', 'header', app, 1, [''], [''], '');
-
+    constructor(creator, wrap) {
+        // create
+        creator.basket('header', 'header', wrap, 1, [''], [''], '');
+        
         // element
-        this.header = document.querySelector('header');
-
-        // components
-        this.menu = new Menu(creator, this.header);
+        this.header = creator.name;
+        
+        // component
+        this.nav = new Nav(creator, this.header);
         this.screen = new Screen(creator, this.header);
     }
 }

@@ -1,29 +1,40 @@
 'use strict';
 
-import Logo from "./logo.js";
-
 export default class Menu {
-    constructor(creator, header) {
-        // creator
-        creator.basket('menu', 'div', header , 1, ['class'], ['menu'], '<i class="fas fa-solid fa-bars pointer"></i>', true, 'click', this.menuEvent);
-    
-        // component
-        this.logo = new Logo(creator);
+    constructor(creator) {
+        // create
+        creator.basket('menu', 'div', creator.name, 1, ['class'], ['menu pointer'], '<i class="fas fa-light fa-bars"></i>', true, 'click', this.menuEvent);
     }
 
     menuEvent(e) {
         this.target = e.target;
 
-        this.icon = document.querySelector('.fa-bars');
-
+        this.wrap = document.querySelector('.wrap');
+        this.menu = document.querySelectorAll('.menu');
         this.aside = document.querySelector('aside');
+        this.nav = document.querySelectorAll('nav');
+        this.header = document.querySelector('header');
 
-        this.app = document.querySelector('#app');
+        // media query size
+        this._1349px = matchMedia('screen and (max-width: 1349px)').matches;
+        this._1023px = matchMedia('screen and (max-width: 1023px)').matches;
+        this._768px = matchMedia('screen and (max-width: 768px)').matches;
+        this._480px = matchMedia('screen and (max-width: 480px)').matches;
+        
+        this.menu.forEach(menu => {
+            menu.classList.toggle('active');
 
-        if(this.target == this.icon) {
-            this.aside.classList.toggle('active-1');
-            this.app.classList.toggle('active-2');
-            this.app.classList.toggle('active-3');
-        }
+            if(menu.classList.contains('active')) {
+                this.aside.classList.add('show');
+            }else {
+                this.aside.classList.remove('show');
+            }
+        });
+
+        this._1023px ? this.menu.forEach(menu => {
+            menu.classList.contains('active') ? this.aside.classList.add('static') : this.aside.classList.remove('static');
+            menu.classList.contains('active') ? this.nav[1].classList.add('hide') : this.nav[1].classList.remove('hide');
+            menu.classList.contains('active') ? this.header.classList.add('back') : this.header.classList.remove('back');
+        }) : '';
     }
 }
