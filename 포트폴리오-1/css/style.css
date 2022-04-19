@@ -86,6 +86,11 @@ nav {
     align-items: center;
     font-size: 1.55rem;
     padding: 10px 0;
+    pointer-events: none;
+}
+
+.screen > i {
+    pointer-events: auto;
 }
 
 .pointer {
@@ -136,4 +141,27 @@ main {
 
 .back {
     z-index: 10;
+}
+
+.box {
+    width: 0;
+    height: calc(100% - 3.5rem);
+    background: #fff;
+    transition: all 0.4s;
+    border-left: 1px solid #e0e0e0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.active-2 {
+
+}
+
+.show-2 {
+    width: 3rem;
+}
+
+.gap-2 {
+    padding-right: 3rem;
 }

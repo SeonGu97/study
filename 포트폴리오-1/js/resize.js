@@ -14,6 +14,8 @@ function resize() {
     const wrap = document.querySelector('.wrap');
     const aside = document.querySelector('aside');
     const menu = document.querySelectorAll('.menu');
+    const box = document.querySelector('.box');
+    const screen = document.querySelector('.screen');
 
     if(_1349px) {
         aside.classList.contains('show') ? wrap.classList.remove('gap') : '';
@@ -32,6 +34,17 @@ function resize() {
             menu.classList.remove('active');
         }) : '';
         aside.classList.remove('static');
+    }
+
+    if(_1023px) {
+        wrap.classList.remove('gap-2');
+        box.classList.remove('show-2');
+        screen.classList.remove('active-2');
+        const left = '<i class="bi bi-arrow-bar-left pointer"></i>';
+
+        if(screen.classList.contains('active-2')) {
+            screen.innerHTML = left;
+        }
     }
 }
 

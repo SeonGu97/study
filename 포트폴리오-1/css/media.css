@@ -43,6 +43,10 @@
     .gap {
         padding-left: 4.5rem;
     }
+    
+    .screen {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
@@ -68,6 +72,10 @@
     .gap {
         padding-left: 0px;
     }
+
+    .screen {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -92,6 +100,10 @@
     
     .gap {
         padding-left: 0px;
-    }   
+    }
+    
+    .screen {
+        display: none;
+    }
 }
 
