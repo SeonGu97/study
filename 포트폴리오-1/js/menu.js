@@ -26,8 +26,10 @@ export default class Menu {
 
             if(menu.classList.contains('active')) {
                 this.aside.classList.add('show');
+                this.wrap.classList.add('gap');
             }else {
                 this.aside.classList.remove('show');
+                this.wrap.classList.remove('gap');
             }
         });
 
