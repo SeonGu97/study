@@ -1,6 +1,9 @@
 'ues strict';
 
 import Top from "./top.js";
+import Line from "./line.js";
+import Middle from "./middle.js";
+import Title from "./title.js";
 
 export default class Main {
     constructor(creator, wrap) {
@@ -11,6 +14,10 @@ export default class Main {
         this.main = document.querySelector('main');
 
         // component
+        this.title = new Title(creator, this.main, '<i class="bi bi-balloon-fill red"></i> 소개');
         this.top = new Top(creator, this.main);
+        this.line = new Line(creator, this.main);
+        this.title = new Title(creator, this.main, '<i class="bi bi-balloon-fill blue"></i> 프로젝트');
+        this.middle = new Middle(creator, this.main);
     }
 }
