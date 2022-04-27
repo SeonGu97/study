@@ -1,5 +1,6 @@
 'ues strict';
 
+import Library from "./library.js";
 import Nav from "./nav.js";
 
 export default class Aside {
@@ -7,8 +8,12 @@ export default class Aside {
         // create
         creator.basket('aside', 'aside', wrap, 1, [''], [''], '', true, 'transitionend', this.asideEvent);
 
+        // element
+        this.aside = creator.name;
+        
         // component
-        this.nav = new Nav(creator, creator.name);
+        this.nav = new Nav(creator, this.aside);
+        this.library = new Library(creator, this.aside);
     }
 
     asideEvent(e) {

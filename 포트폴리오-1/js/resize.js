@@ -16,6 +16,8 @@ function resize() {
     const menu = document.querySelectorAll('.menu');
     const box = document.querySelector('.box');
     const screen = document.querySelector('.screen');
+    const nav = document.querySelectorAll('nav');
+    const library = document.querySelector('.library');
 
     if(_1349px) {
         aside.classList.contains('show') ? wrap.classList.remove('gap') : '';
@@ -45,6 +47,20 @@ function resize() {
         if(screen.classList.contains('active-2')) {
             screen.innerHTML = left;
         }
+
+        if(!aside.classList.contains('show')) {
+            nav[1].classList.remove('hide');
+        }
+
+        if(aside.classList.contains('hide-bd')) {
+            library.classList.add('hide-to');
+        }
+    }
+
+    if(_768px) {
+        !aside.classList.contains('show') ? aside.classList.add('hide-bd') : '';
+    }else {
+        aside.classList.remove('hide-bd')
     }
 }
 

@@ -8,7 +8,7 @@ export default class Board {
         creator.basket('board', 'ul', top, 1, ['class'], ['board'], '');
 
         // element
-        this.board = document.querySelector('.board');
+        this.board = creator.name;
 
         // component
         this.list = new List(creator, this.board);

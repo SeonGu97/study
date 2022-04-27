@@ -14,6 +14,8 @@ export default class Menu {
         this.aside = document.querySelector('aside');
         this.nav = document.querySelectorAll('nav');
         this.header = document.querySelector('header');
+        this.library = document.querySelector('.library');
+        this.book = document.querySelectorAll('.book');
 
         // media query size
         this._1349px = matchMedia('screen and (max-width: 1349px)').matches;
@@ -33,10 +35,19 @@ export default class Menu {
             }
         });
 
+        !this.aside.classList.contains('show') ? this.aside.classList.add('hide-bd') : '';
+        this.aside.classList.contains('show') ? this.book.forEach(books => {
+            books.classList.add('line-up');
+        }) : '';
+
         this._1023px ? this.menu.forEach(menu => {
             menu.classList.contains('active') ? this.aside.classList.add('static') : this.aside.classList.remove('static');
             menu.classList.contains('active') ? this.nav[1].classList.add('hide') : this.nav[1].classList.remove('hide');
-            menu.classList.contains('active') ? this.header.classList.add('back') : this.header.classList.remove('back');
+            menu.classList.contains('active') ? this.header.classList.add('back') : '';
         }) : '';
+
+        if(this._1023px) {
+            this.aside.classList.contains('show') ? this.library.classList.add('hide-to') : this.library.classList.remove('hide-to');
+        }
     }
 }

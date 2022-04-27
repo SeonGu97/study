@@ -9,7 +9,7 @@ export default class Top {
         creator.basket('top', 'section', main, 1, ['class'], ['top mg-b basic-pd'], '');
 
         // element
-        this.top = document.querySelector('.top');
+        this.top = creator.name;
 
         // component
         this.gallery = new Gallery(creator, this.top);

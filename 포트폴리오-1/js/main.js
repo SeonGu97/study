@@ -13,7 +13,7 @@ export default class Main {
         creator.basket('main', 'main', wrap, 1, [''], [''], '');
 
         // element
-        this.main = document.querySelector('main');
+        this.main = creator.name;
 
         // component
         this.title = new Title(creator, this.main, '<i class="bi bi-balloon-fill red"></i> 소개');

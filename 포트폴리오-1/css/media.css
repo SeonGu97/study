@@ -9,7 +9,6 @@
 
     .aside > nav {
         display: none;
-        transition: all 0.4s;
         transform: translate(-100%);
     }
 
@@ -32,8 +31,7 @@
     }
 
     aside > nav {
-        transition: all 0.4s;
-        transform: translate(-100%);
+        transform: translate(-110%);
     }
 
     .show {
@@ -75,10 +73,6 @@
         margin-bottom: 2.5rem;
     }
 
-    .title {
-        padding-left: 0;
-    }
-
     .skills {
         height: 4.5rem;
         column-gap: 1.5rem;
@@ -87,12 +81,16 @@
     .skill-item {
         width: 3rem;
         height: 3rem;
-        background: rgba(0, 0, 0, 0.15);
-        border-radius: 50%;
     }
 
     .skill-item > i {
         font-size: 2rem;
+    }
+
+    .ps {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
     }
 }
 
@@ -107,13 +105,11 @@
     }
 
     aside > nav {
-        transition: all 0.4s;
         transform: translate(-100%);
     }
 
     .show {
         width: 250px;
-        padding: 0 1rem;
     }
     
     .gap {
@@ -136,13 +132,11 @@
     }
 
     aside > nav {
-        transition: all 0.4s;
         transform: translate(-100%);
     }
 
     .show {
         width: 250px;
-        padding: 0 1rem;
     }
     
     .gap {
