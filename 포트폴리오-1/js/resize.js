@@ -18,9 +18,13 @@ function resize() {
     const screen = document.querySelector('.screen');
     const nav = document.querySelectorAll('nav');
     const library = document.querySelector('.library');
+    const book_1 = document.querySelectorAll('.book-1');
+    const word = document.querySelectorAll('.word');
 
     if(_1349px) {
-        aside.classList.contains('show') ? wrap.classList.remove('gap') : '';
+        aside.classList.contains('show') ? wrap.classList.remove('gap') : book_1.forEach(books => {
+            books.classList.add('verticality');
+        });
         aside.classList.contains('show') ? menu.forEach(menu => {
             menu.classList.remove('active');
         }) : '';
@@ -30,12 +34,28 @@ function resize() {
         aside.classList.contains('static') ? menu.forEach(menu => {
             menu.classList.add('active');
         }) : '';
+
+        aside.classList.contains('show') ? book_1.forEach(books => {
+            books.classList.remove('verticality');
+        }) : '';
+
+        word.forEach(words => {
+            words.classList.add('line-up');
+        }) 
     }else {
         aside.classList.contains('static') ? aside.classList.remove('show') : '';
         aside.classList.contains('static') ? menu.forEach(menu => {
             menu.classList.remove('active');
         }) : '';
         aside.classList.remove('static');
+
+        !aside.classList.contains('show') ? book_1.forEach(books => {
+            books.classList.remove('verticality');
+        }) : '';
+
+        !aside.classList.contains('show') ? word.forEach(words => {
+            words.classList.remove('line-up');
+        }) : '';
     }
 
     if(_1023px) {
@@ -51,16 +71,6 @@ function resize() {
         if(!aside.classList.contains('show')) {
             nav[1].classList.remove('hide');
         }
-
-        if(aside.classList.contains('hide-bd')) {
-            library.classList.add('hide-to');
-        }
-    }
-
-    if(_768px) {
-        !aside.classList.contains('show') ? aside.classList.add('hide-bd') : '';
-    }else {
-        aside.classList.remove('hide-bd')
     }
 }
 
