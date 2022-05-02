@@ -9,6 +9,7 @@ function resize() {
     const _1349px = matchMedia('screen and (max-width: 1350px)').matches;
     const _1023px = matchMedia('screen and (max-width: 1024px)').matches;
     const _768px = matchMedia('screen and (max-width: 768px)').matches;
+    const _700px = matchMedia('screen and (max-width: 700px)').matches;
     const _480px = matchMedia('screen and (max-width: 480px)').matches;
 
     const wrap = document.querySelector('.wrap');
@@ -72,6 +73,32 @@ function resize() {
             nav[1].classList.remove('hide');
         }
     }
+
+    if(_768px) {
+        !aside.classList.contains('show') ? book_1.forEach(books => {
+            books.classList.add('hide-to');
+        }) : '';
+
+        aside.classList.contains('show') ? word.forEach(words => {
+            words.classList.remove('line-up');
+        }) : '';
+    }else {
+        !aside.classList.contains('show') ? book_1.forEach(books => {
+            books.classList.remove('hide-to');
+        }) : '';
+
+        aside.classList.contains('show') ? word.forEach(words => {
+            words.classList.remove('hide-to');
+        }) : '';
+
+        aside.classList.contains('show') ? word.forEach(words => {
+            words.classList.remove('hide-to');
+        }) : '';
+    }
+
+    aside.classList.contains('show') ? word.forEach(words => {
+        words.classList.remove('line-up');
+    }) : '';
 }
 
 // push

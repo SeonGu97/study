@@ -3,7 +3,7 @@
 export default class Book_1 {
     constructor(creator) {
         // create
-        creator.basket('book', 'li', creator.name, 2, ['class'], ['book-1 basic-pd pointer'], '');
+        creator.basket('book', 'li', creator.name, 2, ['class'], ['book-1 pointer'], '');
 
         // element
         this.books = document.querySelectorAll('.book-1');

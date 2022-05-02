@@ -346,6 +346,9 @@ footer {
     width: 100%;
     align-items: center;
     list-style: none;
+    transition: all 0.2s;
+    padding: 0.5rem 1rem;
+    flex-wrap: nowrap;
 }
 
 .book-1:hover {
@@ -369,7 +372,7 @@ footer {
 }
 
 .hide-to {
-    transform: translateX(-100%);
+    transform: translateX(-250%);
 }
 
 .line-up {
@@ -378,6 +381,7 @@ footer {
 
 .verticality {
     flex-direction: column;
+    flex-wrap: wrap;
     text-align: center;
-    padding: 0.25rem 0;
+    transition: none;
 }

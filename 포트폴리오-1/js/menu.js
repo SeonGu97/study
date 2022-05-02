@@ -14,6 +14,7 @@ export default class Menu {
         this.aside = document.querySelector('aside');
         this.nav = document.querySelectorAll('nav');
         this.header = document.querySelector('header');
+        this.library = document.querySelector('.library');
         this.display_stand_1 = document.querySelector('.display-stand-1');
         this.book_1 = document.querySelectorAll('.book-1');
         this.icons = document.querySelectorAll('.book-1 > i');
@@ -57,6 +58,7 @@ export default class Menu {
             this.book_1.forEach(books => {
                 books.classList.remove('verticality');
             }) :
+            
             this.book_1.forEach(books => {
                 books.classList.add('verticality');
             });
@@ -83,19 +85,12 @@ export default class Menu {
                 books.classList.remove('hide-to');
             });
 
-            !this.aside.classList.contains('show') ? this.icons.forEach(icons => {
-                icons.classList.add('hide-to');
-            }) : 
-            this.icons.forEach(icons => {
-                icons.classList.remove('hide-to');
-            });
-
-            !this.aside.classList.contains('show') ? this.word.forEach(words => {
-                words.classList.add('hide-to');
-            }) : 
-            this.word.forEach(words => {
-                words.classList.remove('hide-to');
-            });
+            // !this.aside.classList.contains('show') ? this.word.forEach(words => {
+            //     words.classList.add('hide-to');
+            // }) : 
+            // this.word.forEach(words => {
+            //     words.classList.remove('hide-to');
+            // });
         }
     }
 }
