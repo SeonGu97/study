@@ -15,9 +15,13 @@ export default class Creator {
         this.func = func;
 
         // func
-        this.promise_1 = this.create();
-        this.promise_2 = this.attrs();
-        this.promise_3 = this.append();
+        for(let i = 0; i < this.num; i++) {
+            this.promise_1 = this.create();
+            this.promise_2 = this.attrs();
+            this.promise_3 = this.innerHTML();
+            this.promise_4 = this.append();
+            this.promise_5 = this.Event();
+        }
 
         // promise
         this.promise_1 //
@@ -27,7 +31,58 @@ export default class Creator {
         .then(this.promise_3);
 
         this.promise_3 //
-        .then();
+        .then(this.promise_4);
+    }
+
+    get num() {
+        return this._num;
+    }
+
+    set num(result) {
+        this._num = result < 1 ? 1 : result;
+    }
+
+    get type() {
+        return this._type;
+    }
+
+    set type(result) {
+        this._type = typeof result == "object" ? result : [`${result}`];
+        result == false ? result = NaN : [`${result}`];
+        console.log(result.includes(' ') ? result.replace(' ', ', ') : result);
+    }
+
+    get value() {
+        return this._value;
+    }
+
+    set value(result) {
+        this._value = typeof result == "object" ? result : [`${result}`];
+        result == false ? result = NaN : [`${result}`];
+    }
+
+    get boolean() {
+        return this._boolean;
+    }
+
+    set boolean(result) {
+        this._boolean = result ? this.promise_5 : result;
+    }
+
+    get event() {
+        return this._event;
+    }
+
+    set event(result) {
+        this._event = !result ? this.boolean = false : result;
+    }
+
+    get func() {
+        return this._func;
+    }
+
+    set func(result) {
+        this._func = !result || String ? result = undefined : result;
     }
 
     async create() {
@@ -44,7 +99,15 @@ export default class Creator {
         return this.name;
     }
 
+    async innerHTML() {
+        return this.name.innerHTML = this.text;
+    }
+
     async append() {
         return this.parent.appendChild(this.name);
+    }
+
+    async Event() {
+        return this.name.addEventListener(this.event, this.func, false);
     }
 }
