@@ -32,6 +32,8 @@ export default class Creator {
 
         this.promise_3 //
         .then(this.promise_4);
+
+        console.log(this.type)
     }
 
     get num() {
@@ -48,8 +50,8 @@ export default class Creator {
 
     set type(result) {
         this._type = typeof result == "object" ? result : [`${result}`];
-        result == false ? result = NaN : [`${result}`];
-        console.log(result.includes(' ') ? result.replace(' ', ', ') : result);
+        this._type = result == false ? result = NaN : [`${result}`];
+        this._type = result.includes('') ? result.split(' ') : result;
     }
 
     get value() {
