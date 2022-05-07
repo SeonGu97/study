@@ -32,8 +32,6 @@ export default class Creator {
 
         this.promise_3 //
         .then(this.promise_4);
-
-        console.log(this.type)
     }
 
     get num() {
@@ -49,9 +47,14 @@ export default class Creator {
     }
 
     set type(result) {
-        this._type = typeof result == "object" ? result : [`${result}`];
-        this._type = result == false ? result = NaN : [`${result}`];
-        this._type = result.includes('') ? result.split(' ') : result;
+        if(typeof result == 'object') {
+            result = String(result);
+            this._type = result.includes(','&&'\s') ? result.replace(',', ' ').split(' ') : new Array(result);
+        }else {
+            result = String(result);
+            // this._type = result.includes(','&&'\s') ? new Array(result.replace(',', '').split(' ')) : new Array(result)
+            this._type = result.includes('\s') ? result.split(' ') : new Array(result);
+        }
     }
 
     get value() {
@@ -59,8 +62,13 @@ export default class Creator {
     }
 
     set value(result) {
-        this._value = typeof result == "object" ? result : [`${result}`];
-        result == false ? result = NaN : [`${result}`];
+        if(typeof result == 'object') {
+            result = String(result);
+            this._value = result.includes(','&&'\s') ? result.replace(',', ' ').split(' ') : new Array(result);
+        }else {
+            result = String(result);
+            this._value = result.includes('\s') ? result.split(' ') : new Array(result);
+        }
     }
 
     get boolean() {
@@ -95,6 +103,7 @@ export default class Creator {
 
     async attrs() {
         for(let i = 0; i < this.type.length; i++) {
+            this.value[i] == '' ? this.value[i] = undefined : this.value[i];
             this.name.setAttribute(this.type[i], this.value[i]);
         }
 
