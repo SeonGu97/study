@@ -47,14 +47,9 @@ export default class Creator {
     }
 
     set type(result) {
-        if(typeof result == 'object') {
-            result = String(result);
-            this._type = result.includes(','&&'\s') ? result.replace(',', ' ').split(' ') : new Array(result);
-        }else {
-            result = String(result);
-            // this._type = result.includes(','&&'\s') ? new Array(result.replace(',', '').split(' ')) : new Array(result)
-            this._type = result.includes('\s') ? result.split(' ') : new Array(result);
-        }
+        this._type = typeof result == 'object' ? result : new Array(result);
+        this._type = this._type[0].split(' ');
+        console.log(this._type == '' ? this._type.length = 0 : this._type);
     }
 
     get value() {
@@ -62,13 +57,8 @@ export default class Creator {
     }
 
     set value(result) {
-        if(typeof result == 'object') {
-            result = String(result);
-            this._value = result.includes(','&&'\s') ? result.replace(',', ' ').split(' ') : new Array(result);
-        }else {
-            result = String(result);
-            this._value = result.includes('\s') ? result.split(' ') : new Array(result);
-        }
+        this._value = typeof result == 'object' ? result : new Array(result);
+        this._value = this._value[0].split(' ');
     }
 
     get boolean() {
