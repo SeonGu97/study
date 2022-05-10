@@ -1,15 +1,15 @@
 'use strict';
 
 import Creator from "./JS/Creator/creator.js";
-import Aside from "./JS/Aside/aside.js";
+import Wrap from "./JS/Aside/wrap.js";
 
 export default class App {
     constructor() {
-        // component
+        // create
         this.app = new Creator('app', 'div', 'id', 'app', '', 1, document.body, false, '', '');
-    
+
         // component
-        this.aside = new Aside(Creator);
+        this.wrap = new Wrap(Creator, this.app.name);
     }
 }
 

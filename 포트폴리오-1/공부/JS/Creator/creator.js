@@ -49,7 +49,7 @@ export default class Creator {
     set type(result) {
         this._type = typeof result == 'object' ? result : new Array(result);
         this._type = this._type[0].split(' ');
-        console.log(this._type == '' ? this._type.length = 0 : this._type);
+        this._type == '' ? this._type.length = 0 : this._type;
     }
 
     get value() {
@@ -82,13 +82,11 @@ export default class Creator {
     }
 
     set func(result) {
-        this._func = !result || String ? result = undefined : result;
+        this._func = typeof result == 'function' ? result : result = undefined;
     }
 
     async create() {
-        this.name = document.createElement(this.element);
-
-        return this.name;
+        return this.name = document.createElement(this.element);
     }
 
     async attrs() {
