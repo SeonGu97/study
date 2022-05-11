@@ -58,7 +58,7 @@ export default class Creator {
 
     set value(result) {
         this._value = typeof result == 'object' ? result : new Array(result);
-        this._value = this._value[0].split(' ');
+        // this._value = this._value[0].split(' ');
     }
 
     get boolean() {
