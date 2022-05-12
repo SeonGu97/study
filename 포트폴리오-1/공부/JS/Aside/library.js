@@ -8,6 +8,6 @@ export default class Library {
         this.library = new Creator('library', 'ul', 'class', 'library', '', 1, aside, false, '', '');
     
         // component
-        this.book = new Book(Creator, aside);
+        this.book = new Book(Creator, this.library.name);
     }
 }
