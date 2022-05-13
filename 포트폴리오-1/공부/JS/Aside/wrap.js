@@ -1,8 +1,9 @@
 'use strict';
 
 import Aside from "./aside.js";
-import BG from "./bg.js";
+import BG from "../Clone-Aside/bg.js";
 import Header from "../Header/header.js";
+import Clone_aside from "../Clone-Aside/clone-aside.js";
 
 export default class Wrap {
     constructor(Creator, app) {
@@ -11,8 +12,9 @@ export default class Wrap {
         
         // component
         this.aside = new Aside(Creator, this.wrap.name);
-        this.bg = new BG(Creator, this.wrap.name);
         this.header = new Header(Creator, this.wrap.name);
+        this.clone_aside = new Clone_aside(Creator, this.wrap.name);
+        this.bg = new BG(Creator, this.wrap.name);
     }
 }
 

@@ -19,6 +19,6 @@ export default class Book {
 
         for(let i = 0; i < this.words.length; i++) {
             this.words[i].innerHTML = this.text[i];
-        }        
+        }
     }
 }

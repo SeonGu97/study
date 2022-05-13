@@ -2,6 +2,7 @@
 
 import Creator from "./JS/Creator/creator.js";
 import Wrap from "./JS/Aside/wrap.js";
+import Resize from './JS/resize/resize.js';
 
 export default class App {
     constructor() {
@@ -10,6 +11,7 @@ export default class App {
 
         // component
         this.wrap = new Wrap(Creator, this.app.name);
+        this.resize = Resize;
     }
 }
 
