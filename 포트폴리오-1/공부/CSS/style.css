@@ -215,3 +215,12 @@ nav {
 .show {
     transform: translateX(0%);
 }
+
+.emphasis {
+    background: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.touch {
+    pointer-events: none;
+}
