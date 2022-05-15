@@ -3,7 +3,7 @@
 export default class Book {
     constructor(Creator, library) {
         // create
-        this.book = new Creator('book', 'li', 'class', 'book pointer', '', 2, library, false, '', '');
+        this.book = new Creator('book', 'li', 'class', 'book pointer', '', 2, library, true, 'click', this.bookEvent);
         
         this.books = document.querySelectorAll('.book');
 
@@ -20,5 +20,9 @@ export default class Book {
         for(let i = 0; i < this.words.length; i++) {
             this.words[i].innerHTML = this.text[i];
         }
+    }
+
+    bookEvent(e) {
+
     }
 }
