@@ -15,6 +15,7 @@ export default class Clone_aside {
         this.aside_ = document.querySelectorAll('aside');
 
         this.icons = ['<i class="bi bi-house-door touch"></i><div class="words touch"></div>', '<i class="bi bi-collection touch"></i><div class="words touch"></div>'];
+        this.icons_ = ['<i class="bi bi-house-door-fill"></i><div class="words touch"></div>', '<i class="bi bi-collection-fill"></i><div class="words touch"></div>'];
         this.text = ['홈', '프로젝트'];
         
         for(let i = 0; i < this.aside_.length; i++) {
@@ -22,6 +23,14 @@ export default class Clone_aside {
                 books.innerHTML = this.icons[index];
                 books.childNodes[1].innerText = this.text[index];
             });
+        }
+
+        this.books = document.querySelectorAll('.book');
+
+        for(let i = 0; i < this.aside_[0].firstChild.childNodes.length; i++) {
+            this.icons = this.aside_[i].firstChild.firstChild.firstChild;
+
+            this.icons.classList.replace(this.icons.classList[1], this.icons.classList[1] + '-fill');
         }
     }
 }

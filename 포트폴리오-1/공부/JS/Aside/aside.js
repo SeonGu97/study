@@ -17,8 +17,6 @@ export default class Aside {
 
     asideEvent(e) {
         this.aside = document.querySelectorAll('aside');
-       
-        this.icons = ['<i class="bi bi-house-door touch"></i><div class="words touch"></div>', '<i class="bi bi-collection touch"></i><div class="words touch"></div>'];
 
         this.aside.forEach(aside => {
             aside.firstChild.childNodes.forEach((books, index) => {
@@ -28,12 +26,24 @@ export default class Aside {
 
         this.books = document.querySelectorAll('.book');
 
-        for(let i = 0; i < this.books.length; i++) {
-            this.books[i].classList.remove('emphasis');
-        }
+        if(e.target.classList.contains('book')) {
+            for(let i = 0; i < this.books.length; i++) {
+                this.books[i].classList.remove('emphasis');
+    
+                this.icons  = this.books[i].firstChild.classList;
 
-        for(let i = 0; i < this.aside[0].firstChild.childNodes.length; i++) {
-            this.aside[i].firstChild.childNodes[e.target.index].classList.add('emphasis');
+                this.new_icons = this.icons[1].replace('-fill', '');
+
+                this.icons.replace(this.icons[1], this.new_icons);
+            }
+    
+            for(let i = 0; i < this.aside[0].firstChild.childNodes.length; i++) {
+                this.book = this.aside[i].firstChild.childNodes[e.target.index];
+    
+                this.book.classList.add('emphasis');
+                
+                this.book.firstChild.classList.replace(this.book.firstChild.classList[1], this.book.firstChild.classList[1] + '-fill');
+            }
         }
     }
 }
