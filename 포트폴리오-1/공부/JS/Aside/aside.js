@@ -21,7 +21,7 @@ export default class Aside {
         this.aside.forEach(aside => {
             aside.firstChild.childNodes.forEach((books, index) => {
                 books.index = index;
-            })
+            });
         });
 
         this.books = document.querySelectorAll('.book');

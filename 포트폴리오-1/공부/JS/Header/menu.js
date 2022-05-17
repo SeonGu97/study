@@ -24,6 +24,7 @@ export default class Menu {
         this.books = document.querySelectorAll('.book');
         this.icons = document.querySelectorAll('.book > i');
         this.words = document.querySelectorAll('.words');
+        this.main = document.querySelector('main');
 
         if(this.aside.classList.contains('small')) {
             this.library.classList.add('remove-pd');
@@ -65,7 +66,7 @@ export default class Menu {
 
             this.clone_aside.classList.contains('show') ? this.bg.classList.remove('gone') : this.bg.classList.add('gone');
         }else {
-            
+            this.aside.classList.contains('small') ? this.main.classList.add('change-pd') : this.main.classList.remove('change-pd');   
         }
     }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 import Creator from "./JS/Creator/creator.js";
-import Wrap from "./JS/Aside/wrap.js";
+import Wrap from "./JS/Wrap/wrap.js";
 import Resize from './JS/resize/resize.js';
 
 export default class App {

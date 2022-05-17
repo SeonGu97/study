@@ -27,10 +27,18 @@
         font-size: 0.75rem;
         justify-content: flex-end;
     }
+
+    main {
+        padding-left: 4.5rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .wrap > aside {
         transform: translateX(-100%);
+    }
+
+    main {
+        padding-left: 0;
     }
 }
