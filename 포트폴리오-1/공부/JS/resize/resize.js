@@ -10,6 +10,7 @@ function resize() {
     const words = document.querySelectorAll('.words');
     const clone_aside = document.querySelector('.clone-aside');
     const bg = document.querySelector('.bg');
+    const main = document.querySelector('main');
 
     if(_1300px) {
         if(aside.classList.contains('small')) {
@@ -56,6 +57,8 @@ function resize() {
                 clone_aside.classList.remove('show');
 
                 bg.classList.add('gone');
+
+                main.classList.remove('change-pd');
             }, delay);
         }
     }

@@ -33,12 +33,40 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 834px) {
     .wrap > aside {
         transform: translateX(-100%);
     }
 
     main {
         padding-left: 0;
+    }
+
+    .title {
+        padding: 0;
+    }
+
+    .change-pd {
+        padding-left: 0;
+    }
+
+    .container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 679px) {
+    .intro {
+        row-gap: 4.5rem;
+    }
+
+    .infor {
+        row-gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .infor {
+        font-size: 1rem;
     }
 }
