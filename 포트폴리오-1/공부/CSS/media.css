@@ -63,10 +63,56 @@
     .infor {
         row-gap: 1.5rem;
     }
+
+    .skill {
+        row-gap: 2rem;
+        justify-content: space-around;
+        column-gap: 2.5rem;
+    }
+
+    .skill-icon {
+        font-size: 3rem;
+    }
+
+    .skill-item:nth-child(5) > .skill-icon {
+        width: 42px;
+        height: 43px;
+    }
+
+    .skill-item:nth-child(5) > .skill-icon::after {
+        font-size: 1rem;
+    }
+
+    .skill-word {
+        font-size: 0.9rem
+    }
 }
 
 @media screen and (max-width: 480px) {
     .infor {
         font-size: 1rem;
+    }
+
+    .skill {
+        row-gap: 2rem;
+        column-gap: 1.5rem;
+    }
+
+    .skill-icon {
+        font-size: 2.25rem;
+    }
+
+    .skill-item:nth-child(5) > .skill-icon {
+        width: 31.5px;
+        height: 33px;
+        margin: 1px 0;
+    }
+
+    .skill-item:nth-child(5) > .skill-icon::after {
+        font-size: 0.75rem;
+    }
+
+    .skill-word {
+        font-size: 0.75rem
     }
 }
