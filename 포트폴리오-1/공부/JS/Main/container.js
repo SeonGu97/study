@@ -4,6 +4,7 @@ import Intro from "./intro.js";
 import Title from "./title.js";
 import Line from "./line.js";
 import Skill from "./skill.js";
+import Project from "./project.js";
 
 export default class Container {
     constructor(Creator, main) {
@@ -16,6 +17,8 @@ export default class Container {
         this.line = new Line(Creator, this.container.name);
         this.skill = new Skill(Creator, this.container.name);
         this.line = new Line(Creator, this.container.name);
+        this.title = new Title(Creator, this.container.name);
+        this.project = new Project(Creator, this.container.name);
     }
 }
 
