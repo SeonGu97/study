@@ -415,6 +415,7 @@ hr {
 .motto {
     display: flex;
     justify-content: center;
-    color: #ff9100;
+    color: #ff9e80;
     font-size: 1.25rem;
+    font-weight: bold;
 }
