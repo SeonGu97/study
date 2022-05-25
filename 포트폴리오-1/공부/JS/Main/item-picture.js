@@ -6,7 +6,7 @@ export default class Item_picture {
 
         for(let i = 0; i < this.items.length; i++) {
             // create
-            this.item_picture = new Creator('item_picture', 'div', 'class', 'item-picture', '', 1, this.items[i], false, '', '');
+            this.item_picture = new Creator('item_picture', 'div', 'class', 'item-picture', '사진', 1, this.items[i], false, '', '');
         }
     }
 }
