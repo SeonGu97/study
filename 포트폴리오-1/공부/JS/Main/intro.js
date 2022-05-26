@@ -6,7 +6,7 @@ import Picture from "./picture.js";
 export default class Intro {
     constructor(Creator, container) {
         // create
-        this.intro = new Creator('intro', 'section', 'class', 'intro', '', 1, container, false, '', '');
+        this.intro = new Creator('intro', 'section', 'class', 'intro basic-pd', '', 1, container, false, '', '');
     
         // component
         this.picture = new Picture(Creator, this.intro.name);

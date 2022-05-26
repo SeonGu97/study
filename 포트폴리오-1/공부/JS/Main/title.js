@@ -3,7 +3,7 @@
 export default class Title {
     constructor(Creator, container) {
         // create
-        this.title = new Creator('title', 'h3', 'class', 'title', '', 1, container, false, '', '');
+        this.title = new Creator('title', 'h3', 'class', 'title basic-pd', '', 1, container, false, '', '');
     
         // icons
         this.icons = ['<i class="bi bi-balloon-fill"></i>'];

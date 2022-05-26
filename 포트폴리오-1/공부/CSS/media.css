@@ -31,6 +31,10 @@
     main {
         padding-left: 4.5rem;
     }
+
+    .basic-pd {
+        padding: 0rem 1rem;
+    }
 }
 
 @media screen and (max-width: 834px) {
@@ -56,6 +60,10 @@
 
     .motto {
         font-size: 1.15rem;
+    }
+
+    .basic-pd {
+        padding: 0rem 1rem;
     }
 }
 
