@@ -25,6 +25,7 @@ export default class Aside {
         });
 
         this.books = document.querySelectorAll('.book');
+        this.line = document.querySelectorAll('.line');
 
         if(e.target.classList.contains('book')) {
             for(let i = 0; i < this.books.length; i++) {
@@ -44,6 +45,9 @@ export default class Aside {
                 
                 this.book.firstChild.classList.replace(this.book.firstChild.classList[1], this.book.firstChild.classList[1] + '-fill');
             }
+
+            e.target == this.books[0] ? this.line[1].scrollIntoView(true) : '';
+            e.target == this.books[1] ? this.line[3].scrollIntoView(true) : '';
         }
     }
 }
