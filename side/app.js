@@ -1,7 +1,7 @@
 'ust strict';
 
 import Create from "./create.js";
-import Header from "./JS/header.js";
+import Nav from "./JS/nav/nav.js";
 import Event from "./event.js";
 
 export default class App {
@@ -10,7 +10,7 @@ export default class App {
         const _app = new Create('app', 'div', 'id', 'app', document.body);
 
         // component
-        const header = new Header(Create, _app);
+        const nav = new Nav(Create, _app);
         Event;
     }
 }
