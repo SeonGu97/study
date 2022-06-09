@@ -1,8 +1,10 @@
 'use strict';
 
 const _window = window.addEventListener('load', () => {
-    const header = document.querySelector('header');
-    header.classList.add('boom');
+    const nav = document.querySelector('nav');
+    nav.childNodes.forEach(element => {
+        element.classList.add('boom');
+    });
 });
 
 export default _window;
