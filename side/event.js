@@ -8,8 +8,6 @@ const _window = window.addEventListener('load', () => {
     });
 
     const aside = document.querySelector('aside');
-
-    aside.classList.add('boom-x');
 });
 
 export default _window;

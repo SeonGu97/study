@@ -2,8 +2,7 @@
 
 import Create from "./create.js";
 import Nav from "./JS/nav/nav.js";
-import Main from "./JS/main/mian.js";
-import Aside from "./JS/aside/aside.js";
+import Wrap from "./JS/wrap/wrap.js";
 import Event from "./event.js";
 
 export default class App {
@@ -13,8 +12,7 @@ export default class App {
 
         // component
         const nav = new Nav(Create, _app);
-        const main = new Main(Create, _app);
-        const aside = new Aside(Create, _app);
+        const wrap = new Wrap(Create, _app);
         Event;
     }
 }
