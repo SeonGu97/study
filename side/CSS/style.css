@@ -101,11 +101,17 @@ nav {
     width: 15rem;
     height: 100%;
     flex-direction: column;
-    row-gap: 2rem;
+    justify-content: space-between;
 }
 
 .un-transparent {
     opacity: 0;
+}
+
+.area-1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
 }
 
 .library {
@@ -133,5 +139,11 @@ main {
     height: 5rem;
     padding: 0.75rem 0.5rem;
     transition-delay: 1.5s;
+    transition-duration: 1s;
+}
+
+.sns {
+    padding: 1.25rem;
+    transition-delay: 1.8s;
     transition-duration: 1s;
 }

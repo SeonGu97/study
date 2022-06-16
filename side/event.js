@@ -6,8 +6,17 @@ const _window = window.addEventListener('load', () => {
         add(0, element, 'boom-y');
     });
 
-    const aside = document.querySelector('aside');
-    aside.childNodes.forEach(element => {
+    const area_1 = document.querySelector('.area-1');
+
+    area_1.childNodes.forEach(element => {
+        add(0, element, 'boom-y');
+
+        remove(300, element, 'un-transparent');
+    });
+
+    const area_2 = document.querySelector('.area-2');
+
+    area_2.childNodes.forEach(element => {
         add(0, element, 'boom-y');
 
         remove(300, element, 'un-transparent');
