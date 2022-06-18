@@ -2,6 +2,7 @@
 
 import Create from "./create.js";
 import Media from "./JS/media/media.js";
+import Container from "./JS/container/container.js";
 
 export default class App {
     constructor() {
@@ -10,6 +11,7 @@ export default class App {
 
         // component
         const media = new Media(Create, _app);
+        const container = new Container(Create, _app);
     }
 }
 
