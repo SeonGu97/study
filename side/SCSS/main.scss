@@ -9,6 +9,13 @@
     --greyLight-2: #c8d0e7;
     --greyLight-3: #bec8e4;
     --greyDark: #9baacf;
+
+    --small-width: 3.5rem;
+    --small-height: 1.75rem;
+    --center: center;
+    --primary-size: 1rem;
+    --half-size: 0.5rem;
+    --half-and-half-size: 0.25rem;
 }
 
 $shadow: .3rem .3rem .6rem var(--greyLight-2), 
@@ -44,30 +51,30 @@ body {
 .media {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: var(--center);
 }
 
 .size {
     display: flex;
-    justify-content: center;
+    justify-content: var(--center);
     box-shadow: $shadow;
-    border-radius: 0.5rem;
-    padding: 0.25rem;
+    border-radius: var(--half-size);
+    padding: var(half-and-half-size);
     pointer-events: none;
     position: relative;
 }
 
 .device {
     display: flex;
-    width: 3.5rem;
-    height: 1.75rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
+    width: var(--small-width);
+    height: var(--small-height);
+    justify-content: var(--center);
+    align-items: var(--center);
+    font-size: var(--primary-size);
     color: var(--greyDark);
+    cursor: pointer;
     background: none;
     border: none;
-    cursor: pointer;
     pointer-events: auto;
 
     i {
@@ -76,11 +83,27 @@ body {
 }
 
 .active {
-    width: 3.5rem;
-    height: 1.75rem;
+    width: var(--small-width);
+    height: var(--small-height);
     box-shadow: $inner-shadow;
-    border-radius: 0.5rem;
+    border-radius: var(--half-size);
     position: absolute;
-    left: 0.25rem;
+    left: var(half-and-half-size);
     transition: left 0.3s ease;
+}
+
+.container {
+    
+}
+
+.desktop {
+    max-width: 1200px;
+}
+
+.tablet {
+    max-width: 768px;
+}
+
+.mobile {
+    max-width: 350px;
 }
