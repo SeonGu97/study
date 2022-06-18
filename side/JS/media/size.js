@@ -19,13 +19,18 @@ export default class Size {
     event(e) {
         const target = e.target;
 
-        let x = target.getBoundingClientRect().left;
-
-        let size = target.parentElement.getBoundingClientRect().width;
-        let half = target.parentElement.getBoundingClientRect().width / 2;
-        let windowX = (window.innerWidth / 2) - (size + half);
-        
+        const size = document.querySelector('.size');
         const active = document.querySelector('.active');
-        active.style.left = `${x - size - windowX}px`;
+
+        const device = size.childNodes;
+        const num = size.childNodes.length - 1;
+
+        const width = target.getBoundingClientRect().width;
+
+        for(let i = 0; i < num; i++) {
+            device[i].index = i;
+            
+            active.style.left = `${width * target.index + 4}px`;
+        }
     }
 }
