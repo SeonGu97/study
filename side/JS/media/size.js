@@ -23,6 +23,7 @@ export default class Size {
         // var
         const size = document.querySelector('.size');
         const active = document.querySelector('.active');
+        const container = document.querySelector('.container');
 
         // devices
         const device = size.childNodes;
@@ -42,6 +43,6 @@ export default class Size {
 
         // classlist replace
         const array = ['desktop', 'tablet', 'mobile'];
-        active.classList.replace(active.classList[1], array[target.index]);
+        container.classList.replace(container.classList[1], array[target.index]);
     }
 }
