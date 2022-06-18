@@ -43,14 +43,20 @@ body {
 }
 
 #app {
+    display: flex;
     @extend %primary-size;
+    flex-direction: column;
+    align-items: var(--center);
+    justify-content: var(--center);
     background: var(--greyLight-1);
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
+    row-gap: 2rem;
 }
 
 .media {
     display: flex;
     width: 100%;
+    height: min-content;
     justify-content: var(--center);
 }
 
@@ -59,7 +65,7 @@ body {
     justify-content: var(--center);
     box-shadow: $shadow;
     border-radius: var(--half-size);
-    padding: var(half-and-half-size);
+    padding: var(--half-and-half-size);
     pointer-events: none;
     position: relative;
 }
@@ -88,12 +94,8 @@ body {
     box-shadow: $inner-shadow;
     border-radius: var(--half-size);
     position: absolute;
-    left: var(half-and-half-size);
     transition: left 0.3s ease;
-}
-
-.container {
-    
+    left: var(--half-and-half-size);
 }
 
 .desktop {
@@ -105,5 +107,17 @@ body {
 }
 
 .mobile {
-    max-width: 350px;
+    max-width: 412px;
+}
+
+.container {
+    @extend %primary-size;
+    box-shadow: $shadow;
+    border-radius: var(--half-size);
+    padding: 2rem var(--primary-size);
+}
+
+.screen {
+    @extend %primary-size;
+    box-shadow: $inner-shadow;
 }
