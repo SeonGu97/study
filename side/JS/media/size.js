@@ -39,7 +39,11 @@ export default class Size {
             device[i].index = i;
             
             active.style.left = `${width * target.index + 4}px`;
+
+            device[i].classList.remove('paint');
         }
+
+        target.classList.add('paint');
 
         // classlist replace
         const array = ['desktop', 'tablet', 'mobile'];

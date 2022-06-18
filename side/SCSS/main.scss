@@ -22,6 +22,7 @@ $shadow: .3rem .3rem .6rem var(--greyLight-2),
 -.2rem -.2rem .5rem var(--white);
 $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), 
 inset -.2rem -.2rem .5rem var(--white);
+$gradient: linear-gradient(330deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
 
 * {
     margin: 0;
@@ -86,6 +87,10 @@ body {
     i {
         pointer-events: none;
     }
+
+    &:hover {
+        color: var(--primary);
+    }
 }
 
 .active {
@@ -120,4 +125,8 @@ body {
 .screen {
     @extend %primary-size;
     box-shadow: $inner-shadow;
+}
+
+.paint {
+    color: var(--primary);
 }

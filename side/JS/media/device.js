@@ -11,6 +11,10 @@ export default class Device {
 
             // add icon
             _device.innerHTML = icons[i];
+
+            const device = document.querySelectorAll('.device');
+
+            device[0].classList.add('paint');
         }
     }
 }
