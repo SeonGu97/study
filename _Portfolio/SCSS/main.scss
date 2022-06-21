@@ -28,3 +28,7 @@ $primary-size: 1rem;
     box-sizing: border-box;
     overflow: hidden;
 }
+
+html {
+    @include size;
+}
