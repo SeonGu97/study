@@ -31,4 +31,8 @@ $primary-size: 1rem;
 
 html {
     @include size;
+
+    body {
+        @include size;
+    }
 }
