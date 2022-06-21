@@ -36,3 +36,9 @@ html {
 body {
     @include size;
 }
+
+#app {
+    display: flex;
+    @include size;
+    justify-content: center;
+}
