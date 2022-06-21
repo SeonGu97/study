@@ -16,3 +16,15 @@ inset -.2rem -.2rem .5rem $white;
 
 $half-size: 0.5rem;
 $primary-size: 1rem;
+
+@mixin size {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
