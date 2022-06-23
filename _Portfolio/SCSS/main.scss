@@ -64,6 +64,7 @@ header {
     box-shadow: $shadow;
     border-radius: $half-size;
     color: $gray-4;
+    position: relative;
 
     .device-icons {
         display: flex;

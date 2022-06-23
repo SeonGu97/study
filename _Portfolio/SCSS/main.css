@@ -46,6 +46,7 @@ header {
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
   border-radius: 0.5rem;
   color: #9baacf;
+  position: relative;
 }
 .device .device-icons {
   display: flex;
