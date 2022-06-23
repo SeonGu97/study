@@ -45,6 +45,7 @@ header {
   margin: 0.5rem 0;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
   border-radius: 0.5rem;
+  color: #9baacf;
 }
 .device .device-icons {
   display: flex;
@@ -60,7 +61,6 @@ header {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: #9baacf;
 }
 .device .device-icons :hover {
   color: #6d5dfc;
