@@ -60,4 +60,6 @@ header {
 .device {
     display: flex;
     margin: $half-size 0;
+    box-shadow: $shadow;
+    border-radius: $half-size;
 }
