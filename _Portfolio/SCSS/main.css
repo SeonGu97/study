@@ -50,6 +50,7 @@ header {
   width: 3.5rem;
   height: 2rem;
   justify-content: center;
+  cursor: pointer;
 }
 .device .device-icons i {
   display: flex;
