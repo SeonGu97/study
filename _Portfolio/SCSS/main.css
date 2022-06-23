@@ -73,6 +73,7 @@ header {
   position: absolute;
   left: 0;
   pointer-events: none;
+  transition: left 0.4s;
 }
 
 .paint {
