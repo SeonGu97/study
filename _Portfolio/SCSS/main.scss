@@ -42,3 +42,9 @@ body {
     @include size;
     justify-content: center;
 }
+
+.screen {
+    display: flex;
+    @include size;
+    justify-content: center;
+}
