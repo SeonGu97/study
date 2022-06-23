@@ -60,4 +60,7 @@ header {
   align-items: center;
   font-size: 1rem;
   color: #9baacf;
+}
+.device .device-icons :hover {
+  color: #6d5dfc;
 }/*# sourceMappingURL=main.css.map */

@@ -78,5 +78,9 @@ header {
             font-size: $primary-size;
             color: $gray-4;
         }
+
+        :hover {
+            color: $primary;
+        }
     }
 }
