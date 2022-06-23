@@ -7,5 +7,7 @@ export default class Device {
         const _device = new Create('device', 'div', 'class', 'device', _header);
 
         const device_icons = new Device_icons(Create, _device);
+
+        _device.firstChild.classList.add('paint');
     }
 }
