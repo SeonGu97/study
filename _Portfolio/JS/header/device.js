@@ -11,5 +11,23 @@ export default class Device {
         const cover = new Cover(Create, _device);
 
         _device.firstChild.classList.add('paint');
+
+        _device.addEventListener('click', this.deviceEvent, false);
+    }
+
+    deviceEvent(e) {
+        let target = e.target;
+
+        const device_icons = document.querySelectorAll('.device-icons > i');
+
+        for(let i = 0; i < 3; i++) {
+            console.log(i)
+            device_icons[i].index = i;
+        }
+
+        const cover = document.querySelector('.cover');
+        const width = cover.getBoundingClientRect().width;
+        
+        cover.style.left = `${width * target.index}px`;
     }
 }
