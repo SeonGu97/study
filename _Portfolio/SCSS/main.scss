@@ -85,6 +85,14 @@ header {
             color: $primary;
         }
     }
+
+    .cover {
+        width: 3.5rem;
+        height: 2rem;
+        box-shadow: $inner-shadow;
+        position: absolute;
+        left: 0;
+    }
 }
 
 .paint {
