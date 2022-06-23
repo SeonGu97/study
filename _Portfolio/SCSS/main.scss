@@ -41,6 +41,7 @@ body {
     display: flex;
     @include size;
     justify-content: center;
+    background: $gray-1;
 }
 
 .screen {
@@ -54,4 +55,9 @@ header {
     width: 100%;
     height: min-content;
     justify-content: center;
+}
+
+.device {
+    display: flex;
+    margin: $half-size 0;
 }
