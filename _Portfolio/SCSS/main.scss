@@ -62,4 +62,20 @@ header {
     margin: $half-size 0;
     box-shadow: $shadow;
     border-radius: $half-size;
+
+    .device-icons {
+        display: flex;
+        width: 3.5rem;
+        height: 2rem;
+        justify-content: center;
+    }
+
+    i {
+        display: flex;
+        @include size;
+        justify-content: center;
+        align-items: center;
+        font-size: $primary-size;
+        color: $gray-4;
+    }
 }
