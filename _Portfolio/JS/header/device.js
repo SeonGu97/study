@@ -32,7 +32,7 @@ export default class Device {
 
         device_icons.forEach(element => {
             element.classList.remove('paint');
-        })
+        });
 
         target.classList.add('paint');
     }
