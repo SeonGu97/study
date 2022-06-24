@@ -47,7 +47,6 @@ header {
   border-radius: 0.5rem;
   color: #9baacf;
   position: relative;
-  pointer-events: none;
 }
 .device .device-icons {
   display: flex;
