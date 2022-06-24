@@ -10,7 +10,7 @@ export default class Device {
         const device_icons = new Device_icons(Create, _device);
         const cover = new Cover(Create, _device);
 
-        _device.firstChild.classList.add('paint');
+        _device.firstChild.firstChild.classList.add('paint');
 
         _device.addEventListener('click', this.deviceEvent, false);
     }
@@ -27,7 +27,7 @@ export default class Device {
 
         const cover = document.querySelector('.cover');
         const width = cover.getBoundingClientRect().width;
-        
+
         cover.style.left = `${width * target.index}px`;
     }
 }
