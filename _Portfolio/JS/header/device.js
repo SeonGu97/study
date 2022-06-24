@@ -20,20 +20,21 @@ export default class Device {
 
         const device_icons = document.querySelectorAll('.device-icons > i');
 
-        for(let i = 0; i < 3; i++) {
-            console.log(i)
-            device_icons[i].index = i;
+        if(target.classList[0] == 'fa-solid') {
+            for(let i = 0; i < 3; i++) {
+                device_icons[i].index = i;
+            }
+    
+            const cover = document.querySelector('.cover');
+            const width = cover.getBoundingClientRect().width;
+    
+            cover.style.left = `${width * target.index}px`;
+    
+            device_icons.forEach(element => {
+                element.classList.remove('paint');
+            });
+    
+            target.classList.add('paint');
         }
-
-        const cover = document.querySelector('.cover');
-        const width = cover.getBoundingClientRect().width;
-
-        cover.style.left = `${width * target.index}px`;
-
-        device_icons.forEach(element => {
-            element.classList.remove('paint');
-        });
-
-        target.classList.add('paint');
     }
 }
