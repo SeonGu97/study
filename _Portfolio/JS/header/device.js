@@ -29,5 +29,11 @@ export default class Device {
         const width = cover.getBoundingClientRect().width;
 
         cover.style.left = `${width * target.index}px`;
+
+        device_icons.forEach(element => {
+            element.classList.remove('paint');
+        })
+
+        target.classList.add('paint');
     }
 }
