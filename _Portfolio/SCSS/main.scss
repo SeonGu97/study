@@ -48,7 +48,11 @@ body {
 .screen {
     display: flex;
     @include size;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+    padding: 2rem;
 }
 
 header {
@@ -99,4 +103,29 @@ header {
 
 .paint {
     color: $primary;
+}
+
+.pc {
+    max-width: 1200px;
+}
+
+.tablet {
+    max-width: 768px;
+}
+
+.mobile {
+    max-width: 420px;
+}
+
+main {
+    width: 100%;
+    height: calc(100% - 5rem);
+    box-shadow: $shadow;
+    border-radius: $half-size;
+}
+
+@media screen and (max-width: 768px) {
+    .screen {
+        padding: 1rem;
+    }
 }
