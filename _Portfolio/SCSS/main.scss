@@ -43,16 +43,7 @@ body {
     @include size;
     justify-content: center;
     background: $gray-1;
-}
-
-.screen {
-    display: flex;
-    @include size;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 2rem;
-    padding: 2rem;
+    padding: $primary-size;
 }
 
 header {
@@ -62,70 +53,24 @@ header {
     justify-content: center;
 }
 
-.device {
+.screen {
     display: flex;
-    margin: $half-size 0;
-    box-shadow: $shadow;
-    border-radius: $half-size;
-    color: $gray-4;
-    position: relative;
-
-    .device-icons {
-        display: flex;
-        width: 3.5rem;
-        height: 2rem;
-        justify-content: center;
-        cursor: pointer;
-
-        i {
-            display: flex;
-            @include size;
-            justify-content: center;
-            align-items: center;
-            font-size: $primary-size;
-        }
-
-        :hover {
-            color: $primary;
-        }
-    }
-
-    .cover {
-        width: 3.5rem;
-        height: 2rem;
-        box-shadow: $inner-shadow;
-        position: absolute;
-        left: 0;
-        pointer-events: none;
-        transition: left 0.4s;
-    }
+    column-gap: 1rem;
 }
 
-.paint {
-    color: $primary;
+.device {
+    
 }
 
-.pc {
-    max-width: 1200px;
+input[type="radio"] {
+    appearance: none;
+    width: $primary-size * 2;
+    height: $primary-size + $half-size;
+    border-radius: 0.25rem;
+    cursor: pointer;
 }
 
-.tablet {
-    max-width: 768px;
-}
-
-.mobile {
-    max-width: 420px;
-}
-
-main {
-    width: 100%;
-    height: calc(100% - 5rem);
-    box-shadow: $shadow;
-    border-radius: $half-size;
-}
-
-@media screen and (max-width: 768px) {
-    .screen {
-        padding: 1rem;
-    }
+input[type=radio]:checked {
+    box-shadow: $inner-shadow;
+    transition: all .4s ease;
 }

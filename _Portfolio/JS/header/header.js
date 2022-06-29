@@ -1,11 +1,11 @@
 'use strict';
 
-import Device from "./device.js";
+import Screen from "./screen.js";
 
 export default class Header {
-    constructor(Create, _screen) {
-        const _header = new Create('header', 'header', '', '', _screen);
+    constructor(Create, app) {
+        const header = new Create('header', 'header', '', '', app);
 
-        const _device = new Device(Create, _header);
+        const screen = new Screen(Create, header);
     }
 }
