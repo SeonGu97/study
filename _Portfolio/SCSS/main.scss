@@ -26,7 +26,6 @@ $primary-size: 1rem;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
     transition: color .4s ease;
 }
 
@@ -41,9 +40,12 @@ body {
 #app {
     display: flex;
     @include size;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background: $gray-1;
     padding: $primary-size;
+    row-gap: $primary-size;
 }
 
 header {
@@ -56,21 +58,45 @@ header {
 .screen {
     display: flex;
     column-gap: 1rem;
-}
-
-.device {
-    
+    box-shadow: $shadow;
+    border-radius: $half-size / 2;
 }
 
 input[type="radio"] {
     appearance: none;
-    width: $primary-size * 2;
-    height: $primary-size + $half-size;
-    border-radius: 0.25rem;
+    width: $primary-size * 3;
+    height: $primary-size *2;
+    border-radius: $half-size / 2;
     cursor: pointer;
+    position: absolute;
 }
 
 input[type=radio]:checked {
     box-shadow: $inner-shadow;
     transition: all .4s ease;
+}
+
+.device {
+    display: flex;
+    width: $primary-size * 3;
+    height: $primary-size *2;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    pointer-events: none;
+
+    i {
+        color: $gray-4;
+    }
+}
+
+main {
+    max-width: 1200px;
+    @include size;
 }
