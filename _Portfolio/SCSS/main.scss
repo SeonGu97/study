@@ -97,6 +97,75 @@ input[type=radio]:checked {
 }
 
 main {
-    max-width: 1200px;
     @include size;
+    box-shadow: $shadow;
 }
+
+.pc {
+    max-width: 1200px;
+}
+
+.tablet {
+    max-width: 768px;
+}
+
+.mobile {
+    max-width: 420px;
+}
+
+@mixin clock {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 1rem;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+    transform-origin: bottom;
+}
+
+.analog {
+    width: 12.5rem;
+    height: 12.5rem;
+    background: lightblue;
+    border-radius: 50%;
+    position: relative;
+
+    .number {
+        @include size;
+        position: absolute;
+        text-align: center;
+    }
+
+    .brand {
+        position: absolute;
+        @include size;
+        text-align: center;
+        top: 60%;
+        font-size: 0.9rem;
+    }
+
+    .hour {
+        width: 6px;
+        height: calc(30%);
+        background: brown;
+        @include clock;
+    }
+
+    .minute {
+        width: 3px;
+        height: calc(35%);
+        background: #000;
+        @include clock;
+    }
+
+    .second {
+        width: 3px;
+        height: calc(40%);
+        background: gray;
+        @include clock;
+    }
+}
+
+
+
+@import url(./media.css);

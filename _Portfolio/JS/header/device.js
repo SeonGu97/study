@@ -47,6 +47,12 @@ export default class Device {
                 icon_i[i].style.color = '#9baacf';
             }
         }
+
+        const array = ['pc', 'tablet', 'mobile'];
+
+        const main = document.querySelector('main');
+
+        main.classList.replace(main.classList[0], array[target.index])
     }
 
     resize(e) {
