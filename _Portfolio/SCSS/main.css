@@ -84,6 +84,7 @@ main {
   width: 100%;
   height: 100%;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
+  border-radius: 0.25rem;
 }
 
 .pc {
@@ -98,30 +99,52 @@ main {
   max-width: 420px;
 }
 
+aside {
+  display: inline-flex;
+  padding: 1rem;
+}
+
 .analog {
-  width: 12.5rem;
-  height: 12.5rem;
-  background: lightblue;
+  display: inline-flex;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   position: relative;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
+  padding: 0.25rem;
 }
-.analog .number {
+.analog .content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #fff;
+}
+.analog .content .number {
   width: 100%;
   height: 100%;
   position: absolute;
   text-align: center;
-}
-.analog .brand {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  top: 60%;
+  color: #bec8e4;
   font-size: 0.9rem;
 }
-.analog .hour {
-  width: 6px;
-  height: 30%;
+.analog .content .number:nth-child(3n) {
+  font-weight: bold;
+  color: #9baacf;
+}
+.analog .content .brand {
+  position: absolute;
+  text-align: center;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #c8d0e7;
+}
+.analog .content .hour {
+  width: 4px;
+  height: 25%;
   background: brown;
   --rotation: 0;
   position: absolute;
@@ -130,9 +153,10 @@ main {
   border-radius: 1rem;
   transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
   transform-origin: bottom;
+  z-index: 3;
 }
-.analog .minute {
-  width: 3px;
+.analog .content .minute {
+  width: 1px;
   height: 35%;
   background: #000;
   --rotation: 0;
@@ -142,11 +166,12 @@ main {
   border-radius: 1rem;
   transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
   transform-origin: bottom;
+  z-index: 2;
 }
-.analog .second {
-  width: 3px;
+.analog .content .second {
+  width: 1px;
   height: 40%;
-  background: gray;
+  background: #9baacf;
   --rotation: 0;
   position: absolute;
   bottom: 50%;
@@ -154,4 +179,5 @@ main {
   border-radius: 1rem;
   transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
   transform-origin: bottom;
+  z-index: 1;
 }/*# sourceMappingURL=main.css.map */

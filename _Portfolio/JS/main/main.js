@@ -1,11 +1,11 @@
 'use strict';
 
-import Analog from "../clock/analog.js";
+import Aside from "../aside/aside.js";
 
 export default class Main {
     constructor(Create, app) {
         const main = new Create('main', 'main', 'class', 'pc', app);
 
-        const analog = new Analog(Create, main);
+        const aside = new Aside(Create, main);
     }
 }

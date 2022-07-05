@@ -99,6 +99,7 @@ input[type=radio]:checked {
 main {
     @include size;
     box-shadow: $shadow;
+    border-radius: $half-size / 2;
 }
 
 .pc {
@@ -113,6 +114,11 @@ main {
     max-width: 420px;
 }
 
+aside {
+    display: inline-flex;
+    padding: $primary-size;
+}
+
 @mixin clock {
     --rotation: 0;
     position: absolute;
@@ -124,45 +130,67 @@ main {
 }
 
 .analog {
-    width: 12.5rem;
-    height: 12.5rem;
-    background: lightblue;
+    display: inline-flex;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     position: relative;
+    box-shadow: $shadow;
+    padding: 0.25rem;
 
-    .number {
+    .content {
+        display: flex;
         @include size;
-        position: absolute;
-        text-align: center;
-    }
+        border-radius: 50%;
+        position: relative;
+        box-shadow: $inner-shadow;
 
-    .brand {
-        position: absolute;
-        @include size;
-        text-align: center;
-        top: 60%;
-        font-size: 0.9rem;
-    }
+        .number {
+            @include size;
+            position: absolute;
+            text-align: center;
+            color: $gray-3;
+            font-size: 0.9rem;
 
-    .hour {
-        width: 6px;
-        height: calc(30%);
-        background: brown;
-        @include clock;
-    }
-
-    .minute {
-        width: 3px;
-        height: calc(35%);
-        background: #000;
-        @include clock;
-    }
-
-    .second {
-        width: 3px;
-        height: calc(40%);
-        background: gray;
-        @include clock;
+            &:nth-child(3n) {
+                font-weight: bold;
+                color: $gray-4;
+            }
+        }
+    
+        .brand {
+            position: absolute;
+            text-align: center;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: $gray-2;
+        }
+    
+        .hour {
+            width: 4px;
+            height: calc(25%);
+            background: brown;
+            @include clock;
+            z-index: 3;
+        }
+    
+        .minute {
+            width: 1px;
+            height: calc(35%);
+            background: #000;
+            @include clock;
+            z-index: 2;
+        }
+    
+        .second {
+            width: 1px;
+            height: calc(40%);
+            background: $gray-4;
+            @include clock;
+            z-index: 1;
+        }
     }
 }
 
