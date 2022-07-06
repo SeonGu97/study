@@ -1,10 +1,10 @@
 'use strict';
 
 export default class Analog {
-    constructor(Create, aside) {
-        const analog = new Create('analog', 'div', 'class', 'analog', aside);
+    constructor(Create, clock) {
+        const analog = new Create('analog', 'div', 'class', 'analog', clock);
 
-        const content = new Create('content', 'div', 'class', 'content', analog);
+        const content = new Create('content', 'div', 'class', 'content1', analog);
 
         const num = 12;
 
@@ -23,18 +23,16 @@ export default class Analog {
         const minute_hand = new Create('minute', 'div', 'class', 'minute', content);
         const second_hand = new Create('second', 'div', 'class', 'second', content);
 
-        window.addEventListener('load', () => {
-            setInterval(() => {
-                const date = new Date();
-                const second = date.getSeconds() / 60;
-                const minute = (second + date.getMinutes())  / 60;
-                const hour = (minute + date.getHours()) / 12;
-        
-                this.setRotate(second_hand, second);
-                this.setRotate(minute_hand, minute);
-                this.setRotate(hour_hand, hour);
-            }, 1000);
-        });
+        setInterval(() => {
+            const date = new Date();
+            const second = date.getSeconds() / 60;
+            const minute = (second + date.getMinutes())  / 60;
+            const hour = (minute + date.getHours()) / 12;
+    
+            this.setRotate(second_hand, second);
+            this.setRotate(minute_hand, minute);
+            this.setRotate(hour_hand, hour);
+        }, 1000);
     }
 
     setRotate(element, rotationRatio) {
