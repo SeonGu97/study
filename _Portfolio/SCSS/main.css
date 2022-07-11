@@ -110,6 +110,14 @@ aside {
   position: relative;
 }
 
+.clock {
+  display: flex;
+  width: 10rem;
+  height: 13.5rem;
+  flex-direction: column;
+  position: relative;
+}
+
 .analog {
   display: inline-flex;
   width: 10rem;
@@ -118,6 +126,7 @@ aside {
   position: relative;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
   padding: 0.25rem;
+  position: absolute;
 }
 .analog .content1 {
   display: flex;
@@ -155,6 +164,7 @@ aside {
   width: 4px;
   height: 25%;
   background: brown;
+  display: flex;
   --rotation: 0;
   position: absolute;
   bottom: 50%;
@@ -168,6 +178,7 @@ aside {
   width: 1px;
   height: 35%;
   background: #000;
+  display: flex;
   --rotation: 0;
   position: absolute;
   bottom: 50%;
@@ -181,6 +192,7 @@ aside {
   width: 1px;
   height: 40%;
   background: #9baacf;
+  display: flex;
   --rotation: 0;
   position: absolute;
   bottom: 50%;
@@ -193,21 +205,25 @@ aside {
 
 .digital {
   display: flex;
+  width: 100%;
   height: auto;
   box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
   padding: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: 50%;
+  position: absolute;
 }
 .digital .content2 {
   display: flex;
   width: 100%;
-  height: 4rem;
+  height: 9.5rem;
   justify-content: center;
   align-items: center;
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
   box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #fff;
+  border-radius: 50%;
   color: #9baacf;
+  font-size: 1.5rem;
   font-weight: bold;
   transition: none;
 }
@@ -218,4 +234,30 @@ aside {
 .opacity {
   opacity: 0;
   transition: opacity 0.2s ease-in;
+}
+
+.clock_switch {
+  display: flex;
+  width: 100%;
+  height: 2.25rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #fff;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+}
+
+.switch {
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.cover {
+  width: 50%;
+  height: calc(100% - 0.5rem);
+  box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #fff;
+  border-radius: 0.25rem;
+  pointer-events: none;
+  position: absolute;
 }/*# sourceMappingURL=main.css.map */
