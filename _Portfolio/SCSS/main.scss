@@ -254,6 +254,7 @@ aside {
     width: 100%;
     height: 2.25rem;
     box-shadow: $shadow;
+    column-gap: .5rem;
     position: absolute;
     bottom: 0;
     border-radius: $half-size / 2;
@@ -261,18 +262,34 @@ aside {
 }
 
 .switch {
+    display: flex;
     width: 50%;
     height: 100%;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    font-size: .75rem;
+    font-weight: bold;
+    color: $gray-4;
 }
 
 .cover {
-    width: 50%;
+    width: calc(50% - .5rem);
     height: calc(100% - .5rem);
     box-shadow: $inner-shadow;
     border-radius: $half-size / 2;
     pointer-events: none;
     position: absolute;
+    left: 4px;
+    transition: left .2s ease;
+}
+
+.hide {
+    display: none;
+}
+
+.paint {
+    color: $primary;
 }
 
 @import url(./media.css);
