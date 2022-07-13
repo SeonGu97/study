@@ -13,21 +13,30 @@ export default class Clock_switch {
         }
 
         const cover = new Create('cover', 'div', 'class', 'cover', clock_switch);
+        const width = cover.getBoundingClientRect().width;
 
         const _switch = document.querySelectorAll('.switch');
-        _switch[0].classList.add('paint');
+
+        let key = 'clock';
+        let value;
+
+        if(localStorage.getItem(key) == null) {
+            value = [];
+        }else {
+            value = JSON.parse(localStorage.getItem(key));
+        }
+
+        const _clock = document.querySelector('.clock');
 
         _switch.forEach((element, index) => {
             element.addEventListener('click', e => {
-                const clock = document.querySelector('.clock');
+                cover.style.transition = '.2s ease';
 
-                for(let i = 0; i < clock.childNodes.length; i++) {
-                    clock.childNodes[i].classList.remove('hide');
+                for(let i = 0; i < _clock.childNodes.length; i++) {
+                    _clock.childNodes[i].classList.remove('hide');
                 }
 
-                clock.childNodes[index].classList.add('hide');
-
-                const width = cover.getBoundingClientRect().width;
+                _clock.childNodes[index].classList.add('hide');
 
                 if(index == 0) {
                     cover.style.left = `${(width * index) + 4}px`;
@@ -42,7 +51,21 @@ export default class Clock_switch {
                 }
 
                 target.classList.add('paint');
+
+                value.push(index);
+                value.splice(value.indexOf(value[0]), 1);
+
+                localStorage.setItem(key, JSON.stringify(value));
             }, false);
         });
+
+        if(value == 0) {
+            cover.style.left = `${(width * value[0]) + 4}px`;
+        }else {
+            cover.style.left = `${(width * value[0]) + 12}px`;
+        }
+
+        _switch[value].classList.add('paint');
+        _clock.childNodes[value].classList.add('hide');
     }
 }

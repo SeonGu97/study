@@ -2,7 +2,7 @@
 
 export default class Digital {
     constructor(Create, clock) {
-        const digital = new Create('digital', 'div', 'class', 'digital hide', clock);
+        const digital = new Create('digital', 'div', 'class', 'digital', clock);
 
         const content = new Create('content', 'div', 'class', 'content2', digital);
 
