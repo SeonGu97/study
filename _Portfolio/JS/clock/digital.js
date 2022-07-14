@@ -35,7 +35,7 @@ export default class Digital {
 
         hour == 0 ? hour = 12 : hour;
         (hour > 12) ? hour -= 12 : hour;
-        (hour < 12) ? hour = '0' + hour : hour;
+        (hour > 12) ? hour = '0' + hour : hour;
         (minute < 10) ? minute = '0' + minute : minute;
 
         h.innerText = `${hour}`;
